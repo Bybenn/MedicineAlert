@@ -86,12 +86,13 @@ public class ViewAllMedActivity extends AppCompatActivity {
                 medList.setMedNameText(String.valueOf(nameMedi.getText()));
                 medList.setMedInfoText(String.valueOf(infoMedi.getText()));
                 medList.setIdUser(Integer.parseInt(userID));
-                intent.putExtra("idUser",userID);
-                intent.putExtra("nameUser",userName);
-                intent.putExtra("passUser",userPass);
-                intent.putExtra("mornUser",userMorning);
-                intent.putExtra("afterUser",userAfter);
-                intent.putExtra("evenUser",userEven);
+
+//                intent.putExtra("idUser",userID);
+//                intent.putExtra("nameUser",userName);
+//                intent.putExtra("passUser",userPass);
+//                intent.putExtra("mornUser",userMorning);
+//                intent.putExtra("afterUser",userAfter);
+//                intent.putExtra("evenUser",userEven);
 
                 MedListDAO medListDAO = new MedListDAO(getApplicationContext());
                 medListDAO.open();

@@ -15,8 +15,8 @@ import java.util.ArrayList;
 public class MedListDAO {
     private SQLiteDatabase database;
     private DatabaseHelper dbHelper;
-    User user ;
-//    int a = user.getUserID();
+    User user = new User() ;
+
 
 
     public MedListDAO(Context context) {
@@ -36,11 +36,10 @@ public class MedListDAO {
     แอคทิวิตี้อื่นๆเรียกใช้แล้วค่าขึ้นตามปกติ */
     public ArrayList<MedList> getAllMedList() {
         ArrayList<MedList> medList = new ArrayList<MedList>();
-        Cursor cursor = database.rawQuery("SELECT * FROM you_med ",null);
-//        Log.d("ii :::", String.valueOf(a));
-
+        Cursor cursor = database.rawQuery("SELECT * FROM you_med WHERE userIDMed ="+user.getUserID(),null);
         cursor.moveToFirst();
         MedList medList1;
+        Log.d("ii", "ID"+user.getUserID());
 
         while (!cursor.isAfterLast()) {
 //            ให้ข้อมูล เซ็ทอัพเดทเป็นปัจจุบัน
@@ -55,6 +54,7 @@ public class MedListDAO {
         }
         cursor.close();
         return medList;
+
     }
     //  อันนี้ไม่แก้
     public void add(MedList medList) {

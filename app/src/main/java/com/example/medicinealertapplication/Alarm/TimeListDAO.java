@@ -59,6 +59,7 @@ public class TimeListDAO {
         values.put("timenote_med",newTimeList.getNote());
         values.put("time",newTimeList.getTime());
         values.put("userIDTime",newTimeList.getUserID());
+
         this.database.insert("timer_med", null, values);
 
         Log.d("Todo List Demo :::", "Add OK!!!");

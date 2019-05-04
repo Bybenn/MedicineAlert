@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.medicinealertapplication.Alarm.SetAlarmActivity;
 import com.example.medicinealertapplication.R;
@@ -38,11 +39,24 @@ public class EditMedicineActivity extends AppCompatActivity {
         getAlertbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Toast.makeText(getApplicationContext(),userID,
+                        Toast.LENGTH_SHORT).show();
                 String name = String.valueOf(medNameView.getText());
                 Intent intent = new Intent(getApplicationContext(), SetAlarmActivity.class);
                 intent.putExtra("nameMed",name);
                 intent.putExtra("idUser",userID);
                 startActivity(intent);
+            }
+        });
+
+        deleteButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                MedListDAO medListDAODel = new MedListDAO(getApplicationContext());
+                medListDAODel.open();
+                medListDAODel.delete(editMedList);
+                medListDAODel.close();
+                finish();
             }
         });
 

@@ -6,9 +6,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.example.medicinealertapplication.AllMedicine.ViewAllMedActivity;
 import com.example.medicinealertapplication.R;
+import com.example.medicinealertapplication.User.User;
 
 import java.util.ArrayList;
 
@@ -26,6 +28,7 @@ public class YourMedicineActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_your_medicine);
+
 
         medListview = (ListView)findViewById(R.id.todo_listView);
         Intent intent = getIntent();
@@ -47,8 +50,8 @@ public class YourMedicineActivity extends AppCompatActivity {
             @Override
 //            คืนค่าเป็นไอดีเพื่อเอาไปแก้ไข
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//                Toast.makeText(getApplicationContext(),String.valueOf(adapter.getItemId(position)),
-//                        Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(),userID,
+                        Toast.LENGTH_SHORT).show();
                 Intent editIntent = new Intent(getApplicationContext(),EditMedicineActivity.class);
                 editIntent.putExtra("editMedList",adapter.getItem(position));
                 editIntent.putExtra("idUser",userID);

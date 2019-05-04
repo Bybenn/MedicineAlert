@@ -71,22 +71,21 @@ public class AllMedActivity extends AppCompatActivity {
 
 
                 Toast.makeText(AllMedActivity.this,""+nameMed,Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(getApplicationContext(),ViewAllMedActivity.class);
-                intent.putExtra("idUser",userID);
-                intent.putExtra("nameUser",userName);
-                intent.putExtra("passUser",userPass);
-                intent.putExtra("mornUser",userMorning);
-                intent.putExtra("afterUser",userAfter);
-                intent.putExtra("evenUser",userEven);
+                Intent iintent = new Intent(getApplicationContext(),ViewAllMedActivity.class);
 
+                iintent.putExtra("idUser",userID);
+                iintent.putExtra("nameUser",userName);
+                iintent.putExtra("passUser",userPass);
+                iintent.putExtra("mornUser",userMorning);
+                iintent.putExtra("afterUser",userAfter);
+                iintent.putExtra("evenUser",userEven);
+                iintent.putExtra("nameMed",nameMed);
+                iintent.putExtra("infoMed",infoMed);
+                iintent.putExtra("howtoMed",howtoMed);
+                iintent.putExtra("timeMed",timeMed);
+                iintent.putExtra("positionIma",positionIma);
 
-                intent.putExtra("nameMed",nameMed);
-                intent.putExtra("infoMed",infoMed);
-                intent.putExtra("howtoMed",howtoMed);
-                intent.putExtra("timeMed",timeMed);
-                intent.putExtra("positionIma",positionIma);
-
-                startActivity(intent);
+                startActivity(iintent);
             }
         });
 
