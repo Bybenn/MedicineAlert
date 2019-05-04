@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#2A0BBED6"
+    tools:context=".HomeActivity">
+
+
+    <TextView
+        android:id="@+id/timeAllMed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="68dp"
+        android:text="เวลาในการทานยา"
+        android:textColor="#F44336"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/viewTimeMed"
+        app:layout_constraintTop_toBottomOf="@+id/viewYourMed" />
+
+    <ImageView
+        android:id="@+id/viewAllMed"
+        android:layout_width="110dp"
+        android:layout_height="109dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="36dp"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@mipmap/med2" />
+
+    <ImageView
+        android:id="@+id/viewYourMed"
+        android:layout_width="106dp"
+        android:layout_height="109dp"
+        android:layout_marginStart="43dp"
+        android:layout_marginTop="56dp"
+        app:layout_constraintStart_toEndOf="@+id/Textview"
+        app:layout_constraintTop_toBottomOf="@+id/textView9"
+        app:srcCompat="@mipmap/med3" />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="64dp"
+        android:text="คลังยาทั้งหมด"
+        android:textColor="#F44336"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/viewAllMed"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/Textview"
+        android:layout_width="166dp"
+        android:layout_height="29dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="45dp"
+        android:layout_marginEnd="43dp"
+        android:text="คลังยาของคุณ"
+        android:textColor="#F44336"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/viewYourMed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/viewAllMed" />
+
+    <ImageView
+        android:id="@+id/viewTimeMed"
+        android:layout_width="112dp"
+        android:layout_height="98dp"
+        android:layout_marginStart="38dp"
+        android:layout_marginTop="69dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Textview"
+        app:srcCompat="@mipmap/clock" />
+
+    <RelativeLayout
+        android:layout_width="391dp"
+        android:layout_height="89dp"
+        android:layout_marginTop="54dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/viewTimeMed">
+
+
+    </RelativeLayout>
+
+
+</android.support.constraint.ConstraintLayout>

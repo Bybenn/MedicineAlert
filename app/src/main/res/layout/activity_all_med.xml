@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#2A0BBED6"
+
+    tools:context=".AllMedicine.AllMedActivity">
+
+    <ListView
+        android:id="@+id/all_med"
+        android:layout_width="404dp"
+        android:layout_height="453dp"
+        android:layout_weight="1"
+        android:scrollbars="horizontal"
+        android:textColor="#F3028292"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</android.support.constraint.ConstraintLayout>

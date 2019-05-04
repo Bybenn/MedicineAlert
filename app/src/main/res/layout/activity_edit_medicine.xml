@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#2A0BBED6"
+    tools:context=".YourMedicine.EditMedicineActivity">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="48dp"
+                android:layout_marginTop="38dp"
+                android:text="ข้อมูลยา : "
+                android:textColor="#FF5722"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView8" />
+
+            <Button
+                android:id="@+id/deleteButton"
+                android:layout_width="121dp"
+                android:layout_height="49dp"
+                android:layout_marginStart="64dp"
+                android:layout_marginTop="47dp"
+                android:background="#CDDC39"
+                android:text="ลบข้อมูล"
+                app:layout_constraintStart_toEndOf="@+id/getAlertbutton"
+                app:layout_constraintTop_toBottomOf="@+id/infoMedView" />
+
+            <Button
+                android:id="@+id/getAlertbutton"
+                android:layout_width="117dp"
+                android:layout_height="51dp"
+                android:layout_marginStart="36dp"
+                android:layout_marginTop="45dp"
+                android:background="#CDDC39"
+                android:text="รับการแจ้งเตือน"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/infoMedView" />
+
+            <TextView
+                android:id="@+id/textView8"
+                android:layout_width="wrap_content"
+                android:layout_height="19dp"
+                android:layout_marginStart="48dp"
+                android:layout_marginTop="40dp"
+                android:text="ชื่อยา "
+                android:textColor="#FF5722"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="36dp"
+                android:text="แก้ไขข้อมูลยาของคุณ"
+                android:textColor="#FF5722"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/medNameView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="28dp"
+                android:layout_marginTop="40dp"
+                android:text="TextView"
+                app:layout_constraintStart_toEndOf="@+id/textView8"
+                app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+            <TextView
+                android:id="@+id/infoMedView"
+                android:layout_width="331dp"
+                android:layout_height="205dp"
+                android:layout_marginStart="36dp"
+                android:layout_marginTop="36dp"
+                android:text="TextView"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView6" />
+
+        </android.support.constraint.ConstraintLayout>
+    </ScrollView>
+
+
+</android.support.constraint.ConstraintLayout>

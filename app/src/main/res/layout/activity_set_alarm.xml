@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#2A0BBED6"
+
+    tools:context=".Alarm.SetAlarmActivity">
+
+
+    <TextView
+        android:id="@+id/nameMed"
+        android:layout_width="156dp"
+        android:layout_height="34dp"
+        android:layout_marginStart="27dp"
+        android:textColor="#F44336"
+        android:textSize="18sp"
+        app:layout_constraintStart_toEndOf="@+id/imageSetTime"
+        app:layout_constraintTop_toBottomOf="@+id/textView16" />
+
+
+    <EditText
+        android:id="@+id/noteText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        app:layout_constraintStart_toEndOf="@+id/textView18"
+        app:layout_constraintTop_toBottomOf="@+id/setWord" />
+
+    <Button
+        android:id="@+id/addnew_button"
+        android:layout_width="114dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="123dp"
+        android:layout_marginTop="56dp"
+        android:layout_marginEnd="200dp"
+        android:text="ตั้งเวลา"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/noteText" />
+
+    <ImageView
+        android:id="@+id/imageSetTime"
+        android:layout_width="151dp"
+        android:layout_height="165dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="88dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@mipmap/alarm" />
+
+    <TextView
+        android:id="@+id/textView16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="144dp"
+        android:text="ชื่อยา"
+        android:textColor="#F44336"
+        android:textSize="18sp"
+        app:layout_constraintStart_toEndOf="@+id/imageSetTime"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView18"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="28dp"
+        android:text="NOTE"
+        android:textColor="#F44336"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/setWord" />
+
+    <ImageButton
+        android:id="@+id/imageButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="148dp"
+        android:layout_marginTop="40dp"
+        android:background="?android:attr/panelBackground"
+        android:onClick="clickImageButton"
+        app:layout_constraintStart_toEndOf="@+id/imageSetTime"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@android:drawable/ic_input_add" />
+
+    <TextView
+        android:id="@+id/timeText"
+        android:layout_width="76dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="24dp"
+        android:textSize="18sp"
+        app:layout_constraintStart_toEndOf="@+id/setWord"
+        app:layout_constraintTop_toBottomOf="@+id/imageSetTime" />
+
+    <TextView
+        android:id="@+id/setWord"
+        android:layout_width="214dp"
+        android:layout_height="29dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:text="กดที่รูปเพื่อทำการตั้งเวลา"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageSetTime" />
+
+    <TextView
+        android:id="@+id/textView22"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="17dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="95dp"
+        android:text="เพิ่มเวลาการทานยาของคุณ"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toStartOf="@+id/imageButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</android.support.constraint.ConstraintLayout>

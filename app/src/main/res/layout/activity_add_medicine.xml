@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#2A0BBED6"
+
+    tools:context=".YourMedicine.AddMedicineActivity">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <EditText
+                android:id="@+id/addnew_editText"
+                android:layout_width="164dp"
+                android:layout_height="37dp"
+                android:layout_marginStart="52dp"
+                android:layout_marginTop="25dp"
+                android:background="#51FFFFFF"
+
+                android:ems="10"
+                android:hint="     ชื่อยา"
+                android:inputType="textPersonName"
+                android:selectAllOnFocus="true"
+                android:singleLine="true"
+                android:textSize="14sp"
+                app:layout_constraintStart_toEndOf="@+id/imageUpMed"
+                app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+            <TextView
+                android:id="@+id/textView5"
+                android:layout_width="215dp"
+                android:layout_height="19dp"
+                android:layout_marginStart="28dp"
+                android:layout_marginTop="37dp"
+                android:text="ข้อมูลยา : "
+                android:textColor="#F44336"
+                android:textSize="15sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageUpMed" />
+
+            <EditText
+                android:id="@+id/noteText"
+                android:layout_width="350dp"
+                android:layout_height="171dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="20dp"
+                android:background="#51FFFFFF"
+                android:ems="10"
+                android:hint="                    ใส่ข้อมูลยาของคุณตรงนี้"
+                android:inputType="textMultiLine"
+                android:selectAllOnFocus="false"
+                android:singleLine="false"
+                android:textSize="15sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView5" />
+
+            <TextView
+                android:id="@+id/nameMed"
+                android:layout_width="59dp"
+                android:layout_height="40dp"
+
+                android:layout_marginStart="72dp"
+                android:layout_marginTop="1dp"
+                android:text="ชื่อยา"
+                android:textColor="#F44336"
+                android:textSize="18sp"
+                app:layout_constraintStart_toEndOf="@+id/imageUpMed"
+                app:layout_constraintTop_toBottomOf="@+id/addnew_editText" />
+
+            <Button
+                android:id="@+id/addnew_button"
+                android:layout_width="129dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="128dp"
+                android:layout_marginTop="40dp"
+
+                android:background="#CDDC39"
+                android:text="เพิ่มข้อมูลยา"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/noteText" />
+
+            <ImageView
+                android:id="@+id/imageUpMed"
+                android:layout_width="139dp"
+                android:layout_height="219dp"
+                android:layout_marginStart="28dp"
+                android:layout_marginTop="28dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@mipmap/healthcare" />
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="162dp"
+                android:layout_height="39dp"
+                android:layout_marginStart="36dp"
+                android:layout_marginTop="48dp"
+                android:text="เพิ่มข้อมูลยาของคุณ"
+                app:layout_constraintStart_toEndOf="@+id/imageUpMed"
+                app:layout_constraintTop_toTopOf="parent" />
+        </android.support.constraint.ConstraintLayout>
+    </ScrollView>
+
+</android.support.constraint.ConstraintLayout>
