@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#2A0BBED6"
-
+    android:background="#0D0BBED6"
     tools:context=".YourMedicine.AddMedicineActivity">
 
 
@@ -20,45 +19,48 @@
 
             <EditText
                 android:id="@+id/addnew_editText"
-                android:layout_width="164dp"
-                android:layout_height="37dp"
-                android:layout_marginStart="52dp"
-                android:layout_marginTop="25dp"
-                android:background="#51FFFFFF"
+                android:layout_width="165dp"
+                android:layout_height="36dp"
+                android:layout_marginStart="13dp"
 
+                android:background="#51FFFFFF"
                 android:ems="10"
-                android:hint="     ชื่อยา"
+                android:hint="ชื่อยา"
                 android:inputType="textPersonName"
                 android:selectAllOnFocus="true"
                 android:singleLine="true"
+                android:textAlignment="center"
                 android:textSize="14sp"
                 app:layout_constraintStart_toEndOf="@+id/imageUpMed"
-                app:layout_constraintTop_toBottomOf="@+id/textView" />
+                app:layout_constraintTop_toBottomOf="@+id/nameMed" />
 
             <TextView
                 android:id="@+id/textView5"
                 android:layout_width="215dp"
                 android:layout_height="19dp"
-                android:layout_marginStart="28dp"
-                android:layout_marginTop="37dp"
-                android:text="ข้อมูลยา : "
-                android:textColor="#F44336"
+                android:layout_marginStart="52dp"
+                android:layout_marginTop="32dp"
+                android:text="ข้อมูลยาของคุณ"
+                android:textAlignment="center"
+                android:textColor="@color/design_default_color_primary_dark"
                 android:textSize="15sp"
+                android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/imageUpMed" />
 
             <EditText
                 android:id="@+id/noteText"
-                android:layout_width="350dp"
-                android:layout_height="171dp"
+                android:layout_width="280dp"
+                android:layout_height="113dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="20dp"
                 android:background="#51FFFFFF"
                 android:ems="10"
-                android:hint="                    ใส่ข้อมูลยาของคุณตรงนี้"
+                android:hint="ใส่ข้อมูลยาของคุณตรงนี้"
                 android:inputType="textMultiLine"
                 android:selectAllOnFocus="false"
                 android:singleLine="false"
+                android:textAlignment="center"
                 android:textSize="15sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView5" />
@@ -68,44 +70,49 @@
                 android:layout_width="59dp"
                 android:layout_height="40dp"
 
-                android:layout_marginStart="72dp"
-                android:layout_marginTop="1dp"
+                android:layout_marginStart="62dp"
+                android:layout_marginTop="41dp"
                 android:text="ชื่อยา"
-                android:textColor="#F44336"
-                android:textSize="18sp"
+                android:textColor="@color/design_default_color_primary_dark"
+                android:textSize="16sp"
+                android:textStyle="bold"
                 app:layout_constraintStart_toEndOf="@+id/imageUpMed"
-                app:layout_constraintTop_toBottomOf="@+id/addnew_editText" />
+                app:layout_constraintTop_toBottomOf="@+id/textView" />
 
             <Button
                 android:id="@+id/addnew_button"
-                android:layout_width="129dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="128dp"
-                android:layout_marginTop="40dp"
-
-                android:background="#CDDC39"
+                android:layout_width="288dp"
+                android:layout_height="39dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="28dp"
+                android:background="@color/colorPrimary"
                 android:text="เพิ่มข้อมูลยา"
+                android:textColor="#FFFFFF"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/noteText" />
 
             <ImageView
                 android:id="@+id/imageUpMed"
-                android:layout_width="139dp"
-                android:layout_height="219dp"
-                android:layout_marginStart="28dp"
-                android:layout_marginTop="28dp"
+                android:layout_width="121dp"
+                android:layout_height="179dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="18dp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView"
                 app:srcCompat="@mipmap/healthcare" />
 
             <TextView
                 android:id="@+id/textView"
-                android:layout_width="162dp"
-                android:layout_height="39dp"
-                android:layout_marginStart="36dp"
-                android:layout_marginTop="48dp"
+                android:layout_width="271dp"
+                android:layout_height="27dp"
+                android:layout_marginStart="31dp"
+                android:layout_marginTop="16dp"
                 android:text="เพิ่มข้อมูลยาของคุณ"
-                app:layout_constraintStart_toEndOf="@+id/imageUpMed"
+                android:textAlignment="center"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
         </android.support.constraint.ConstraintLayout>
     </ScrollView>

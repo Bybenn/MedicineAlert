@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#2A0BBED6"
     tools:context=".YourMedicine.YourMedicineActivity">
 
 
@@ -14,7 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:textColor="#F44336"
+        android:textColor="#3F51B5"
         android:text="ALL YOUR MEDICINE :)"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -22,23 +21,38 @@
 
     <ListView
         android:id="@+id/todo_listView"
-        android:layout_width="370dp"
-        android:layout_height="390dp"
+        android:layout_width="282dp"
+        android:layout_height="304dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="21dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
-    <ImageButton
-        android:id="@+id/imageButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="82dp"
-        android:layout_marginTop="16dp"
-        android:background="?android:attr/panelBackground"
-        android:onClick="clickImageButton"
-        app:layout_constraintStart_toEndOf="@+id/textView2"
+    <android.support.design.widget.BottomNavigationView
+        android:id="@+id/bottom_nav"
+        android:layout_width="385dp"
+        android:layout_height="55dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="464dp"
+        app:itemBackground="@color/colorPrimaryDark"
+        app:itemIconTint="#ACB3B9"
+        app:itemTextColor="#C4EEE58F"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@android:drawable/ic_input_add" />
+        app:menu="@menu/bottom_nav_menu" />
+
+    <Button
+        android:id="@+id/addMed"
+        android:layout_width="281dp"
+        android:layout_height="46dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:background="@color/colorPrimary"
+        android:onClick="getAddMed"
+        android:text="เพิ่มยาของคุณ"
+        android:textColor="#FFFFFF"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/todo_listView" />
 
 </android.support.constraint.ConstraintLayout>

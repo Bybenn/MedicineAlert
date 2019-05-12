@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#2A0BBED6"
+    android:background="#0D0BBED6"
     tools:context=".YourMedicine.EditMedicineActivity">
 
 
@@ -19,81 +19,111 @@
 
             <TextView
                 android:id="@+id/textView6"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="48dp"
-                android:layout_marginTop="38dp"
-                android:text="ข้อมูลยา : "
-                android:textColor="#FF5722"
+                android:layout_width="169dp"
+                android:layout_height="31dp"
+                android:layout_marginStart="76dp"
+                android:layout_marginTop="24dp"
+                android:text="ข้อมูลยาของคุณ"
+                android:textAlignment="center"
+                android:textColor="@color/design_default_color_primary_dark"
                 android:textSize="18sp"
+                android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView8" />
 
             <Button
                 android:id="@+id/deleteButton"
-                android:layout_width="121dp"
-                android:layout_height="49dp"
-                android:layout_marginStart="64dp"
-                android:layout_marginTop="47dp"
-                android:background="#CDDC39"
+                android:layout_width="298dp"
+                android:layout_height="46dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="12dp"
+                android:background="@color/colorPrimary"
                 android:text="ลบข้อมูล"
-                app:layout_constraintStart_toEndOf="@+id/getAlertbutton"
-                app:layout_constraintTop_toBottomOf="@+id/infoMedView" />
+                android:textColor="#FFFFFF"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/getAlertbutton" />
 
             <Button
                 android:id="@+id/getAlertbutton"
-                android:layout_width="117dp"
-                android:layout_height="51dp"
-                android:layout_marginStart="36dp"
-                android:layout_marginTop="45dp"
-                android:background="#CDDC39"
+                android:layout_width="298dp"
+                android:layout_height="44dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="16dp"
+                android:background="@color/colorPrimary"
                 android:text="รับการแจ้งเตือน"
+                android:textColor="#FFFFFF"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/infoMedView" />
+                app:layout_constraintTop_toBottomOf="@+id/frameLayout7" />
 
             <TextView
                 android:id="@+id/textView8"
                 android:layout_width="wrap_content"
                 android:layout_height="19dp"
-                android:layout_marginStart="48dp"
-                android:layout_marginTop="40dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="28dp"
                 android:text="ชื่อยา "
-                android:textColor="#FF5722"
+                android:textColor="@color/design_default_color_primary_dark"
                 android:textSize="18sp"
+                android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
             <TextView
                 android:id="@+id/textView3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="36dp"
-                android:text="แก้ไขข้อมูลยาของคุณ"
-                android:textColor="#FF5722"
+                android:layout_width="229dp"
+                android:layout_height="29dp"
+                android:layout_marginStart="48dp"
+                android:layout_marginTop="16dp"
+                android:text="ข้อมูลยาของคุณ"
+                android:textAlignment="center"
+                android:textColor="@color/colorPrimaryDark"
                 android:textSize="18sp"
+                android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/medNameView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="28dp"
-                android:layout_marginTop="40dp"
+                android:layout_width="219dp"
+                android:layout_height="28dp"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="28dp"
+                android:background="#51FFFFFF"
                 android:text="TextView"
+                android:textAlignment="textStart"
                 app:layout_constraintStart_toEndOf="@+id/textView8"
                 app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
-            <TextView
-                android:id="@+id/infoMedView"
-                android:layout_width="331dp"
-                android:layout_height="205dp"
-                android:layout_marginStart="36dp"
-                android:layout_marginTop="36dp"
-                android:text="TextView"
+            <FrameLayout
+                android:id="@+id/frameLayout7"
+                android:layout_width="300dp"
+                android:layout_height="152dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="15dp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView6" />
+                app:layout_constraintTop_toBottomOf="@+id/textView6">
+
+                <ScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <android.support.constraint.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/infoMedView"
+                            android:layout_width="299dp"
+                            android:layout_height="211dp"
+                            android:background="#51FFFFFF"
+                            android:text="TextView"
+                            android:textAlignment="viewStart"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+                    </android.support.constraint.ConstraintLayout>
+                </ScrollView>
+            </FrameLayout>
 
         </android.support.constraint.ConstraintLayout>
     </ScrollView>

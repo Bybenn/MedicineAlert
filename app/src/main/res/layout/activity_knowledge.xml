@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".KnowledgeActivity">
+
+    <ScrollView
+        android:id="@+id/scrollView4"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView28"
+                android:layout_width="116dp"
+                android:layout_height="24dp"
+                android:layout_marginStart="124dp"
+                android:layout_marginTop="16dp"
+                android:text="เกร็ดความรู้"
+                android:textAlignment="center"
+                android:textColor="@color/colorPrimary"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <FrameLayout
+                android:layout_width="356dp"
+                android:layout_height="200dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="10dp"
+                android:background="#66ECEBEB"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/frameLayout">
+
+                <ScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <android.support.constraint.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/textView33"
+                            android:layout_width="161dp"
+                            android:layout_height="90dp"
+                            android:layout_marginStart="13dp"
+                            android:layout_marginTop="32dp"
+                            android:text="3.อ่านฉลากยาและปฏิบัติตามอย่างเคร่งครัด ทำความเข้าใจเกี่ยวกับยาก่อนการใช้ยา เพื่อความมั่นใจว่ารับประทานยาถูกต้อง"
+                            android:textAlignment="center"
+                            android:textColor="#926526"
+                            android:textSize="12sp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/textView32" />
+
+                        <TextView
+                            android:id="@+id/textView32"
+                            android:layout_width="317dp"
+                            android:layout_height="40dp"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginTop="18dp"
+                            android:text="2. ทำความรู้จักยาที่ใช้ ทั้งยาที่แพทย์สั่งจ่าย หรือที่ซื้อเองเพื่อเป็นการหลีกเลี่ยงการใช้ยาซ้ำซ้อน และได้รับยาเกินขนาด"
+                            android:textAlignment="textStart"
+                            android:textColor="#853C37"
+                            android:textSize="12sp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/imageView5" />
+
+                        <TextView
+                            android:id="@+id/textView31"
+                            android:layout_width="157dp"
+                            android:layout_height="72dp"
+                            android:layout_marginStart="176dp"
+                            android:layout_marginTop="15dp"
+                            android:text="1.คุยกับแพทย์/เภสัชกร บอกรายละเอียดตัวเองให้มากที่สุด เช่น มีประวัติการแพ้ยาหรือทานยา ทานอาหารเสริมอื่นๆอยู่"
+                            android:textAlignment="textEnd"
+                            android:textColor="#798034"
+                            android:textSize="12sp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/textView30" />
+
+                        <ImageView
+                            android:id="@+id/imageView5"
+                            android:layout_width="150dp"
+                            android:layout_height="121dp"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginTop="9dp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:srcCompat="@mipmap/picsuggestt" />
+
+                        <TextView
+                            android:id="@+id/textView30"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginTop="16dp"
+                            android:text="คำแนะนำสำหรับการใช้ยา"
+                            android:textColor="#127985"
+                            android:textStyle="bold"
+                            app:layout_constraintStart_toEndOf="@+id/imageView5"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <ImageView
+                            android:id="@+id/imageView8"
+                            android:layout_width="148dp"
+                            android:layout_height="107dp"
+                            android:layout_marginStart="11dp"
+                            android:layout_marginTop="22dp"
+                            app:layout_constraintStart_toEndOf="@+id/textView33"
+                            app:layout_constraintTop_toBottomOf="@+id/textView32"
+                            app:srcCompat="@mipmap/picccc" />
+
+                        <TextView
+                            android:id="@+id/textView35"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginTop="14dp"
+                            android:text="4. หลีกเลี่ยงการเพิ่มความเสี่ยงต่อการเกิดปฏิกิริยาระหว่างยา"
+                            android:textColor="#74203C"
+                            android:textSize="12sp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/imageView8" />
+
+                        <ImageView
+                            android:id="@+id/imageView11"
+                            android:layout_width="148dp"
+                            android:layout_height="112dp"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginTop="14dp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/textView35"
+                            app:srcCompat="@mipmap/eatmed" />
+
+                        <TextView
+                            android:id="@+id/textView36"
+                            android:layout_width="122dp"
+                            android:layout_height="82dp"
+                            android:layout_marginStart="21dp"
+                            android:layout_marginTop="40dp"
+                            android:text="5.สังเกตตัวเองต่อผลของยาและอาการข้างเคียงจากการใช้ยา"
+                            android:textAlignment="center"
+                            android:textColor="#8D4A37"
+                            android:textSize="12sp"
+                            app:layout_constraintStart_toEndOf="@+id/imageView11"
+                            app:layout_constraintTop_toBottomOf="@+id/textView35" />
+
+                    </android.support.constraint.ConstraintLayout>
+                </ScrollView>
+
+            </FrameLayout>
+
+            <FrameLayout
+                android:id="@+id/frameLayout"
+                android:layout_width="352dp"
+                android:layout_height="200dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="45dp"
+                android:background="#66ECEBEB"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <android.support.constraint.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/textView27"
+                        android:layout_width="251dp"
+                        android:layout_height="32dp"
+                        android:layout_marginStart="12dp"
+                        android:layout_marginTop="16dp"
+                        android:text="สามารถใช้รักษาให้หายป่วย แต่สิ่งสำคัญที่ควรตระหนักไว้คือยามีอันตรายเท่าคุณประโยชน์"
+                        android:textAlignment="viewStart"
+                        android:textSize="12sp"
+                        app:layout_constraintStart_toEndOf="@+id/textView29"
+                        app:layout_constraintTop_toBottomOf="@+id/imageView4" />
+
+                    <ImageView
+                        android:id="@+id/imageView4"
+                        android:layout_width="333dp"
+                        android:layout_height="131dp"
+                        android:layout_marginStart="7dp"
+                        android:layout_marginTop="16dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@mipmap/picsuggest2" />
+
+                    <TextView
+                        android:id="@+id/textView29"
+                        android:layout_width="22dp"
+                        android:layout_height="28dp"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="16dp"
+                        android:text="ยา"
+                        android:textColor="#127985"
+                        android:textSize="18sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/imageView4" />
+                </android.support.constraint.ConstraintLayout>
+
+            </FrameLayout>
+
+        </android.support.constraint.ConstraintLayout>
+    </ScrollView>
+
+    <android.support.design.widget.BottomNavigationView
+        android:id="@+id/bottom_nav"
+        android:layout_width="385dp"
+        android:layout_height="55dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="464dp"
+        app:itemBackground="@color/colorPrimaryDark"
+        app:itemIconTint="#ACB3B9"
+        app:itemTextColor="#C4EEE58F"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:menu="@menu/bottom_nav_menu" />
+
+</android.support.constraint.ConstraintLayout>

@@ -7,6 +7,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
 import com.example.medicinealertapplication.DatabaseHelper;
+import com.example.medicinealertapplication.User.LoginActivity;
 import com.example.medicinealertapplication.User.User;
 import com.example.medicinealertapplication.User.UserDAO;
 
@@ -15,8 +16,13 @@ import java.util.ArrayList;
 public class MedListDAO {
     private SQLiteDatabase database;
     private DatabaseHelper dbHelper;
-    User user = new User() ;
+//    User user ;
+//    MedList medList2;
 
+    /*
+    ถ้าต้องการเรียกใช้ ID user ที่ล็อคอินอยู่ให้ เรียกดังนี้ LoginACitivity.loginID; จะได้ค่า ID ที่ต้องการออกมา
+    และให้ทำการแก้ Edit Del methid ไม่ให้สามารถลบยาของคนอื่นออกไปได้
+    */
 
 
     public MedListDAO(Context context) {
@@ -36,10 +42,13 @@ public class MedListDAO {
     แอคทิวิตี้อื่นๆเรียกใช้แล้วค่าขึ้นตามปกติ */
     public ArrayList<MedList> getAllMedList() {
         ArrayList<MedList> medList = new ArrayList<MedList>();
-        Cursor cursor = database.rawQuery("SELECT * FROM you_med WHERE userIDMed ="+user.getUserID(),null);
+        //Cursor cursor = database.rawQuery("SELECT * FROM you_med ",null);
+        Cursor cursor = database.rawQuery("SELECT * FROM you_med where userIDMed = ?"
+                ,new String[] {LoginActivity.loginID});
+//        Log.i("kong",cursor.getCount()+"");
         cursor.moveToFirst();
         MedList medList1;
-        Log.d("ii", "ID"+user.getUserID());
+//        Log.d("ii", "ID"+medList2.getIdUser());
 
         while (!cursor.isAfterLast()) {
 //            ให้ข้อมูล เซ็ทอัพเดทเป็นปัจจุบัน

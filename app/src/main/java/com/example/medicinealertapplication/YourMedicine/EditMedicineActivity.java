@@ -18,12 +18,24 @@ public class EditMedicineActivity extends AppCompatActivity {
     Button getAlertbutton;
     Button deleteButton;
     String userID;
+    String userName;
+    String userPass;
+    String userMorning;
+    String userAfter;
+    String userEven;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_medicine);
+        Intent intent = getIntent();
+        userID = intent.getStringExtra("idUser");
+        userName = intent.getStringExtra("nameUser");
+        userPass = intent.getStringExtra("passUser");
+        userMorning = intent.getStringExtra("mornUser");
+        userAfter = intent.getStringExtra("afterUser");
+        userEven = intent.getStringExtra("evenUser");
         final MedList editMedList = (MedList) getIntent().getSerializableExtra("editMedList");
 
         medNameView = (TextView) findViewById(R.id.medNameView);
@@ -33,8 +45,6 @@ public class EditMedicineActivity extends AppCompatActivity {
 
         medNameView.setText(editMedList.getMedNameText());
         infoMedView.setText(editMedList.getMedInfoText());
-        Intent intent = getIntent();
-        userID = intent.getStringExtra("idUser");
 
         getAlertbutton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -45,6 +55,11 @@ public class EditMedicineActivity extends AppCompatActivity {
                 Intent intent = new Intent(getApplicationContext(), SetAlarmActivity.class);
                 intent.putExtra("nameMed",name);
                 intent.putExtra("idUser",userID);
+                intent.putExtra("nameUser",userName);
+                intent.putExtra("passUser",userPass);
+                intent.putExtra("mornUser",userMorning);
+                intent.putExtra("afterUser",userAfter);
+                intent.putExtra("evenUser",userEven);
                 startActivity(intent);
             }
         });

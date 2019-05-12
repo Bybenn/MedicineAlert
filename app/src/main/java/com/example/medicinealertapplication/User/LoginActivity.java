@@ -12,6 +12,7 @@ import android.widget.Toast;
 import com.example.medicinealertapplication.R;
 
 public class LoginActivity extends AppCompatActivity {
+    public static String loginID = null;
     String userID;
     String userName;
     String userPass;
@@ -43,7 +44,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (editText.getText().toString().equals(passwordCheck)){
-
+                    loginID = userID;
                     Intent editIntent = new Intent(getApplicationContext(), SetTimeToEatActivity.class);
                     editUser.setUserID(Integer.parseInt(userID));
 
@@ -58,9 +59,9 @@ public class LoginActivity extends AppCompatActivity {
 
                     Toast.makeText(LoginActivity.this,"ล็อคอินสำเร็จแล้ว",Toast.LENGTH_SHORT).show();
                 }else if (editText.getText().toString().equals("")){
-                    Toast.makeText(LoginActivity.this,"กรุณาใส่พาสเวิด",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LoginActivity.this,"กรุณาใส่พาสเวิร์ด",Toast.LENGTH_SHORT).show();
                 }else {
-                    Toast.makeText(LoginActivity.this,"พาสเวิดไม่ถูกต้อง",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LoginActivity.this,"พาสเวิร์ดไม่ถูกต้อง",Toast.LENGTH_SHORT).show();
                 }
             }
         });

@@ -52,7 +52,7 @@ public class RegisterActivity extends AppCompatActivity {
 
 
                 if (user.equals("") || pwd.equals("") || cnf_pwd.equals("")) {
-                    Toast.makeText(RegisterActivity.this, "Please Enter All Field",
+                    Toast.makeText(RegisterActivity.this, "กรุณาใส่ในครบทุกช่อง",
                             Toast.LENGTH_SHORT).show();
                 }else if(pwd.equals(cnf_pwd)){
                     User user1 = new User();
@@ -68,13 +68,13 @@ public class RegisterActivity extends AppCompatActivity {
                     userDAO.close();
                     finish();
 
-                    Toast.makeText(RegisterActivity.this,"You have registered",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(RegisterActivity.this,"บัญชีของคุณถูกสร้างเรียบร้อยแล้ว",Toast.LENGTH_SHORT).show();
                     Intent moveToLogin = new Intent(RegisterActivity.this,UserActivity.class);
                     startActivity(moveToLogin);
 
                 }
                 else{
-                    Toast.makeText(RegisterActivity.this,"Password is not matching",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(RegisterActivity.this,"พาสเวิร์ดไม่ตรงกัน",Toast.LENGTH_SHORT).show();
                 }
             }
         });

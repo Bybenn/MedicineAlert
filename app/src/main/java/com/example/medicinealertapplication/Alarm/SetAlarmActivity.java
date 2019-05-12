@@ -27,6 +27,11 @@ public class SetAlarmActivity extends AppCompatActivity implements TimePickerDia
     TextView noteText;
     TextView timeText;
     String userID;
+    String userName;
+    String userPass;
+    String userMorning;
+    String userAfter;
+    String userEven;
     Button addSetTimeButton;
 
     String a;
@@ -47,7 +52,12 @@ public class SetAlarmActivity extends AppCompatActivity implements TimePickerDia
 
         Intent intent = getIntent();
         userID = intent.getStringExtra("idUser");
-        String s = intent.getStringExtra("nameMed");
+        userName = intent.getStringExtra("nameUser");
+        userPass = intent.getStringExtra("passUser");
+        userMorning = intent.getStringExtra("mornUser");
+        userAfter = intent.getStringExtra("afterUser");
+        userEven = intent.getStringExtra("evenUser");
+        final String s = intent.getStringExtra("nameMed");
         nameMed.setText(s);
 
         imageSetTime.setOnClickListener(new View.OnClickListener() {
@@ -76,6 +86,13 @@ public class SetAlarmActivity extends AppCompatActivity implements TimePickerDia
                 finish();
 
                 Intent HomePage = new Intent(SetAlarmActivity.this, TimeMedActivity.class);
+                HomePage.putExtra("nameMed",s);
+                HomePage.putExtra("idUser",userID);
+                HomePage.putExtra("nameUser",userName);
+                HomePage.putExtra("passUser",userPass);
+                HomePage.putExtra("mornUser",userMorning);
+                HomePage.putExtra("afterUser",userAfter);
+                HomePage.putExtra("evenUser",userEven);
                 startActivity(HomePage);
 
             }
@@ -99,25 +116,27 @@ public class SetAlarmActivity extends AppCompatActivity implements TimePickerDia
 
         /* เมื่อตั้งเวลาแล้วมันจะแจ้งเตือนเฉพาะเวลาล่าสุดที่แอดเพิ่มเข้าไป แต่ตัวโปรแกรมต้องการให้แจ้งเตือนทุกเวลาที่แอดเข้าไป  */
         private void startAlarm (Calendar c){
-            AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
-            Intent intent = new Intent(this, AlertReceiver.class);
-            PendingIntent pendingIntent = PendingIntent.getBroadcast(this, 1, intent, 0);
-            alarmManager.setInexactRepeating(AlarmManager.RTC_WAKEUP, c.getTimeInMillis(), AlarmManager.INTERVAL_DAY/*alarmManager.*/, pendingIntent);
+//            for (int i = 0;i<10;i++) {
+                AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+                Intent intent = new Intent(this, AlertReceiver.class);
+                PendingIntent pendingIntent = PendingIntent.getBroadcast(this, 1, intent, 0);
+                alarmManager.setInexactRepeating(AlarmManager.RTC_WAKEUP, c.getTimeInMillis(), AlarmManager.INTERVAL_DAY/*alarmManager.*/, pendingIntent);
 
-            //alarmManager.setExact(AlarmManager.RTC_WAKEUP, c.getTimeInMillis(), pendingIntent);
+                //alarmManager.setExact(AlarmManager.RTC_WAKEUP, c.getTimeInMillis(), pendingIntent);
 
-            if (c.before(Calendar.getInstance())) {
-                c.add(Calendar.DATE, 1);
-            }
-
-        }
-
-        public void clickImageButton (View view){
-            Intent intent = new Intent(getApplicationContext(), SetAlarmActivity.class);
-            intent.putExtra("nameMed", String.valueOf(nameMed.getText()));
-            startActivity(intent);
+                if (c.before(Calendar.getInstance())) {
+                    c.add(Calendar.DATE, 1);
+                }
+//            }
 
         }
+
+//        public void clickImageButton (View view){
+//            Intent intent = new Intent(getApplicationContext(), SetAlarmActivity.class);
+//            intent.putExtra("nameMed", String.valueOf(nameMed.getText()));
+//            startActivity(intent);
+//
+//        }
 
         private void updateTimeText1 (Calendar c){
             a = DateFormat.getTimeInstance(DateFormat.SHORT).format(c.getTime());

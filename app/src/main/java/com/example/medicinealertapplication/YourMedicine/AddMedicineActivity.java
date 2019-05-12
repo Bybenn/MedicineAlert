@@ -15,6 +15,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 
 import com.example.medicinealertapplication.R;
+import com.example.medicinealertapplication.User.LoginActivity;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -66,7 +67,7 @@ public class AddMedicineActivity extends AppCompatActivity {
                 MedList medList = new MedList();
                 medList.setMedNameText(String.valueOf(addMedText.getText()));
                 medList.setMedInfoText(String.valueOf(addInfoText.getText()));
-                medList.setIdUser(Integer.parseInt(userID));
+                medList.setIdUser(Integer.parseInt(LoginActivity.loginID));
 
 
                 MedListDAO medListDAO = new MedListDAO(getApplicationContext());
@@ -77,9 +78,13 @@ public class AddMedicineActivity extends AppCompatActivity {
 
 //                String name = String.valueOf(addMedText.getText());
                 Intent intent = new Intent(getApplicationContext(), YourMedicineActivity.class);
-//                intent.putExtra("nameMed",name);
-//                intent.putExtra("idUser",userID);
-
+                intent.putExtra("nameMed",nameMed);
+                intent.putExtra("idUser",userID);
+                intent.putExtra("nameUser",userName);
+                intent.putExtra("passUser",userPass);
+                intent.putExtra("mornUser",userMorning);
+                intent.putExtra("afterUser",userAfter);
+                intent.putExtra("evenUser",userEven);
                 startActivity(intent);
             }
         });

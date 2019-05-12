@@ -7,6 +7,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
 import com.example.medicinealertapplication.DatabaseHelper;
+import com.example.medicinealertapplication.User.LoginActivity;
 
 import java.util.ArrayList;
 
@@ -32,7 +33,8 @@ public class TimeListDAO {
     public ArrayList<TimeList> getAllList() {
         ArrayList<TimeList> timeList = new ArrayList<TimeList>();
         // เหมือนยา ต้องมี where user_id ด้วย
-        Cursor cursor = database.rawQuery("SELECT * FROM timer_med", null);
+        Cursor cursor = database.rawQuery("SELECT * FROM timer_med where userIDTime = ?"
+                ,new String[] {LoginActivity.loginID});
         cursor.moveToFirst();
         TimeList timeList1;
         while (!cursor.isAfterLast()) {

@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.TimePicker;
+import android.widget.Toast;
 
 import com.example.medicinealertapplication.AllMedicine.AllMedActivity;
 import com.example.medicinealertapplication.DatabaseHelper;
@@ -17,6 +18,8 @@ import com.example.medicinealertapplication.HomeActivity;
 import com.example.medicinealertapplication.R;
 import com.example.medicinealertapplication.TimePickerFragment;
 import com.example.medicinealertapplication.YourMedicine.YourMedicineActivity;
+
+import org.w3c.dom.Text;
 
 import java.text.DateFormat;
 import java.util.Calendar;
@@ -33,6 +36,7 @@ public class SetTimeToEatActivity extends AppCompatActivity implements TimePicke
     TextView textViewMorn;
     TextView textViewAfter;
     TextView textViewEven;
+//    TextView next;
     String userID;
     String userName;
     String userPass;
@@ -53,6 +57,7 @@ public class SetTimeToEatActivity extends AppCompatActivity implements TimePicke
         textViewMorn = (TextView)findViewById(R.id.textViewMorn);
         textViewAfter = (TextView)findViewById(R.id.textViewAfter);
         textViewEven = (TextView)findViewById(R.id.textViewEven);
+//        next = (TextView)findViewById(R.id.next);
         button_setEatTime = (Button) findViewById(R.id.button_setEatTime);
 
         Intent intent = getIntent();
@@ -62,6 +67,21 @@ public class SetTimeToEatActivity extends AppCompatActivity implements TimePicke
 //        userMorning = intent.getStringExtra("mornUser");
 //        userAfter = intent.getStringExtra("afterUser");
 //        userEven = intent.getStringExtra("evenUser");
+
+//        next.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent mainIntent = new Intent(SetTimeToEatActivity.this, HomeActivity.class);
+//                mainIntent.putExtra("idUser",userID);
+//                mainIntent.putExtra("nameUser",userName);
+//                mainIntent.putExtra("passUser",userPass);
+//                mainIntent.putExtra("mornUser",userMorning);
+//                mainIntent.putExtra("afterUser",userAfter);
+//                mainIntent.putExtra("evenUser",userEven);
+//                startActivity(mainIntent);
+//            }
+//        });
+
 
 
 
@@ -118,6 +138,8 @@ public class SetTimeToEatActivity extends AppCompatActivity implements TimePicke
                 userDAO.close();
                 finish();
 
+
+                Toast.makeText(SetTimeToEatActivity.this, "ตั้งค่าเวลาเรียบร้อยแล้ว", Toast.LENGTH_SHORT).show();
                 Intent mainIntent = new Intent(SetTimeToEatActivity.this, HomeActivity.class);
                 mainIntent.putExtra("idUser",userID);
                 mainIntent.putExtra("nameUser",userName);
@@ -126,6 +148,7 @@ public class SetTimeToEatActivity extends AppCompatActivity implements TimePicke
                 mainIntent.putExtra("afterUser",userAfter);
                 mainIntent.putExtra("evenUser",userEven);
                 startActivity(mainIntent);
+
             }
         });
 
@@ -153,20 +176,20 @@ public class SetTimeToEatActivity extends AppCompatActivity implements TimePicke
     private void updateTimeText1(Calendar c) {
         timeText = DateFormat.getTimeInstance(DateFormat.SHORT).format(c.getTime());
         textViewMorn.setText(timeText);
+        userMorning = timeText;
 
     }
     private void updateTimeText2(Calendar c) {
         timeText2 = DateFormat.getTimeInstance(DateFormat.SHORT).format(c.getTime());
         textViewAfter.setText(timeText2);
+        userAfter = timeText2;
 
     }
     private void updateTimeText3(Calendar c) {
         timeText3 = DateFormat.getTimeInstance(DateFormat.SHORT).format(c.getTime());
         textViewEven.setText(timeText3);
+        userEven = timeText3;
 
     }
-
-
-
 
 }
