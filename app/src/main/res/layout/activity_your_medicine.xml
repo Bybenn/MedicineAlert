@@ -13,16 +13,17 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:textColor="#3F51B5"
-        android:text="ALL YOUR MEDICINE :)"
+        android:text="คลังยาของคุณ"
+        android:textColor="@color/colorPrimary"
         android:textSize="24sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ListView
         android:id="@+id/todo_listView"
-        android:layout_width="282dp"
-        android:layout_height="304dp"
+        android:layout_width="290dp"
+        android:layout_height="309dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="21dp"
         app:layout_constraintStart_toStartOf="parent"
@@ -30,8 +31,8 @@
 
     <android.support.design.widget.BottomNavigationView
         android:id="@+id/bottom_nav"
-        android:layout_width="385dp"
-        android:layout_height="55dp"
+        android:layout_width="335dp"
+        android:layout_height="59dp"
         android:layout_alignParentTop="true"
         android:layout_alignParentBottom="true"
         android:layout_marginTop="464dp"

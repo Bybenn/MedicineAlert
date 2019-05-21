@@ -16,8 +16,7 @@ import java.util.ArrayList;
 public class MedListDAO {
     private SQLiteDatabase database;
     private DatabaseHelper dbHelper;
-//    User user ;
-//    MedList medList2;
+
 
     /*
     ถ้าต้องการเรียกใช้ ID user ที่ล็อคอินอยู่ให้ เรียกดังนี้ LoginACitivity.loginID; จะได้ค่า ID ที่ต้องการออกมา

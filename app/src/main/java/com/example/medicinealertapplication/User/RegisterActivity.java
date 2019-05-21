@@ -20,6 +20,9 @@ public class RegisterActivity extends AppCompatActivity {
     EditText mTextCnfPassword;
     Button mButtonRegister;
     TextView mTextViewLogin;
+//    public static String userName = null;
+//    public static String passWord = null;
+
 
 
     @Override
@@ -58,6 +61,8 @@ public class RegisterActivity extends AppCompatActivity {
                     User user1 = new User();
                     user1.setUserName(String.valueOf(mTextUsername.getText()));
                     user1.setUserPass(String.valueOf(mTextPassword.getText()));
+//                    userName = String.valueOf(mTextUsername.getText());
+//                    passWord = String.valueOf(mTextPassword.getText());
                     user1.setUserMorning(null);
                     user1.setUserAfter(null);
                     user1.setUserEven(null);

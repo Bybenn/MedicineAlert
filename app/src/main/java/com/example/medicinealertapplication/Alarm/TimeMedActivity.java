@@ -57,6 +57,12 @@ public class TimeMedActivity extends AppCompatActivity {
 //                        Toast.LENGTH_SHORT).show();
                 Intent editIntent = new Intent(getApplicationContext(),EditTimeActivity.class);
                 editIntent.putExtra("editTimeList",adapter.getItem(position));
+                editIntent.putExtra("idUser",userID);
+                editIntent.putExtra("nameUser",userName);
+                editIntent.putExtra("passUser",userPass);
+                editIntent.putExtra("mornUser",userMorning);
+                editIntent.putExtra("afterUser",userAfter);
+                editIntent.putExtra("evenUser",userEven);
                 startActivity(editIntent);
             }
         });

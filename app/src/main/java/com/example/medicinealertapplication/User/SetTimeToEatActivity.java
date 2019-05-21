@@ -27,16 +27,15 @@ import java.util.Calendar;
 public class SetTimeToEatActivity extends AppCompatActivity implements TimePickerDialog.OnTimeSetListener{
     DatabaseHelper db;
     int a ;
-    String timeText;
-    String timeText2;
-    String timeText3;
+    String timeText = "";
+    String timeText2 = "";
+    String timeText3 = "";
     ImageView mTextMorning;
     ImageView mTextAfternoon;
     ImageView mTextEvening;
     TextView textViewMorn;
     TextView textViewAfter;
     TextView textViewEven;
-//    TextView next;
     String userID;
     String userName;
     String userPass;
@@ -44,7 +43,9 @@ public class SetTimeToEatActivity extends AppCompatActivity implements TimePicke
     String userAfter;
     String userEven;
     Button button_setEatTime;
-
+    public static String morning = null;
+    public static String after = null;
+    public static String even = null;
 
 
     @Override
@@ -67,22 +68,6 @@ public class SetTimeToEatActivity extends AppCompatActivity implements TimePicke
 //        userMorning = intent.getStringExtra("mornUser");
 //        userAfter = intent.getStringExtra("afterUser");
 //        userEven = intent.getStringExtra("evenUser");
-
-//        next.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent mainIntent = new Intent(SetTimeToEatActivity.this, HomeActivity.class);
-//                mainIntent.putExtra("idUser",userID);
-//                mainIntent.putExtra("nameUser",userName);
-//                mainIntent.putExtra("passUser",userPass);
-//                mainIntent.putExtra("mornUser",userMorning);
-//                mainIntent.putExtra("afterUser",userAfter);
-//                mainIntent.putExtra("evenUser",userEven);
-//                startActivity(mainIntent);
-//            }
-//        });
-
-
 
 
         mTextMorning.setOnClickListener(new View.OnClickListener() {
@@ -122,33 +107,44 @@ public class SetTimeToEatActivity extends AppCompatActivity implements TimePicke
         button_setEatTime.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                User eUser = new User();
-                eUser.setUserID(Integer.parseInt(userID));
-                eUser.setUserName(userName);
-                eUser.setUserPass(userPass);
-                eUser.setUserMorning(timeText);
-                eUser.setUserAfter(timeText2);
-                eUser.setUserEven(timeText3);
+                if (timeText.equals("")||timeText2.equals("")||timeText3.equals("")){
+                    Toast.makeText(SetTimeToEatActivity.this, "กรุณาตั้งเวลาการทานอาหาร", Toast.LENGTH_SHORT).show();
+
+                }else {
+
+                    User eUser = new User();
+                    eUser.setUserID(Integer.parseInt(userID));
+                    eUser.setUserName(userName);
+                    eUser.setUserPass(userPass);
+                    eUser.setUserMorning(timeText);
+                    eUser.setUserAfter(timeText2);
+                    eUser.setUserEven(timeText3);
 
 //                เพื่ออัพเดท
 
-                UserDAO userDAO = new UserDAO(getApplicationContext());
-                userDAO.open();
-                userDAO.update(eUser);
-                userDAO.close();
-                finish();
+                    UserDAO userDAO = new UserDAO(getApplicationContext());
+                    userDAO.open();
+                    userDAO.update(eUser);
+                    userDAO.close();
+                    finish();
 
 
-                Toast.makeText(SetTimeToEatActivity.this, "ตั้งค่าเวลาเรียบร้อยแล้ว", Toast.LENGTH_SHORT).show();
-                Intent mainIntent = new Intent(SetTimeToEatActivity.this, HomeActivity.class);
-                mainIntent.putExtra("idUser",userID);
-                mainIntent.putExtra("nameUser",userName);
-                mainIntent.putExtra("passUser",userPass);
-                mainIntent.putExtra("mornUser",userMorning);
-                mainIntent.putExtra("afterUser",userAfter);
-                mainIntent.putExtra("evenUser",userEven);
-                startActivity(mainIntent);
+                    Toast.makeText(SetTimeToEatActivity.this, "ตั้งค่าเวลาเรียบร้อยแล้ว", Toast.LENGTH_SHORT).show();
+                    Intent mainIntent = new Intent(SetTimeToEatActivity.this, HomeActivity.class);
+                    mainIntent.putExtra("idUser",userID);
+                    mainIntent.putExtra("nameUser",userName);
+                    mainIntent.putExtra("passUser",userPass);
+                    mainIntent.putExtra("mornUser",userMorning);
+                    mainIntent.putExtra("afterUser",userAfter);
+                    mainIntent.putExtra("evenUser",userEven);
 
+                    morning = userMorning;
+                    after = userAfter;
+                    even = userEven;
+
+                    startActivity(mainIntent);
+
+                }
             }
         });
 

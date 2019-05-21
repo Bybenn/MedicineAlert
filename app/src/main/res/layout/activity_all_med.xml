@@ -8,19 +8,9 @@
 
     tools:context=".AllMedicine.AllMedActivity">
 
-    <ListView
-        android:id="@+id/all_med"
-        android:layout_width="404dp"
-        android:layout_height="453dp"
-        android:layout_weight="1"
-        android:scrollbars="horizontal"
-        android:textColor="#F3028292"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <android.support.design.widget.BottomNavigationView
         android:id="@+id/bottom_nav"
-        android:layout_width="385dp"
+        android:layout_width="322dp"
         android:layout_height="55dp"
         android:layout_alignParentTop="true"
         android:layout_alignParentBottom="true"
@@ -31,6 +21,30 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:menu="@menu/bottom_nav_menu" />
+
+    <ListView
+        android:id="@+id/all_med"
+        android:layout_width="397dp"
+        android:layout_height="415dp"
+        android:layout_marginTop="52dp"
+        android:layout_weight="1"
+        android:scrollbars="horizontal"
+        android:textColor="#F3028292"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView13"
+        android:layout_width="190dp"
+        android:layout_height="37dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="คลังยาทั้งหมด"
+        android:textColor="@color/colorPrimary"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <!--<RelativeLayout-->
         <!--android:layout_width="405dp"-->

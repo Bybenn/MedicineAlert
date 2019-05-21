@@ -13,6 +13,9 @@ import com.example.medicinealertapplication.R;
 
 public class LoginActivity extends AppCompatActivity {
     public static String loginID = null;
+    public static String user = null;
+    public static String pass = null;
+
     String userID;
     String userName;
     String userPass;
@@ -45,6 +48,8 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if (editText.getText().toString().equals(passwordCheck)){
                     loginID = userID;
+                    user = userName;
+                    pass = userPass;
                     Intent editIntent = new Intent(getApplicationContext(), SetTimeToEatActivity.class);
                     editUser.setUserID(Integer.parseInt(userID));
 
@@ -57,11 +62,11 @@ public class LoginActivity extends AppCompatActivity {
 
                     startActivity(editIntent);
 
-                    Toast.makeText(LoginActivity.this,"ล็อคอินสำเร็จแล้ว",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LoginActivity.this,"เข้าสู่ระบบสำเร็จแล้ว",Toast.LENGTH_SHORT).show();
                 }else if (editText.getText().toString().equals("")){
-                    Toast.makeText(LoginActivity.this,"กรุณาใส่พาสเวิร์ด",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LoginActivity.this,"กรุณาใส่รหัสผ่าน",Toast.LENGTH_SHORT).show();
                 }else {
-                    Toast.makeText(LoginActivity.this,"พาสเวิร์ดไม่ถูกต้อง",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LoginActivity.this,"รหัสผ่านไม่ถูกต้อง",Toast.LENGTH_SHORT).show();
                 }
             }
         });

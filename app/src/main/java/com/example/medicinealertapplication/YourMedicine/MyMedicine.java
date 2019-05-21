@@ -46,11 +46,11 @@ public class MyMedicine extends BaseAdapter {
         v = inflater.inflate(R.layout.mymed_layout,null);
         TextView nameMedinList = (TextView)v.findViewById(R.id.medName_text);
         MedList nameMedList = myMedList.get(position);
-        nameMedinList.setText(nameMedList.getMedNameText());
+        nameMedinList.setText("   "+nameMedList.getMedNameText());
 
-        TextView infoMedInList = (TextView)v.findViewById(R.id.infoMed_text);
-        MedList infoMedList = myMedList.get(position);
-        infoMedInList.setText(infoMedList.getMedInfoText());
+//        TextView infoMedInList = (TextView)v.findViewById(R.id.infoMed_text);
+//        MedList infoMedList = myMedList.get(position);
+//        infoMedInList.setText(infoMedList.getMedInfoText());
 
         return v;
     }

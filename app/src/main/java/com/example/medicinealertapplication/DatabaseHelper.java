@@ -47,17 +47,25 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         sqLiteDatabase.execSQL(tableAllUSER);
-        String a = "INSERT INTO users (username,password,morning,afternoon,evening) VALUES "+
-                "('a','a','a','a','a');";
-        sqLiteDatabase.execSQL(a);
+//        String a = "INSERT INTO users (username,password,morning,afternoon,evening) VALUES "+
+//                "('ALICE','a','a','a','a');";
+//        String b = "INSERT INTO users (username,password,morning,afternoon,evening) VALUES "+
+//                "('BYBENN','a','a','a','a');";
+//        String c = "INSERT INTO users (username,password,morning,afternoon,evening) VALUES "+
+//                "('CATHY','a','a','a','a');";
+//
+//        sqLiteDatabase.execSQL(a);
+//        sqLiteDatabase.execSQL(b);
+//        sqLiteDatabase.execSQL(c);
+
 
         sqLiteDatabase.execSQL(tableAllMED);
         String Data1 = "INSERT INTO allmed_list (name_med,info_med,howto_med,time_med) VALUES " +
-                "('Smecta','\nแก้ท้องเสีย เป็นสารดูดซับทางลำไส้ สามารถเคลือบเยื่อบุเมือกของทางเดินอาหารได้'" +
-                ",'\nควรทานหลังอาหาร ผสมน้ำ 50 มิลลิลิตรหรืออาหารเหลว 3 กรัมไม่ควรทานพร้อมกับยาตัวอื่นๆ\nผู้ใหญ่ 1 ซองวันละ 3-4 ครั้ง\nเด็ก <1 ปีวันละ 2 ซอง 3 วันแล้วลดเหลือวันละ 1 ซอง\nเด็ก >1 ปีวันละ 4 ซอง 3 วันแล้วลดเหลือวันละ 2 ซอง','02');";
+                "('Smecta','แก้ท้องเสีย เป็นสารดูดซับทางลำไส้ สามารถเคลือบเยื่อบุเมือกของทางเดินอาหารได้'" +
+                ",'ควรทานหลังอาหาร ผสมน้ำ 50 มิลลิลิตรหรืออาหารเหลว 3 กรัมไม่ควรทานพร้อมกับยาตัวอื่นๆ\nผู้ใหญ่ 1 ซองวันละ 3-4 ครั้ง\nเด็ก <1 ปีวันละ 2 ซอง 3 วันแล้วลดเหลือวันละ 1 ซอง\nเด็ก >1 ปีวันละ 4 ซอง 3 วันแล้วลดเหลือวันละ 2 ซอง','02');";
         String Data2 = "INSERT INTO allmed_list (name_med,info_med,howto_med,time_med) VALUES " +
-                "('Bioflor','\nแก้ท้องเสีย ช่วยปรับสมดุลของจุลินทรีย์ในทางเดินอาหาร ต้านแบคทีเรียที่ไม่ดีและสามารถสังเคราะห์วิตามินบีได้'" +
-                ",'\nควรทานหลังอาหาร 1-2 ซอง วันละ 1-2 ครั้งและตัวยาควรผสมน้ำเปล่าหรือน้ำหวาน \n**ห้ามผสมน้ำร้อน**','02');";
+                "('Bioflor','แก้ท้องเสีย ช่วยปรับสมดุลของจุลินทรีย์ในทางเดินอาหาร ต้านแบคทีเรียที่ไม่ดีและสามารถสังเคราะห์วิตามินบีได้'" +
+                ",'ควรทานหลังอาหาร 1-2 ซอง วันละ 1-2 ครั้งและตัวยาควรผสมน้ำเปล่าหรือน้ำหวาน \n**ห้ามผสมน้ำร้อน**','02');";
         String Data3 = "INSERT INTO allmed_list (name_med,info_med,howto_med,time_med) VALUES " +
                 "('Dehecta','\nเป็นยาน้ำแขวนตะกอนขนาด 3 กรัมปริมาตร 20 มิลลิลิตรแก้ท้องเสียเป็นสารดูดซับทางลำไส้ สามารถเคลือบเยื่อบุเมือกของทางเดินอาหารได้'" +
                 ",'\nควรทานผสมน้ำ 50 มิลลิกรัม หรืออาหารเหลว 3 กรัม และทานหลังมื้ออาหาร ไม่ควรทานพร้อมกับยาตัวอื่นๆ\nผู้ใหญ่ 1 ซองวันละ 3-4 ครั้ง\nเด็ก <1 ปีวันละ 2 ซอง 3 วันแล้วลดเหลือวันละ 1 ซอง\nเด็ก >1 ปีขึ้นไปวันละ 4 ซอง 3 วันแล้วลดเหลือวันละ 2 ซอง','02');";

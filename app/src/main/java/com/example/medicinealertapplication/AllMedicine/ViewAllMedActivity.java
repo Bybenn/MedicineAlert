@@ -204,7 +204,7 @@ public class ViewAllMedActivity extends AppCompatActivity {
             int minuteeve =(heve%3600)/60;
 
 
-            suggestTime.setText("มื่อเช้าที่ควรทาน "+hrmor+" นาฬิกา "+minutemor+" นาที\n"+
+            suggestTime.setText("มื้อเช้าที่ควรทาน "+hrmor+" นาฬิกา "+minutemor+" นาที\n"+
                     "มื้อกลางวันที่ควรทาน "+hrafter+" นาฬิกา "+minuteafter+" นาที\n"+
                     "มื้อเย็นที่ควรทาน "+hreve+" นาฬิกา "+minuteeve+" นาที");
         }else if (timeMed.equals("03")){
@@ -235,7 +235,7 @@ public class ViewAllMedActivity extends AppCompatActivity {
             int minute2 =(h%3600)/60;
             int hr3 =(i/3600)%24;
             int minute3 =(h%3600)/60;
-            suggestTime.setText("ครั้งแรกที่ควรทาน "+b+" นาฬิกา"+":"+c+" นาที\n"+
+            suggestTime.setText("ครั้งแรกที่ควรทาน "+b+" นาฬิกา"+c+" นาที\n"+
                     "ครั้งถัดไป "+hr2+" นาฬิกา "+minute2+" นาที\n"+
                     "และครั้งถัดไป "+hr3+" นาฬิกา "+minute3+" นาที");
         }else if (timeMed.equals("05")){

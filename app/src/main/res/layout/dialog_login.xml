@@ -1,13 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="match_parent"
+        android:layout_height="117dp"
+        app:srcCompat="@drawable/ic_android_user" />
+
     <TextView
         android:id="@+id/nameMed"
-        android:layout_width="317dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
         android:gravity="center"
         android:text="โปรดใส่รหัสผ่านของคุณ"
         android:textSize="20sp"
@@ -16,20 +22,21 @@
     <EditText
         android:id="@+id/editText"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
 
         android:ems="10"
-        android:hint="กรุณาใส่พาสเวิร์ดของคุณ"
-        android:inputType="textPassword" />
+        android:hint="กรุณาใส่รหัสผ่านของคุณ"
+        android:inputType="textPassword"
+        android:textAlignment="center" />
 
     <Button
         android:id="@+id/button2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="30dp"
         android:background="@color/colorPrimary"
-        android:text="ตกลง"
+        android:text="เข้าสู่ระบบ"
         android:textColor="#FFFFFF" />
 
 </LinearLayout>

@@ -13,7 +13,7 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="75dp"
+        android:layout_marginStart="70dp"
         android:layout_marginTop="16dp"
         android:orientation="horizontal"
         app:layout_constraintStart_toStartOf="parent"
@@ -30,7 +30,7 @@
             android:layout_width="wrap_content"
             android:layout_height="35dp"
             android:paddingLeft="10dp"
-            android:text="  ล็อคอิน  "
+            android:text="ลงชื่อเข้าใช้"
             android:textColor="#F44336"
             android:textSize="16sp"
             android:textStyle="bold" />
@@ -39,12 +39,13 @@
 
     <EditText
         android:id="@+id/edittext_cnf_password"
-        android:layout_width="230dp"
-        android:layout_height="47dp"
-        android:layout_marginStart="56dp"
+        android:layout_width="229dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="8dp"
         android:background="#ffffff"
         android:drawableLeft="@mipmap/password"
-        android:hint="  ยืนยันพาสเวิร์ด"
+        android:hint="  ยืนยันรหัสผ่าน"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edittext_password" />
 
@@ -61,11 +62,12 @@
     <EditText
         android:id="@+id/edittext_password"
         android:layout_width="230dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="56dp"
+        android:layout_height="34dp"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="8dp"
         android:background="#ffffff"
         android:drawableLeft="@mipmap/password"
-        android:hint="  พาสเวิร์ด"
+        android:hint="  รหัสผ่าน"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edittext_username" />
 
@@ -74,7 +76,7 @@
         android:id="@+id/button_register"
         android:layout_width="238dp"
         android:layout_height="44dp"
-        android:layout_marginStart="48dp"
+        android:layout_marginStart="45dp"
         android:layout_marginTop="24dp"
         android:background="@color/colorPrimary"
         android:text="ลงทะเบียน"
@@ -84,9 +86,9 @@
 
     <EditText
         android:id="@+id/edittext_username"
-        android:layout_width="230dp"
-        android:layout_height="45dp"
-        android:layout_marginStart="56dp"
+        android:layout_width="231dp"
+        android:layout_height="37dp"
+        android:layout_marginStart="52dp"
         android:layout_marginTop="12dp"
         android:background="#ffffff"
         android:drawableLeft="@mipmap/username"
@@ -100,7 +102,7 @@
         android:id="@+id/textView14"
         android:layout_width="266dp"
         android:layout_height="55dp"
-        android:layout_marginStart="36dp"
+        android:layout_marginStart="40dp"
         android:layout_marginTop="16dp"
         android:drawableLeft="@mipmap/plus"
         android:text=" ลงทะเบียน"

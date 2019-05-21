@@ -23,10 +23,9 @@
 
             <Button
                 android:id="@+id/button_setEatTime"
-                android:layout_width="333dp"
-                android:layout_height="33dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="44dp"
+                android:layout_width="330dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="48dp"
                 android:background="@color/colorPrimary"
                 android:text="ตกลง"
                 android:textColor="#FFFFFF"
@@ -62,6 +61,7 @@
                 android:id="@+id/edittext_evening"
                 android:layout_width="84dp"
                 android:layout_height="69dp"
+                android:layout_marginStart="4dp"
                 android:layout_marginTop="64dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/edittext_afternoon"
@@ -77,11 +77,11 @@
                 android:id="@+id/textView15"
                 android:layout_width="336dp"
                 android:layout_height="37dp"
-                android:layout_marginStart="16dp"
+                android:layout_marginStart="36dp"
                 android:layout_marginTop="36dp"
                 android:text="  ตั้งเวลาการทานอาหารของคุณ"
                 android:textColor="@color/colorPrimaryDark"
-                android:textSize="24sp"
+                android:textSize="18sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -104,11 +104,12 @@
 
                     <TextView
                         android:id="@+id/textView4"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="168dp"
+                        android:layout_height="19dp"
                         android:layout_marginStart="4dp"
                         android:layout_marginTop="16dp"
                         android:text="เวลาทานอาหารเย็น"
+                        android:textAlignment="center"
                         android:textColor="@color/design_default_color_primary"
                         android:textStyle="bold"
                         app:layout_constraintStart_toStartOf="parent"
@@ -121,7 +122,7 @@
                         android:layout_marginStart="4dp"
                         android:layout_marginTop="36dp"
                         android:text="คลิกที่รูปเพื่อทำการตั้งเวลา"
-                        android:textAlignment="textStart"
+                        android:textAlignment="center"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
@@ -131,7 +132,7 @@
             <FrameLayout
                 android:layout_width="208dp"
                 android:layout_height="86dp"
-                android:layout_marginStart="44dp"
+                android:layout_marginStart="1dp"
                 android:layout_marginTop="19dp"
                 android:background="#6FFFFFFF"
                 app:layout_constraintStart_toEndOf="@+id/edittext_morning"
@@ -145,19 +146,18 @@
                         android:id="@+id/textViewMorn"
                         android:layout_width="171dp"
                         android:layout_height="30dp"
-                        android:layout_marginStart="4dp"
                         android:text="คลิกที่รูปเพื่อทำการตั้งเวลา"
-                        android:textAlignment="textStart"
+                        android:textAlignment="center"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/textView11" />
 
                     <TextView
                         android:id="@+id/textView11"
-                        android:layout_width="wrap_content"
-                        android:layout_height="19dp"
-                        android:layout_marginStart="4dp"
+                        android:layout_width="170dp"
+                        android:layout_height="18dp"
                         android:layout_marginTop="16dp"
                         android:text="เวลาทานอาหารเช้า"
+                        android:textAlignment="center"
                         android:textColor="@color/design_default_color_primary"
                         android:textStyle="bold"
                         app:layout_constraintStart_toStartOf="parent"
@@ -190,18 +190,19 @@
                         android:layout_height="30dp"
                         android:layout_marginStart="4dp"
                         android:text="คลิกที่รูปเพื่อทำการตั้งเวลา"
-                        android:textAlignment="textStart"
+                        android:textAlignment="center"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/textView12" />
 
                     <TextView
                         android:id="@+id/textView12"
-                        android:layout_width="wrap_content"
+                        android:layout_width="170dp"
                         android:layout_height="19dp"
                         android:layout_marginStart="4dp"
 
                         android:layout_marginTop="16dp"
                         android:text="เวลาทานอาหารกลางวัน"
+                        android:textAlignment="center"
                         android:textColor="@color/design_default_color_primary"
                         android:textStyle="bold"
                         app:layout_constraintStart_toStartOf="parent"

@@ -13,6 +13,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.TimePicker;
+import android.widget.Toast;
 
 import com.example.medicinealertapplication.R;
 import com.example.medicinealertapplication.TimePickerFragment;
@@ -34,7 +35,7 @@ public class SetAlarmActivity extends AppCompatActivity implements TimePickerDia
     String userEven;
     Button addSetTimeButton;
 
-    String a;
+    String a="";
     int b = 0;
 
     @Override
@@ -72,29 +73,33 @@ public class SetAlarmActivity extends AppCompatActivity implements TimePickerDia
         addSetTimeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                TimeList timeList = new TimeList();
-                timeList.setNameMed(String.valueOf(nameMed.getText()));
-                timeList.setNote(String.valueOf(noteText.getText()));
-                timeList.setTime(String.valueOf(timeText.getText()));
-                timeList.setUserID(Integer.parseInt(userID));
+                if (a.isEmpty()){
+                    Toast.makeText(SetAlarmActivity.this,"กรุณาตั้งค่าเวลาในการแจ้งเตือน", Toast.LENGTH_SHORT).show();
+
+                }else {
+                    TimeList timeList = new TimeList();
+                    timeList.setNameMed(String.valueOf(nameMed.getText()));
+                    timeList.setNote(String.valueOf(noteText.getText()));
+                    timeList.setTime(String.valueOf(timeText.getText()));
+                    timeList.setUserID(Integer.parseInt(userID));
 
 
-                TimeListDAO timeListDAO = new TimeListDAO(getApplicationContext());
-                timeListDAO.open();
-                timeListDAO.add(timeList);
-                timeListDAO.close();
-                finish();
+                    TimeListDAO timeListDAO = new TimeListDAO(getApplicationContext());
+                    timeListDAO.open();
+                    timeListDAO.add(timeList);
+                    timeListDAO.close();
+                    finish();
 
-                Intent HomePage = new Intent(SetAlarmActivity.this, TimeMedActivity.class);
-                HomePage.putExtra("nameMed",s);
-                HomePage.putExtra("idUser",userID);
-                HomePage.putExtra("nameUser",userName);
-                HomePage.putExtra("passUser",userPass);
-                HomePage.putExtra("mornUser",userMorning);
-                HomePage.putExtra("afterUser",userAfter);
-                HomePage.putExtra("evenUser",userEven);
-                startActivity(HomePage);
-
+                    Intent HomePage = new Intent(SetAlarmActivity.this, TimeMedActivity.class);
+                    HomePage.putExtra("nameMed",s);
+                    HomePage.putExtra("idUser",userID);
+                    HomePage.putExtra("nameUser",userName);
+                    HomePage.putExtra("passUser",userPass);
+                    HomePage.putExtra("mornUser",userMorning);
+                    HomePage.putExtra("afterUser",userAfter);
+                    HomePage.putExtra("evenUser",userEven);
+                    startActivity(HomePage);
+                }
             }
         });
     }
@@ -131,12 +136,6 @@ public class SetAlarmActivity extends AppCompatActivity implements TimePickerDia
 
         }
 
-//        public void clickImageButton (View view){
-//            Intent intent = new Intent(getApplicationContext(), SetAlarmActivity.class);
-//            intent.putExtra("nameMed", String.valueOf(nameMed.getText()));
-//            startActivity(intent);
-//
-//        }
 
         private void updateTimeText1 (Calendar c){
             a = DateFormat.getTimeInstance(DateFormat.SHORT).format(c.getTime());

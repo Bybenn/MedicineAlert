@@ -22,12 +22,14 @@
 
     <ListView
         android:id="@+id/todo_listView"
-        android:layout_width="304dp"
-        android:layout_height="252dp"
+        android:layout_width="267dp"
+        android:layout_height="168dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="12dp"
         android:layout_marginEnd="32dp"
+        android:background="#6DFFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.583"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
@@ -55,7 +57,7 @@
         android:id="@+id/imageView"
         android:layout_width="151dp"
         android:layout_height="148dp"
-        android:layout_marginStart="112dp"
+        android:layout_marginStart="88dp"
         android:layout_marginTop="16dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/registerText"

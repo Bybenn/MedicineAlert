@@ -13,6 +13,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.example.medicinealertapplication.R;
 import com.example.medicinealertapplication.User.LoginActivity;
@@ -64,28 +65,34 @@ public class AddMedicineActivity extends AppCompatActivity {
         addMed.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                MedList medList = new MedList();
-                medList.setMedNameText(String.valueOf(addMedText.getText()));
-                medList.setMedInfoText(String.valueOf(addInfoText.getText()));
-                medList.setIdUser(Integer.parseInt(LoginActivity.loginID));
+                if (addMedText.getText().toString().isEmpty()||addInfoText.getText().toString().isEmpty()){
+                    Toast.makeText(AddMedicineActivity.this,"กรุณากรอกข้อมูลยา",Toast.LENGTH_SHORT).show();
+
+                }else {
+                    MedList medList = new MedList();
+                    medList.setMedNameText(String.valueOf(addMedText.getText()));
+                    medList.setMedInfoText(String.valueOf(addInfoText.getText()));
+                    medList.setIdUser(Integer.parseInt(LoginActivity.loginID));
 
 
-                MedListDAO medListDAO = new MedListDAO(getApplicationContext());
-                medListDAO.open();
-                medListDAO.add(medList);
-                medListDAO.close();
-                finish();
+                    MedListDAO medListDAO = new MedListDAO(getApplicationContext());
+                    medListDAO.open();
+                    medListDAO.add(medList);
+                    medListDAO.close();
+                    finish();
 
 //                String name = String.valueOf(addMedText.getText());
-                Intent intent = new Intent(getApplicationContext(), YourMedicineActivity.class);
-                intent.putExtra("nameMed",nameMed);
-                intent.putExtra("idUser",userID);
-                intent.putExtra("nameUser",userName);
-                intent.putExtra("passUser",userPass);
-                intent.putExtra("mornUser",userMorning);
-                intent.putExtra("afterUser",userAfter);
-                intent.putExtra("evenUser",userEven);
-                startActivity(intent);
+                    Intent intent = new Intent(getApplicationContext(), YourMedicineActivity.class);
+                    intent.putExtra("nameMed",nameMed);
+                    intent.putExtra("idUser",userID);
+                    intent.putExtra("nameUser",userName);
+                    intent.putExtra("passUser",userPass);
+                    intent.putExtra("mornUser",userMorning);
+                    intent.putExtra("afterUser",userAfter);
+                    intent.putExtra("evenUser",userEven);
+                    startActivity(intent);
+                }
+
             }
         });
 

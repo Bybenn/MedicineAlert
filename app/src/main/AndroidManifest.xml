@@ -7,11 +7,12 @@
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="Medicine Alert"
+        android:label="MEDICINE ALERT"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".KnowledgeActivity"></activity>
+        <activity android:name=".QuestionActivity"></activity>
+        <activity android:name=".KnowledgeActivity" />
         <activity android:name=".User.LogoutActivity" />
         <activity android:name=".HomeActivity" />
         <activity android:name=".Alarm.EditTimeActivity" />

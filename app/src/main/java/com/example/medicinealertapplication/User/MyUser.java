@@ -46,7 +46,7 @@ public class MyUser extends BaseAdapter {
         v = inflater.inflate(R.layout.my_user_layout,null);
         TextView textView = (TextView)v.findViewById(R.id.listview_text);
         User todoList = myUser.get(position);
-        textView.setText(todoList.getUserName());
+        textView.setText("   "+todoList.getUserName());
 
 //        TextView textView2 = (TextView)v.findViewById(R.id.i);
 //        User todoList2 = myUser.get(position);

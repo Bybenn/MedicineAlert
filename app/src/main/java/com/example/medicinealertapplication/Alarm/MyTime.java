@@ -45,10 +45,14 @@ public class MyTime extends BaseAdapter {
         View v = convertView;
         v = inflater.inflate(R.layout.mytime_layout, null);
         TextView textView = (TextView) v.findViewById(R.id.time_text);
+
+        TextView textView2 = (TextView) v.findViewById(R.id.i);
+
+
+
         TimeList todoList = myTimeList.get(position);
         textView.setText(todoList.getNameMed());
 
-        TextView textView2 = (TextView) v.findViewById(R.id.i);
         TimeList todoList2 = myTimeList.get(position);
         textView2.setText(todoList2.getTime());
 

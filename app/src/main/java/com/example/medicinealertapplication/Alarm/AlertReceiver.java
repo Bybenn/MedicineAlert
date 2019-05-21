@@ -8,23 +8,52 @@ import android.media.RingtoneManager;
 import android.net.Uri;
 import android.support.v4.app.NotificationCompat;
 
+import com.example.medicinealertapplication.QuestionActivity;
 import com.example.medicinealertapplication.R;
+import com.example.medicinealertapplication.User.LoginActivity;
 import com.example.medicinealertapplication.User.RegisterActivity;
+import com.example.medicinealertapplication.User.SetTimeToEatActivity;
+import com.example.medicinealertapplication.User.User;
 
 import static com.example.medicinealertapplication.Alarm.NotificationHelper.channelID;
 
 public class AlertReceiver extends BroadcastReceiver {
     NotificationHelper notificationHelper;
     PendingIntent pendingIntent;
+    User user = new User();
+    String userID;
+    String userName;
+    String userPass;
+    String userMorning;
+    String userAfter;
+    String userEven;
+
 
     @Override
     public void onReceive(Context context, Intent intent) {
 //        for (int i = 0;i<2;i++){
             notificationHelper = new NotificationHelper(context);
             getChannelNotification();
-            Intent intent1 = new Intent(context, RegisterActivity.class);
-            intent1.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-            pendingIntent = PendingIntent.getActivity(context, 1, intent1, PendingIntent.FLAG_ONE_SHOT);
+//            Intent intent1 = new Intent(context, TimeMedActivity.class);
+            user.setUserID(Integer.parseInt(LoginActivity.loginID));
+            user.setUserName(LoginActivity.user);
+            user.setUserPass(LoginActivity.pass);
+            userID =  LoginActivity.loginID;
+            userName = LoginActivity.user;
+            userPass = LoginActivity.pass;
+            userMorning = SetTimeToEatActivity.morning;
+            userAfter = SetTimeToEatActivity.after;
+            userEven = SetTimeToEatActivity.even;
+            Intent HomePage = new Intent(context, QuestionActivity.class);
+            HomePage.putExtra("idUser",userID);
+            HomePage.putExtra("nameUser",userName);
+            HomePage.putExtra("passUser",userPass);
+            HomePage.putExtra("mornUser",userMorning);
+            HomePage.putExtra("afterUser",userAfter);
+            HomePage.putExtra("evenUser",userEven);
+//            startActivity(HomePage);
+            HomePage.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            pendingIntent = PendingIntent.getActivity(context, 1, HomePage, PendingIntent.FLAG_UPDATE_CURRENT);
 
             notificationHelper.getManager().notify(1, getChannelNotification().build());
 //        }
