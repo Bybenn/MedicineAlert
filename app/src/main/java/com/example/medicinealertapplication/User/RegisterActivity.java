@@ -63,9 +63,9 @@ public class RegisterActivity extends AppCompatActivity {
                     user1.setUserPass(String.valueOf(mTextPassword.getText()));
 //                    userName = String.valueOf(mTextUsername.getText());
 //                    passWord = String.valueOf(mTextPassword.getText());
-                    user1.setUserMorning(null);
-                    user1.setUserAfter(null);
-                    user1.setUserEven(null);
+                    user1.setUserMorning("07:00");
+                    user1.setUserAfter("12:00");
+                    user1.setUserEven("18:00");
 
                     UserDAO userDAO = new UserDAO(getApplicationContext());
                     userDAO.open();

@@ -121,10 +121,10 @@
                         android:layout_height="30dp"
                         android:layout_marginStart="4dp"
                         android:layout_marginTop="36dp"
-                        android:text="คลิกที่รูปเพื่อทำการตั้งเวลา"
                         android:textAlignment="center"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:text="คลิกที่รูปเพื่อทำการตั้งเวลา" />
 
                 </android.support.constraint.ConstraintLayout>
             </FrameLayout>
@@ -146,10 +146,10 @@
                         android:id="@+id/textViewMorn"
                         android:layout_width="171dp"
                         android:layout_height="30dp"
-                        android:text="คลิกที่รูปเพื่อทำการตั้งเวลา"
                         android:textAlignment="center"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/textView11" />
+                        app:layout_constraintTop_toBottomOf="@+id/textView11"
+                        tools:text="คลิกที่รูปเพื่อทำการตั้งเวลา" />
 
                     <TextView
                         android:id="@+id/textView11"
@@ -189,10 +189,10 @@
                         android:layout_width="171dp"
                         android:layout_height="30dp"
                         android:layout_marginStart="4dp"
-                        android:text="คลิกที่รูปเพื่อทำการตั้งเวลา"
                         android:textAlignment="center"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/textView12" />
+                        app:layout_constraintTop_toBottomOf="@+id/textView12"
+                        tools:text="คลิกที่รูปเพื่อทำการตั้งเวลา" />
 
                     <TextView
                         android:id="@+id/textView12"

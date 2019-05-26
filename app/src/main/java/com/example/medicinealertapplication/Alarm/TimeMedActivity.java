@@ -25,6 +25,7 @@ public class TimeMedActivity extends AppCompatActivity {
     String userMorning;
     String userAfter;
     String userEven;
+    long requestId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +40,7 @@ public class TimeMedActivity extends AppCompatActivity {
         userAfter = intent.getStringExtra("afterUser");
         userEven = intent.getStringExtra("evenUser");
         final String s = intent.getStringExtra("nameMed");
+        requestId = intent.getLongExtra("requestId", -1);
 
         timeListView = (ListView)findViewById(R.id.time_listView);
 

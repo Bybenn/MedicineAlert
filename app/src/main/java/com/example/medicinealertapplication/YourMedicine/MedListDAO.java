@@ -8,8 +8,6 @@ import android.util.Log;
 
 import com.example.medicinealertapplication.DatabaseHelper;
 import com.example.medicinealertapplication.User.LoginActivity;
-import com.example.medicinealertapplication.User.User;
-import com.example.medicinealertapplication.User.UserDAO;
 
 import java.util.ArrayList;
 
@@ -37,8 +35,7 @@ public class MedListDAO {
     }
 
 
-/*    ตรงนี้อยากแก้ไขเป็นอ่านค่าเฉพาะของ user ที่ login เข้ามา แต่ลอง user.getUserID(); แล้วไม่มีค่าอะไรออกมาแต่ในหน้า
-    แอคทิวิตี้อื่นๆเรียกใช้แล้วค่าขึ้นตามปกติ */
+
     public ArrayList<MedList> getAllMedList() {
         ArrayList<MedList> medList = new ArrayList<MedList>();
         //Cursor cursor = database.rawQuery("SELECT * FROM you_med ",null);
@@ -61,6 +58,7 @@ public class MedListDAO {
             cursor.moveToNext();
         }
         cursor.close();
+
         return medList;
 
     }

@@ -215,10 +215,4 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return cursor;
     }
 
-    public Cursor viewUsers(){
-        SQLiteDatabase db = this.getReadableDatabase();
-        String query = "Select * from users ";
-        Cursor cursor = db.rawQuery(query,null);
-        return cursor;
-    }
 }

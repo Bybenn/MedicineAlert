@@ -52,7 +52,7 @@ public class TimeListDAO {
         return timeList;
     }
 
-    public void add(TimeList timeList) {
+    public long add(TimeList timeList) {
         TimeList newTimeList = new TimeList();
         newTimeList = timeList;
 
@@ -62,9 +62,11 @@ public class TimeListDAO {
         values.put("time",newTimeList.getTime());
         values.put("userIDTime",newTimeList.getUserID());
 
-        this.database.insert("timer_med", null, values);
+        long id = this.database.insert("timer_med", null, values);
 
         Log.d("Todo List Demo :::", "Add OK!!!");
+
+        return id;
 
     }
 

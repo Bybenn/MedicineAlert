@@ -34,8 +34,12 @@ public class SetAlarmActivity extends AppCompatActivity implements TimePickerDia
     String userAfter;
     String userEven;
     Button addSetTimeButton;
+    String medName;
 
-    String a="";
+    long requestId = -1;
+    Calendar selectedTime;
+
+    String a = "";
     int b = 0;
 
     @Override
@@ -58,8 +62,8 @@ public class SetAlarmActivity extends AppCompatActivity implements TimePickerDia
         userMorning = intent.getStringExtra("mornUser");
         userAfter = intent.getStringExtra("afterUser");
         userEven = intent.getStringExtra("evenUser");
-        final String s = intent.getStringExtra("nameMed");
-        nameMed.setText(s);
+        medName = intent.getStringExtra("nameMed");
+        nameMed.setText(medName);
 
         imageSetTime.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -73,74 +77,97 @@ public class SetAlarmActivity extends AppCompatActivity implements TimePickerDia
         addSetTimeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (a.isEmpty()){
-                    Toast.makeText(SetAlarmActivity.this,"กรุณาตั้งค่าเวลาในการแจ้งเตือน", Toast.LENGTH_SHORT).show();
-
-                }else {
-                    TimeList timeList = new TimeList();
-                    timeList.setNameMed(String.valueOf(nameMed.getText()));
-                    timeList.setNote(String.valueOf(noteText.getText()));
-                    timeList.setTime(String.valueOf(timeText.getText()));
-                    timeList.setUserID(Integer.parseInt(userID));
-
-
-                    TimeListDAO timeListDAO = new TimeListDAO(getApplicationContext());
-                    timeListDAO.open();
-                    timeListDAO.add(timeList);
-                    timeListDAO.close();
-                    finish();
-
-                    Intent HomePage = new Intent(SetAlarmActivity.this, TimeMedActivity.class);
-                    HomePage.putExtra("nameMed",s);
-                    HomePage.putExtra("idUser",userID);
-                    HomePage.putExtra("nameUser",userName);
-                    HomePage.putExtra("passUser",userPass);
-                    HomePage.putExtra("mornUser",userMorning);
-                    HomePage.putExtra("afterUser",userAfter);
-                    HomePage.putExtra("evenUser",userEven);
-                    startActivity(HomePage);
-                }
+                submitTime();
             }
         });
     }
 
-        @Override
-        public void onTimeSet (TimePicker view,int hourOfDay, int minute){
-            Calendar c = Calendar.getInstance();
-            c.set(Calendar.HOUR_OF_DAY, hourOfDay);
-            c.set(Calendar.MINUTE, minute);
-            c.set(Calendar.SECOND, 00);
+    private void submitTime() {
 
-            if (b == 1) {
-                updateTimeText1(c);
+        if (a.isEmpty()) {
+            Toast.makeText(SetAlarmActivity.this, "กรุณาตั้งค่าเวลาในการแจ้งเตือน", Toast.LENGTH_SHORT).show();
 
-            }
+        } else {
+            TimeList timeList = new TimeList();
+            timeList.setNameMed(String.valueOf(nameMed.getText()));
+            timeList.setNote(String.valueOf(noteText.getText()));
+            timeList.setTime(String.valueOf(timeText.getText()));
+            timeList.setUserID(Integer.parseInt(userID));
 
-            startAlarm(c);
+
+            TimeListDAO timeListDAO = new TimeListDAO(getApplicationContext());
+            timeListDAO.open();
+            requestId = timeListDAO.add(timeList);
+            timeListDAO.close();
+
+            startAlarm(selectedTime, (int) requestId);
+
+            Intent timeMedPage = new Intent(SetAlarmActivity.this, TimeMedActivity.class);
+            timeMedPage.putExtra("nameMed", medName);
+            timeMedPage.putExtra("idUser", userID);
+            timeMedPage.putExtra("nameUser", userName);
+            timeMedPage.putExtra("passUser", userPass);
+            timeMedPage.putExtra("mornUser", userMorning);
+            timeMedPage.putExtra("afterUser", userAfter);
+            timeMedPage.putExtra("evenUser", userEven);
+            timeMedPage.putExtra("requestId", requestId);
+            startActivity(timeMedPage);
+            finish();
+        }
+    }
+
+    @Override
+    public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+        Calendar c = Calendar.getInstance();
+        c.set(Calendar.HOUR_OF_DAY, hourOfDay);
+        c.set(Calendar.MINUTE, minute);
+        c.set(Calendar.SECOND, 00);
+//        c.add(Calendar.SECOND, 10);
+
+        if (b == 1) {
+            updateTimeText1(c);
+
         }
 
-        /* เมื่อตั้งเวลาแล้วมันจะแจ้งเตือนเฉพาะเวลาล่าสุดที่แอดเพิ่มเข้าไป แต่ตัวโปรแกรมต้องการให้แจ้งเตือนทุกเวลาที่แอดเข้าไป  */
-        private void startAlarm (Calendar c){
-//            for (int i = 0;i<10;i++) {
-                AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
-                Intent intent = new Intent(this, AlertReceiver.class);
-                PendingIntent pendingIntent = PendingIntent.getBroadcast(this, 1, intent, 0);
-                alarmManager.setInexactRepeating(AlarmManager.RTC_WAKEUP, c.getTimeInMillis(), AlarmManager.INTERVAL_DAY/*alarmManager.*/, pendingIntent);
+        selectedTime = c;
+//        startAlarm(c);
+    }
 
-                //alarmManager.setExact(AlarmManager.RTC_WAKEUP, c.getTimeInMillis(), pendingIntent);
 
-                if (c.before(Calendar.getInstance())) {
-                    c.add(Calendar.DATE, 1);
-                }
+    /* เมื่อตั้งเวลาแล้วมันจะแจ้งเตือนเฉพาะเวลาล่าสุดที่แอดเพิ่มเข้าไป แต่ตัวโปรแกรมต้องการให้แจ้งเตือนทุกเวลาที่แอดเข้าไป  */
+    private void startAlarm(Calendar c, int requestId) {
+//            for (int i = 0;i<2;i++) {
+//                AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+//                Intent intent = new Intent(this, AlertReceiver.class);
+//                PendingIntent pendingIntent = PendingIntent.getBroadcast(this, i, intent, 0);
+//
+//                alarmManager.set(AlarmManager.RTC_WAKEUP,c.getTimeInMillis()+4000*(i+1),pendingIntent);
+//                //alarmManager.setInexactRepeating(AlarmManager.RTC_WAKEUP, c.getTimeInMillis(), AlarmManager.INTERVAL_DAY/*alarmManager.*/, pendingIntent);
+//
+//                //alarmManager.setExact(AlarmManager.RTC_WAKEUP, c.getTimeInMillis(), pendingIntent);
+//
+//                if (c.before(Calendar.getInstance())) {
+//                    c.add(Calendar.DATE, 1);
+//                }
 //            }
+        AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+        Intent notificationIntent = new Intent(this, AlertReceiver.class);
+//        for (int i = 0; i < 5; i++) {
+//            int requestId = i;
+        notificationIntent.putExtra("requestCode", requestId);
+        PendingIntent broadcast = PendingIntent.getBroadcast(this, requestId,
+                notificationIntent, PendingIntent.FLAG_ONE_SHOT);
+        c.add(Calendar.SECOND, 1);
 
-        }
+        alarmManager.setExact(AlarmManager.RTC_WAKEUP, c.getTimeInMillis(), broadcast);
 
+//        }
+    }
 
-        private void updateTimeText1 (Calendar c){
-            a = DateFormat.getTimeInstance(DateFormat.SHORT).format(c.getTime());
-            setWord.setText("เวลาในการทานยาของคุณ : ");
-            timeText.setText(a);
-        }
+    private void updateTimeText1(Calendar c) {
+        a = DateFormat.getTimeInstance(DateFormat.SHORT).format(c.getTime());
+        setWord.setText("เวลาในการทานยาของคุณ : ");
+        timeText.setText(a);
+    }
 
 }

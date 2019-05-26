@@ -15,7 +15,7 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 
 import com.example.medicinealertapplication.R;
-import com.example.medicinealertapplication.TimePickerFragment;
+//import com.example.medicinealertapplication.TimePickerFragment;
 
 import java.text.DateFormat;
 import java.util.Calendar;
@@ -78,7 +78,9 @@ public class EditTimeActivity extends AppCompatActivity implements TimePickerDia
         timeImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                DialogFragment timePicker = new TimePickerFragment();
+//                DialogFragment timePicker = new TimePickerFragment();
+                DialogFragment timePicker = new DialogFragment();
+
                 timePicker.show(getSupportFragmentManager(), "time picker");
                 b = 1;
             }

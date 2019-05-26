@@ -1,25 +1,31 @@
 package com.example.medicinealertapplication.AllMedicine;
 
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Build;
 import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.example.medicinealertapplication.DatabaseHelper;
 import com.example.medicinealertapplication.R;
+import com.example.medicinealertapplication.User.LoginActivity;
 import com.example.medicinealertapplication.YourMedicine.MedList;
 import com.example.medicinealertapplication.YourMedicine.MedListDAO;
 import com.example.medicinealertapplication.YourMedicine.YourMedicineActivity;
 
 import java.time.LocalTime;
+import java.util.ArrayList;
 import java.util.Date;
 
 public class ViewAllMedActivity extends AppCompatActivity {
-
     String userID;
     String userName;
     String userPass;
@@ -31,6 +37,11 @@ public class ViewAllMedActivity extends AppCompatActivity {
     String howtoMed;
     String timeMed;
     String positionIma;
+    ArrayList<String> allMed ;
+    private SQLiteDatabase database;
+    int count = 0;
+
+
 
     Button getAlertButton;
     Button noAlertButton;
@@ -55,6 +66,7 @@ public class ViewAllMedActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_all_med);
+
         nameMedi = (TextView)findViewById(R.id.nameMed);
         infoMedi = (TextView)findViewById(R.id.infoMed);
         useMedi = (TextView)findViewById(R.id.useMed);
@@ -75,7 +87,7 @@ public class ViewAllMedActivity extends AppCompatActivity {
         infoMed = intent.getStringExtra("infoMed");
         howtoMed = intent.getStringExtra("howtoMed");
         timeMed = intent.getStringExtra("timeMed");
-        positionIma = intent.getStringExtra("positionIma");
+        positionIma  = intent.getStringExtra("positionIma");
 
 
         nameMedi.setText(nameMed);
@@ -83,33 +95,41 @@ public class ViewAllMedActivity extends AppCompatActivity {
         useMedi.setText(howtoMed);
         imageMed.setImageResource(imgid[Integer.parseInt(positionIma)]);
         getTime();
+        allMed = new ArrayList<>();
+        allMed.add("1");
 
 
 
         getAlertButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), YourMedicineActivity.class);
-                MedList medList = new MedList();
-                medList.setMedNameText(String.valueOf(nameMedi.getText()));
-                medList.setMedInfoText(String.valueOf(infoMedi.getText()));
-                medList.setIdUser(Integer.parseInt(userID));
 
-                intent.putExtra("idUser",userID);
-                intent.putExtra("nameUser",userName);
-                intent.putExtra("passUser",userPass);
-                intent.putExtra("mornUser",userMorning);
-                intent.putExtra("afterUser",userAfter);
-                intent.putExtra("evenUser",userEven);
+//                if (YourMedicineActivity.myList.contains(nameMedi.getText())){
+//                    Toast.makeText(ViewAllMedActivity.this,"เพิ่มไม่ได้",Toast.LENGTH_SHORT).show();
+//
+//                }else{
+                    Intent intent = new Intent(getApplicationContext(), YourMedicineActivity.class);
+                    MedList medList = new MedList();
+                    medList.setMedNameText(String.valueOf(nameMedi.getText()));
+                    medList.setMedInfoText(String.valueOf(infoMedi.getText()));
+                    medList.setIdUser(Integer.parseInt(userID));
 
-                MedListDAO medListDAO = new MedListDAO(getApplicationContext());
-                medListDAO.open();
-                medListDAO.add(medList);
-                medListDAO.close();
-                finish();
-                startActivity(intent);
+                    intent.putExtra("idUser",userID);
+                    intent.putExtra("nameUser",userName);
+                    intent.putExtra("passUser",userPass);
+                    intent.putExtra("mornUser",userMorning);
+                    intent.putExtra("afterUser",userAfter);
+                    intent.putExtra("evenUser",userEven);
 
-            }
+                    MedListDAO medListDAO = new MedListDAO(getApplicationContext());
+                    medListDAO.open();
+                    medListDAO.add(medList);
+                    medListDAO.close();
+                    finish();
+                    startActivity(intent);
+                }
+
+
         });
 
         noAlertButton.setOnClickListener(new View.OnClickListener() {
@@ -280,4 +300,18 @@ public class ViewAllMedActivity extends AppCompatActivity {
                     "และครั้งถัดไป "+hr3+" นาฬิกา "+minute3+" นาที");
         }
     }
+
+//    public void check(){
+//        Cursor cursor = database.rawQuery("SELECT * FROM you_med where userIDMed =? "
+//                ,new String[] {LoginActivity.loginID});
+//        cursor.moveToFirst();
+//        while (!cursor.isAfterLast()) {
+//            if (cursor.)
+//            count +=1;
+//            cursor.moveToNext();
+//        }
+//        cursor.close();
+//    }
+
+
 }

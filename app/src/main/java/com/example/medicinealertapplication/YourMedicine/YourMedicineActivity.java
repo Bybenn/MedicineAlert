@@ -33,6 +33,7 @@ public class YourMedicineActivity extends AppCompatActivity {
     String userEven;
     Button addMed;
     BottomNavigationView navigationView ;
+    public static ArrayList<MedList> myList;
 
 
 
@@ -54,7 +55,7 @@ public class YourMedicineActivity extends AppCompatActivity {
 
         MedListDAO medListDAO = new MedListDAO(getApplicationContext());
         medListDAO.open();
-        ArrayList<MedList> myList = medListDAO.getAllMedList();
+        myList = medListDAO.getAllMedList();
         final MyMedicine adapter = new MyMedicine(this,myList);
         medListview.setAdapter(adapter);
         medListDAO.close();

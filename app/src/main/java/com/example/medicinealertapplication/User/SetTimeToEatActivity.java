@@ -27,9 +27,9 @@ import java.util.Calendar;
 public class SetTimeToEatActivity extends AppCompatActivity implements TimePickerDialog.OnTimeSetListener{
     DatabaseHelper db;
     int a ;
-    String timeText = "";
-    String timeText2 = "";
-    String timeText3 = "";
+    String timeText ;
+    String timeText2 ;
+    String timeText3 ;
     ImageView mTextMorning;
     ImageView mTextAfternoon;
     ImageView mTextEvening;
@@ -65,10 +65,18 @@ public class SetTimeToEatActivity extends AppCompatActivity implements TimePicke
         userID = intent.getStringExtra("idUser");
         userName = intent.getStringExtra("nameUser");
         userPass = intent.getStringExtra("passUser");
-//        userMorning = intent.getStringExtra("mornUser");
-//        userAfter = intent.getStringExtra("afterUser");
-//        userEven = intent.getStringExtra("evenUser");
+        userMorning = intent.getStringExtra("mornUser");
+        userAfter = intent.getStringExtra("afterUser");
+        userEven = intent.getStringExtra("evenUser");
 
+        timeText = userMorning;
+        timeText2 = userAfter;
+        timeText3 = userEven;
+
+
+        textViewMorn.setText(userMorning);
+        textViewAfter.setText(userAfter);
+        textViewEven.setText(userEven);
 
         mTextMorning.setOnClickListener(new View.OnClickListener() {
             //            Calendar calendar = Calendar.getInstance();
