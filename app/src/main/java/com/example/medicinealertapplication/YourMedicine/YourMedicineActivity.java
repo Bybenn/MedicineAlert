@@ -154,4 +154,16 @@ public class YourMedicineActivity extends AppCompatActivity {
         medListDAO.close();
     }
 
+    public void getAddMed(View view){
+        Intent intent = new Intent(getApplicationContext(), AddMedicineActivity.class);
+        intent.putExtra("idUser",userID);
+        intent.putExtra("nameUser",userName);
+        intent.putExtra("passUser",userPass);
+        intent.putExtra("mornUser",userMorning);
+        intent.putExtra("afterUser",userAfter);
+        intent.putExtra("evenUser",userEven);
+        startActivity(intent);
+
+    }
+
 }

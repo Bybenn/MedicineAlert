@@ -141,6 +141,8 @@ public class AllMedActivity extends AppCompatActivity {
 
 
                 Toast.makeText(AllMedActivity.this,""+nameMed,Toast.LENGTH_SHORT).show();
+//                Toast.makeText(AllMedActivity.this,""+userID,Toast.LENGTH_SHORT).show();
+
                 Intent iintent = new Intent(getApplicationContext(),ViewAllMedActivity.class);
 
                 iintent.putExtra("idUser",userID);
