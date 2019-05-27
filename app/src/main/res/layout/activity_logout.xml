@@ -7,23 +7,9 @@
     android:background="@mipmap/doctor"
     tools:context=".User.LogoutActivity">
 
-    <android.support.design.widget.BottomNavigationView
-        android:id="@+id/bottom_nav"
-        android:layout_width="343dp"
-        android:layout_height="53dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginTop="464dp"
-        app:itemBackground="@color/colorPrimaryDark"
-        app:itemIconTint="#ACB3B9"
-        app:itemTextColor="#C4EEE58F"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:menu="@menu/bottom_nav_menu" />
-
     <FrameLayout
-        android:layout_width="323dp"
-        android:layout_height="446dp"
+        android:layout_width="305dp"
+        android:layout_height="447dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:background="#EDFFFFFF"
@@ -31,66 +17,62 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <android.support.constraint.ConstraintLayout
-            android:layout_width="match_parent"
+            android:layout_width="304dp"
             android:layout_height="match_parent">
 
             <TextView
                 android:id="@+id/time3"
-                android:layout_width="246dp"
+                android:layout_width="match_parent"
                 android:layout_height="36dp"
-                android:layout_marginStart="30dp"
                 android:layout_marginTop="8dp"
                 android:background="#77FFFFFF"
                 android:text="มื้อเย็น"
                 android:textAlignment="center"
                 android:textSize="18sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/time2" />
+                app:layout_constraintTop_toBottomOf="@+id/time2"
+                tools:layout_editor_absoluteX="30dp" />
 
             <Button
                 android:id="@+id/logoutbtn"
-                android:layout_width="286dp"
+                android:layout_width="match_parent"
                 android:layout_height="39dp"
-                android:layout_marginStart="10dp"
                 android:layout_marginTop="15dp"
                 android:background="@color/colorPrimary"
                 android:text="ออกจากระบบ"
                 android:textColor="#FFFFFF"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/time3" />
+                app:layout_constraintTop_toBottomOf="@+id/time3"
+                tools:layout_editor_absoluteX="10dp" />
 
             <TextView
                 android:id="@+id/userName"
-                android:layout_width="262dp"
+                android:layout_width="match_parent"
                 android:layout_height="43dp"
-                android:layout_marginStart="28dp"
                 android:layout_marginTop="20dp"
                 android:text="ชื่อผู้ใช้"
                 android:textAlignment="center"
                 android:textColor="@color/colorPrimaryDark"
                 android:textSize="24sp"
                 android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imageView13" />
+                app:layout_constraintTop_toBottomOf="@+id/imageView13"
+                tools:layout_editor_absoluteX="28dp" />
 
             <TextView
                 android:id="@+id/time1"
-                android:layout_width="246dp"
+                android:layout_width="match_parent"
                 android:layout_height="36dp"
-                android:layout_marginStart="30dp"
                 android:layout_marginTop="8dp"
                 android:background="#77FFFFFF"
                 android:text="มื้อเช้า"
                 android:textAlignment="center"
                 android:textSize="18sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView17" />
+                app:layout_constraintTop_toBottomOf="@+id/textView17"
+                tools:layout_editor_absoluteX="30dp" />
 
             <TextView
                 android:id="@+id/textView17"
                 android:layout_width="228dp"
                 android:layout_height="41dp"
-                android:layout_marginStart="12dp"
+                android:layout_marginStart="9dp"
                 android:text="เวลาการทานอาหารในแต่ละมื้อ"
                 android:textAlignment="center"
                 android:textColor="@color/colorPrimary"
@@ -112,29 +94,45 @@
 
             <TextView
                 android:id="@+id/time2"
-                android:layout_width="246dp"
+                android:layout_width="match_parent"
                 android:layout_height="36dp"
-                android:layout_marginStart="30dp"
                 android:layout_marginTop="8dp"
                 android:background="#77FFFFFF"
                 android:text="มื้อกลางวัน"
                 android:textAlignment="center"
                 android:textSize="18sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/time1" />
+                app:layout_constraintTop_toBottomOf="@+id/time1"
+                tools:layout_editor_absoluteX="30dp" />
 
             <ImageView
                 android:id="@+id/imageView13"
-                android:layout_width="146dp"
+                android:layout_width="match_parent"
                 android:layout_height="128dp"
-                android:layout_marginStart="88dp"
+                android:layout_marginStart="84dp"
                 android:layout_marginTop="16dp"
+                android:layout_marginEnd="74dp"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/ic_android_user" />
+                app:srcCompat="@mipmap/personeicon" />
 
         </android.support.constraint.ConstraintLayout>
 
     </FrameLayout>
+
+    <android.support.design.widget.BottomNavigationView
+        android:id="@+id/bottom_nav"
+        android:layout_width="322dp"
+        android:layout_height="55dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="464dp"
+        app:itemBackground="@color/colorPrimaryDark"
+        app:itemIconTint="#ACB3B9"
+        app:itemTextColor="#C4EEE58F"
+        app:labelVisibilityMode="labeled"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:menu="@menu/bottom_nav_menu" />
 
 </android.support.constraint.ConstraintLayout>

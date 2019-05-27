@@ -17,6 +17,8 @@ public class EditMedicineActivity extends AppCompatActivity {
     TextView infoMedView;
     Button getAlertbutton;
     Button deleteButton;
+    String timeEat;
+    String infoMed;
     String userID;
     String userName;
     String userPass;
@@ -37,6 +39,8 @@ public class EditMedicineActivity extends AppCompatActivity {
         userAfter = intent.getStringExtra("afterUser");
         userEven = intent.getStringExtra("evenUser");
         final MedList editMedList = (MedList) getIntent().getSerializableExtra("editMedList");
+        timeEat = editMedList.getTimeMed();
+        infoMed = editMedList.getMedInfoText();
 
         medNameView = (TextView) findViewById(R.id.medNameView);
         infoMedView = (TextView) findViewById(R.id.infoMedView);
@@ -49,17 +53,21 @@ public class EditMedicineActivity extends AppCompatActivity {
         getAlertbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(),userID,
-                        Toast.LENGTH_SHORT).show();
                 String name = String.valueOf(medNameView.getText());
+
+                Toast.makeText(getApplicationContext(),name,
+                        Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(getApplicationContext(), SetAlarmActivity.class);
                 intent.putExtra("nameMed",name);
+                intent.putExtra("timeEat",timeEat);
+                intent.putExtra("infoMed",infoMed);
                 intent.putExtra("idUser",userID);
                 intent.putExtra("nameUser",userName);
                 intent.putExtra("passUser",userPass);
                 intent.putExtra("mornUser",userMorning);
                 intent.putExtra("afterUser",userAfter);
                 intent.putExtra("evenUser",userEven);
+
                 startActivity(intent);
             }
         });

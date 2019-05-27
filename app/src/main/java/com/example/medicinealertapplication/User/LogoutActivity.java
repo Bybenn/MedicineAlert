@@ -17,6 +17,7 @@ import com.example.medicinealertapplication.AllMedicine.AllMedActivity;
 import com.example.medicinealertapplication.HomeActivity;
 import com.example.medicinealertapplication.KnowledgeActivity;
 import com.example.medicinealertapplication.R;
+import com.example.medicinealertapplication.YourMedicine.YourMedicineActivity;
 
 public class LogoutActivity extends AppCompatActivity {
     Button logoutbtn;
@@ -82,48 +83,64 @@ public class LogoutActivity extends AppCompatActivity {
 
         navigationView = findViewById(R.id.bottom_nav);
 
-        navigationView.setOnNavigationItemReselectedListener(new BottomNavigationView.OnNavigationItemReselectedListener() {
+        navigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
-            public void onNavigationItemReselected(@NonNull MenuItem menuItem) {
+            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 int id = menuItem.getItemId();
                 if (id == R.id.home){
                     Intent HomePage = new Intent(LogoutActivity.this, HomeActivity.class);
-                    HomePage.putExtra("idUser",userID);
-                    HomePage.putExtra("nameUser",userName);
-                    HomePage.putExtra("passUser",userPass);
-                    HomePage.putExtra("mornUser",userMorning);
-                    HomePage.putExtra("afterUser",userAfter);
-                    HomePage.putExtra("evenUser",userEven);
+                    HomePage.putExtra("idUser", userID);
+                    HomePage.putExtra("nameUser", userName);
+                    HomePage.putExtra("passUser", userPass);
+                    HomePage.putExtra("mornUser", userMorning);
+                    HomePage.putExtra("afterUser", userAfter);
+                    HomePage.putExtra("evenUser", userEven);
                     startActivity(HomePage);
-                }else if (id == R.id.know) {
-                    Intent HomePage = new Intent(LogoutActivity.this, KnowledgeActivity.class);
-                    HomePage.putExtra("idUser",userID);
-                    HomePage.putExtra("nameUser",userName);
-                    HomePage.putExtra("passUser",userPass);
-                    HomePage.putExtra("mornUser",userMorning);
-                    HomePage.putExtra("afterUser",userAfter);
-                    HomePage.putExtra("evenUser",userEven);
-                    startActivity(HomePage);
+                    return true;
+                }else if (id == R.id.warehouse) {
+                    Intent HomePage2 = new Intent(LogoutActivity.this, AllMedActivity.class);
+                    HomePage2.putExtra("idUser", userID);
+                    HomePage2.putExtra("nameUser", userName);
+                    HomePage2.putExtra("passUser", userPass);
+                    HomePage2.putExtra("mornUser", userMorning);
+                    HomePage2.putExtra("afterUser", userAfter);
+                    HomePage2.putExtra("evenUser", userEven);
+                    startActivity(HomePage2);
+                    return true;
+                }else if (id == R.id.ymedicine) {
+                    Intent HomePage2 = new Intent(LogoutActivity.this, YourMedicineActivity.class);
+                    HomePage2.putExtra("idUser", userID);
+                    HomePage2.putExtra("nameUser", userName);
+                    HomePage2.putExtra("passUser", userPass);
+                    HomePage2.putExtra("mornUser", userMorning);
+                    HomePage2.putExtra("afterUser", userAfter);
+                    HomePage2.putExtra("evenUser", userEven);
+                    startActivity(HomePage2);
+                    return true;
                 }else if (id == R.id.timer) {
-                    Intent HomePage = new Intent(LogoutActivity.this, TimeMedActivity.class);
-                    HomePage.putExtra("idUser",userID);
-                    HomePage.putExtra("nameUser",userName);
-                    HomePage.putExtra("passUser",userPass);
-                    HomePage.putExtra("mornUser",userMorning);
-                    HomePage.putExtra("afterUser",userAfter);
-                    HomePage.putExtra("evenUser",userEven);
-                    startActivity(HomePage);
-                }else if (id == R.id.account){
-                    Intent HomePage = new Intent(LogoutActivity.this, LogoutActivity.class);
-                    HomePage.putExtra("idUser",userID);
-                    HomePage.putExtra("nameUser",userName);
-                    HomePage.putExtra("passUser",userPass);
-                    HomePage.putExtra("mornUser",userMorning);
-                    HomePage.putExtra("afterUser",userAfter);
-                    HomePage.putExtra("evenUser",userEven);
-                    startActivity(HomePage);
+                    Intent HomePage3 = new Intent(LogoutActivity.this, TimeMedActivity.class);
+                    HomePage3.putExtra("idUser", userID);
+                    HomePage3.putExtra("nameUser", userName);
+                    HomePage3.putExtra("passUser", userPass);
+                    HomePage3.putExtra("mornUser", userMorning);
+                    HomePage3.putExtra("afterUser", userAfter);
+                    HomePage3.putExtra("evenUser", userEven);
+                    startActivity(HomePage3);
+                    return true;
+                }else if (id == R.id.account) {
+                    Intent HomePage4 = new Intent(LogoutActivity.this, LogoutActivity.class);
+                    HomePage4.putExtra("idUser", userID);
+                    HomePage4.putExtra("nameUser", userName);
+                    HomePage4.putExtra("passUser", userPass);
+                    HomePage4.putExtra("mornUser", userMorning);
+                    HomePage4.putExtra("afterUser", userAfter);
+                    HomePage4.putExtra("evenUser", userEven);
+                    startActivity(HomePage4);
+                    return true;
                 }
+                return false;
             }
         });
+
     }
 }

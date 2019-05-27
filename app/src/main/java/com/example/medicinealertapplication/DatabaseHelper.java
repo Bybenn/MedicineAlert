@@ -29,12 +29,15 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             "idYOUMED INTEGER PRIMARY KEY AUTOINCREMENT, "+
             "med_name TEXT," +
             "med_info TEXT," +
+            "med_time TEXT," +
             "userIDMed INTEGER"+");";
 
     private static final String tableTimerMED = "CREATE TABLE timer_med (" +
             "idTIMERMED INTEGER PRIMARY KEY AUTOINCREMENT, " +
             "timemed_name TEXT," +
             "timenote_med TEXT," +
+            "timeinfo_med TEXT," +
+            "timeeat_med TEXT," +
             "time TEXT," +
             "userIDTime INTEGER"+");";
 
@@ -47,18 +50,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         sqLiteDatabase.execSQL(tableAllUSER);
-//        String a = "INSERT INTO users (username,password,morning,afternoon,evening) VALUES "+
-//                "('ALICE','a','a','a','a');";
-//        String b = "INSERT INTO users (username,password,morning,afternoon,evening) VALUES "+
-//                "('BYBENN','a','a','a','a');";
-//        String c = "INSERT INTO users (username,password,morning,afternoon,evening) VALUES "+
-//                "('CATHY','a','a','a','a');";
-//
-//        sqLiteDatabase.execSQL(a);
-//        sqLiteDatabase.execSQL(b);
-//        sqLiteDatabase.execSQL(c);
-
-
         sqLiteDatabase.execSQL(tableAllMED);
         String Data1 = "INSERT INTO allmed_list (name_med,info_med,howto_med,time_med) VALUES " +
                 "('Smecta','แก้ท้องเสีย เป็นสารดูดซับทางลำไส้ สามารถเคลือบเยื่อบุเมือกของทางเดินอาหารได้'" +

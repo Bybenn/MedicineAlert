@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+import com.example.medicinealertapplication.User.LoginActivity;
 import com.example.medicinealertapplication.User.RegisterActivity;
 
 public class MainActivity extends AppCompatActivity {

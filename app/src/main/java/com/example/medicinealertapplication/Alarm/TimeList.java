@@ -7,6 +7,8 @@ public class TimeList implements Serializable {
     private String nameMed;
     private String note;
     private String time;
+    private String info;
+    private String timeeat;
     private int userID;
 
     public int getId() {
@@ -39,6 +41,22 @@ public class TimeList implements Serializable {
 
     public void setTime(String time) {
         this.time = time;
+    }
+
+    public String getInfo() {
+        return info;
+    }
+
+    public void setInfo(String info) {
+        this.info = info;
+    }
+
+    public String getTimeeat() {
+        return timeeat;
+    }
+
+    public void setTimeeat(String timeeat) {
+        this.timeeat = timeeat;
     }
 
     public int getUserID() {

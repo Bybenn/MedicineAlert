@@ -6,6 +6,7 @@ public class MedList implements Serializable {
     private int idMed;
     private String medNameText;
     private String medInfoText;
+    private String timeMed;
     private int idUser;
 
     public int getIdMed() {
@@ -30,6 +31,15 @@ public class MedList implements Serializable {
 
     public void setMedInfoText(String medInfoText) {
         this.medInfoText = medInfoText;
+    }
+
+
+    public String getTimeMed() {
+        return timeMed;
+    }
+
+    public void setTimeMed(String timeMed) {
+        this.timeMed = timeMed;
     }
 
     public int getIdUser() {

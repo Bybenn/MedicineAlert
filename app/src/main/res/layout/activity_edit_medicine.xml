@@ -5,7 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@mipmap/blurr"
-
     tools:context=".YourMedicine.EditMedicineActivity">
 
 
@@ -34,8 +33,8 @@
 
                     <TextView
                         android:id="@+id/infoMedView"
-                        android:layout_width="290dp"
-                        android:layout_height="197dp"
+                        android:layout_width="286dp"
+                        android:layout_height="171dp"
                         android:layout_marginStart="12dp"
                         android:layout_marginTop="180dp"
                         android:textAlignment="viewStart"

@@ -9,11 +9,14 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
+import com.example.medicinealertapplication.AllMedicine.AllMedActivity;
 import com.example.medicinealertapplication.HomeActivity;
 import com.example.medicinealertapplication.KnowledgeActivity;
 import com.example.medicinealertapplication.R;
 import com.example.medicinealertapplication.User.LogoutActivity;
+import com.example.medicinealertapplication.YourMedicine.YourMedicineActivity;
 import java.util.ArrayList;
 
 public class TimeMedActivity extends AppCompatActivity {
@@ -53,10 +56,8 @@ public class TimeMedActivity extends AppCompatActivity {
 
         timeListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-//            คืนค่าเป็นไอดีเพื่อเอาไปแก้ไข
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//                Toast.makeText(getApplicationContext(),String.valueOf(adapter.getItemId(position)),
-//                        Toast.LENGTH_SHORT).show();
+
                 Intent editIntent = new Intent(getApplicationContext(),EditTimeActivity.class);
                 editIntent.putExtra("editTimeList",adapter.getItem(position));
                 editIntent.putExtra("idUser",userID);
@@ -70,48 +71,62 @@ public class TimeMedActivity extends AppCompatActivity {
         });
 
         navigationView = findViewById(R.id.bottom_nav);
-
-        navigationView.setOnNavigationItemReselectedListener(new BottomNavigationView.OnNavigationItemReselectedListener() {
+        navigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
-            public void onNavigationItemReselected(@NonNull MenuItem menuItem) {
+            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 int id = menuItem.getItemId();
                 if (id == R.id.home){
                     Intent HomePage = new Intent(TimeMedActivity.this, HomeActivity.class);
-                    HomePage.putExtra("idUser",userID);
-                    HomePage.putExtra("nameUser",userName);
-                    HomePage.putExtra("passUser",userPass);
-                    HomePage.putExtra("mornUser",userMorning);
-                    HomePage.putExtra("afterUser",userAfter);
-                    HomePage.putExtra("evenUser",userEven);
+                    HomePage.putExtra("idUser", userID);
+                    HomePage.putExtra("nameUser", userName);
+                    HomePage.putExtra("passUser", userPass);
+                    HomePage.putExtra("mornUser", userMorning);
+                    HomePage.putExtra("afterUser", userAfter);
+                    HomePage.putExtra("evenUser", userEven);
                     startActivity(HomePage);
-                }else if (id == R.id.know) {
-                    Intent HomePage = new Intent(TimeMedActivity.this, KnowledgeActivity.class);
-                    HomePage.putExtra("idUser",userID);
-                    HomePage.putExtra("nameUser",userName);
-                    HomePage.putExtra("passUser",userPass);
-                    HomePage.putExtra("mornUser",userMorning);
-                    HomePage.putExtra("afterUser",userAfter);
-                    HomePage.putExtra("evenUser",userEven);
-                    startActivity(HomePage);
+                    return true;
+                }else if (id == R.id.warehouse) {
+                    Intent allmedIntent = new Intent(TimeMedActivity.this, AllMedActivity.class);
+                    allmedIntent.putExtra("idUser", userID);
+                    allmedIntent.putExtra("nameUser", userName);
+                    allmedIntent.putExtra("passUser", userPass);
+                    allmedIntent.putExtra("mornUser", userMorning);
+                    allmedIntent.putExtra("afterUser", userAfter);
+                    allmedIntent.putExtra("evenUser", userEven);
+                    startActivity(allmedIntent);
+                    return true;
+                }else if (id == R.id.ymedicine) {
+                    Intent ymedicineIntent = new Intent(TimeMedActivity.this, YourMedicineActivity.class);
+                    ymedicineIntent.putExtra("idUser", userID);
+                    ymedicineIntent.putExtra("nameUser", userName);
+                    ymedicineIntent.putExtra("passUser", userPass);
+                    ymedicineIntent.putExtra("mornUser", userMorning);
+                    ymedicineIntent.putExtra("afterUser", userAfter);
+                    ymedicineIntent.putExtra("evenUser", userEven);
+                    startActivity(ymedicineIntent);
+                    return true;
                 }else if (id == R.id.timer) {
-                    Intent HomePage = new Intent(TimeMedActivity.this, TimeMedActivity.class);
-                    HomePage.putExtra("idUser",userID);
-                    HomePage.putExtra("nameUser",userName);
-                    HomePage.putExtra("passUser",userPass);
-                    HomePage.putExtra("mornUser",userMorning);
-                    HomePage.putExtra("afterUser",userAfter);
-                    HomePage.putExtra("evenUser",userEven);
-                    startActivity(HomePage);
-                }else if (id == R.id.account){
-                    Intent HomePage = new Intent(TimeMedActivity.this, LogoutActivity.class);
-                    HomePage.putExtra("idUser",userID);
-                    HomePage.putExtra("nameUser",userName);
-                    HomePage.putExtra("passUser",userPass);
-                    HomePage.putExtra("mornUser",userMorning);
-                    HomePage.putExtra("afterUser",userAfter);
-                    HomePage.putExtra("evenUser",userEven);
-                    startActivity(HomePage);
+                    Intent timemedIntent = new Intent(TimeMedActivity.this, TimeMedActivity.class);
+                    timemedIntent.putExtra("idUser", userID);
+                    timemedIntent.putExtra("nameUser", userName);
+                    timemedIntent.putExtra("passUser", userPass);
+                    timemedIntent.putExtra("mornUser", userMorning);
+                    timemedIntent.putExtra("afterUser", userAfter);
+                    timemedIntent.putExtra("evenUser", userEven);
+                    startActivity(timemedIntent);
+                    return true;
+                }else if (id == R.id.account) {
+                    Intent logoutIntent = new Intent(TimeMedActivity.this, LogoutActivity.class);
+                    logoutIntent.putExtra("idUser", userID);
+                    logoutIntent.putExtra("nameUser", userName);
+                    logoutIntent.putExtra("passUser", userPass);
+                    logoutIntent.putExtra("mornUser", userMorning);
+                    logoutIntent.putExtra("afterUser", userAfter);
+                    logoutIntent.putExtra("evenUser", userEven);
+                    startActivity(logoutIntent);
+                    return true;
                 }
+                return false;
             }
         });
 

@@ -42,8 +42,8 @@
 
             <FrameLayout
                 android:id="@+id/frameLayout5"
-                android:layout_width="304dp"
-                android:layout_height="599dp"
+                android:layout_width="293dp"
+                android:layout_height="520dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:background="#EBFFFFFF"
@@ -56,54 +56,31 @@
 
                     <TextView
                         android:id="@+id/nameMed"
-                        android:layout_width="177dp"
+                        android:layout_width="match_parent"
                         android:layout_height="32dp"
                         android:textAlignment="center"
                         android:textColor="@color/colorPrimaryDark"
                         android:textSize="24sp"
                         android:textStyle="bold"
-                        app:layout_constraintStart_toEndOf="@+id/imageMed"
-                        app:layout_constraintTop_toBottomOf="@+id/ii"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
                         tools:text="ชื่อยา" />
 
                     <ImageView
                         android:id="@+id/imageMed"
-                        android:layout_width="120dp"
+                        android:layout_width="0dp"
                         android:layout_height="124dp"
-                        android:layout_marginStart="4dp"
-                        android:layout_marginTop="28dp"
+                        android:layout_marginStart="50dp"
+                        android:layout_marginEnd="50dp"
+                        app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/nameMed"
                         tools:srcCompat="@tools:sample/avatars[0]" />
-
-                    <TextView
-                        android:id="@+id/textView21"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="4dp"
-                        android:text="เวลาที่แนะนำสำหรับคุณ"
-                        android:textColor="#86110B"
-                        android:textSize="18sp"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/useMed" />
-
-                    <TextView
-                        android:id="@+id/ii"
-                        android:layout_width="177dp"
-                        android:layout_height="37dp"
-                        android:layout_marginTop="64dp"
-                        android:text="ข้อมูลยา"
-                        android:textAlignment="center"
-                        android:textColor="@color/colorPrimary"
-                        android:textSize="24sp"
-                        android:textStyle="bold"
-                        app:layout_constraintStart_toEndOf="@+id/imageMed"
-                        app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
                         android:id="@+id/infoMed"
                         android:layout_width="262dp"
-                        android:layout_height="122dp"
+                        android:layout_height="132dp"
                         android:layout_marginStart="16dp"
                         android:layout_marginTop="196dp"
                         android:textAlignment="viewStart"
@@ -111,16 +88,6 @@
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
                         tools:text="info med" />
-
-                    <TextView
-                        android:id="@+id/suggestTime"
-                        android:layout_width="263dp"
-                        android:layout_height="70dp"
-                        android:layout_marginStart="16dp"
-                        android:layout_marginTop="512dp"
-                        android:textAlignment="viewStart"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
                         android:id="@+id/textView5"
@@ -136,9 +103,9 @@
                     <TextView
                         android:id="@+id/useMed"
                         android:layout_width="262dp"
-                        android:layout_height="145dp"
+                        android:layout_height="164dp"
                         android:layout_marginStart="16dp"
-                        android:layout_marginTop="340dp"
+                        android:layout_marginTop="352dp"
                         android:textAlignment="viewStart"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"

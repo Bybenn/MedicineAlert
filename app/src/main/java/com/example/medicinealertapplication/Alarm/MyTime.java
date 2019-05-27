@@ -48,8 +48,6 @@ public class MyTime extends BaseAdapter {
 
         TextView textView2 = (TextView) v.findViewById(R.id.i);
 
-
-
         TimeList todoList = myTimeList.get(position);
         textView.setText(todoList.getNameMed());
 

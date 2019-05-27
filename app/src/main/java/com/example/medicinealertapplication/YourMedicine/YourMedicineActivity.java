@@ -64,8 +64,10 @@ public class YourMedicineActivity extends AppCompatActivity {
             @Override
 //            คืนค่าเป็นไอดีเพื่อเอาไปแก้ไข
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(getApplicationContext(),userID,
-                        Toast.LENGTH_SHORT).show();
+//
+//                String nameMed = medListview.getItemAtPosition(position).toString();
+//                Toast.makeText(getApplicationContext(),""+nameMed,
+//                        Toast.LENGTH_SHORT).show();
                 Intent editIntent = new Intent(getApplicationContext(),EditMedicineActivity.class);
                 editIntent.putExtra("editMedList",adapter.getItem(position));
                 editIntent.putExtra("idUser",userID);
@@ -81,49 +83,65 @@ public class YourMedicineActivity extends AppCompatActivity {
 
         navigationView = findViewById(R.id.bottom_nav);
 
-        navigationView.setOnNavigationItemReselectedListener(new BottomNavigationView.OnNavigationItemReselectedListener() {
+        navigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
-            public void onNavigationItemReselected(@NonNull MenuItem menuItem) {
+            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 int id = menuItem.getItemId();
                 if (id == R.id.home){
                     Intent HomePage = new Intent(YourMedicineActivity.this, HomeActivity.class);
-                    HomePage.putExtra("idUser",userID);
-                    HomePage.putExtra("nameUser",userName);
-                    HomePage.putExtra("passUser",userPass);
-                    HomePage.putExtra("mornUser",userMorning);
-                    HomePage.putExtra("afterUser",userAfter);
-                    HomePage.putExtra("evenUser",userEven);
+                    HomePage.putExtra("idUser", userID);
+                    HomePage.putExtra("nameUser", userName);
+                    HomePage.putExtra("passUser", userPass);
+                    HomePage.putExtra("mornUser", userMorning);
+                    HomePage.putExtra("afterUser", userAfter);
+                    HomePage.putExtra("evenUser", userEven);
                     startActivity(HomePage);
-                }else if (id == R.id.know) {
-                    Intent HomePage = new Intent(YourMedicineActivity.this, KnowledgeActivity.class);
-                    HomePage.putExtra("idUser",userID);
-                    HomePage.putExtra("nameUser",userName);
-                    HomePage.putExtra("passUser",userPass);
-                    HomePage.putExtra("mornUser",userMorning);
-                    HomePage.putExtra("afterUser",userAfter);
-                    HomePage.putExtra("evenUser",userEven);
-                    startActivity(HomePage);
+                    return true;
+                }else if (id == R.id.warehouse) {
+                    Intent HomePage2 = new Intent(YourMedicineActivity.this, AllMedActivity.class);
+                    HomePage2.putExtra("idUser", userID);
+                    HomePage2.putExtra("nameUser", userName);
+                    HomePage2.putExtra("passUser", userPass);
+                    HomePage2.putExtra("mornUser", userMorning);
+                    HomePage2.putExtra("afterUser", userAfter);
+                    HomePage2.putExtra("evenUser", userEven);
+                    startActivity(HomePage2);
+                    return true;
+                }else if (id == R.id.ymedicine) {
+                    Intent HomePage2 = new Intent(YourMedicineActivity.this, YourMedicineActivity.class);
+                    HomePage2.putExtra("idUser", userID);
+                    HomePage2.putExtra("nameUser", userName);
+                    HomePage2.putExtra("passUser", userPass);
+                    HomePage2.putExtra("mornUser", userMorning);
+                    HomePage2.putExtra("afterUser", userAfter);
+                    HomePage2.putExtra("evenUser", userEven);
+                    startActivity(HomePage2);
+                    return true;
                 }else if (id == R.id.timer) {
-                    Intent HomePage = new Intent(YourMedicineActivity.this, TimeMedActivity.class);
-                    HomePage.putExtra("idUser",userID);
-                    HomePage.putExtra("nameUser",userName);
-                    HomePage.putExtra("passUser",userPass);
-                    HomePage.putExtra("mornUser",userMorning);
-                    HomePage.putExtra("afterUser",userAfter);
-                    HomePage.putExtra("evenUser",userEven);
-                    startActivity(HomePage);
-                }else if (id == R.id.account){
-                    Intent HomePage = new Intent(YourMedicineActivity.this, LogoutActivity.class);
-                    HomePage.putExtra("idUser",userID);
-                    HomePage.putExtra("nameUser",userName);
-                    HomePage.putExtra("passUser",userPass);
-                    HomePage.putExtra("mornUser",userMorning);
-                    HomePage.putExtra("afterUser",userAfter);
-                    HomePage.putExtra("evenUser",userEven);
-                    startActivity(HomePage);
+                    Intent HomePage3 = new Intent(YourMedicineActivity.this, TimeMedActivity.class);
+                    HomePage3.putExtra("idUser", userID);
+                    HomePage3.putExtra("nameUser", userName);
+                    HomePage3.putExtra("passUser", userPass);
+                    HomePage3.putExtra("mornUser", userMorning);
+                    HomePage3.putExtra("afterUser", userAfter);
+                    HomePage3.putExtra("evenUser", userEven);
+                    startActivity(HomePage3);
+                    return true;
+                }else if (id == R.id.account) {
+                    Intent HomePage4 = new Intent(YourMedicineActivity.this, LogoutActivity.class);
+                    HomePage4.putExtra("idUser", userID);
+                    HomePage4.putExtra("nameUser", userName);
+                    HomePage4.putExtra("passUser", userPass);
+                    HomePage4.putExtra("mornUser", userMorning);
+                    HomePage4.putExtra("afterUser", userAfter);
+                    HomePage4.putExtra("evenUser", userEven);
+                    startActivity(HomePage4);
+                    return true;
                 }
+                return false;
             }
         });
+
     }
     public void onResume() {
 
@@ -136,15 +154,4 @@ public class YourMedicineActivity extends AppCompatActivity {
         medListDAO.close();
     }
 
-    public void getAddMed(View view){
-        Intent intent = new Intent(getApplicationContext(), AddMedicineActivity.class);
-        intent.putExtra("idUser",userID);
-        intent.putExtra("nameUser",userName);
-        intent.putExtra("passUser",userPass);
-        intent.putExtra("mornUser",userMorning);
-        intent.putExtra("afterUser",userAfter);
-        intent.putExtra("evenUser",userEven);
-        startActivity(intent);
-
-    }
 }

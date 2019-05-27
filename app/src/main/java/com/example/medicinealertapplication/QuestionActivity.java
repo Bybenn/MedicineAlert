@@ -14,6 +14,7 @@ import com.example.medicinealertapplication.Alarm.TimeMedActivity;
 import com.example.medicinealertapplication.User.LoginActivity;
 import com.example.medicinealertapplication.User.RegisterActivity;
 import com.example.medicinealertapplication.User.SetTimeToEatActivity;
+import com.example.medicinealertapplication.YourMedicine.YourMedicineActivity;
 
 public class QuestionActivity extends AppCompatActivity {
     String userID;
@@ -43,14 +44,14 @@ public class QuestionActivity extends AppCompatActivity {
         getAlert.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent editIntent = new Intent(getApplicationContext(), TimeMedActivity.class);
-                editIntent.putExtra("idUser", LoginActivity.loginID);
-                editIntent.putExtra("nameUser", LoginActivity.user);
-                editIntent.putExtra("passUser",LoginActivity.pass);
-                editIntent.putExtra("mornUser",userMorning);
-                editIntent.putExtra("afterUser",userAfter);
-                editIntent.putExtra("evenUser",userEven);
-                startActivity(editIntent);
+                Intent alertIntent = new Intent(getApplicationContext(), YourMedicineActivity.class);
+                alertIntent.putExtra("idUser", LoginActivity.loginID);
+                alertIntent.putExtra("nameUser", LoginActivity.user);
+                alertIntent.putExtra("passUser",LoginActivity.pass);
+                alertIntent.putExtra("mornUser",userMorning);
+                alertIntent.putExtra("afterUser",userAfter);
+                alertIntent.putExtra("evenUser",userEven);
+                startActivity(alertIntent);
 
             }
         });
@@ -58,14 +59,14 @@ public class QuestionActivity extends AppCompatActivity {
         noAlert.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent editIntent = new Intent(getApplicationContext(), HomeActivity.class);
-                editIntent.putExtra("idUser",LoginActivity.loginID);
-                editIntent.putExtra("nameUser",LoginActivity.user);
-                editIntent.putExtra("passUser",LoginActivity.pass);
-                editIntent.putExtra("mornUser",userMorning);
-                editIntent.putExtra("afterUser",userAfter);
-                editIntent.putExtra("evenUser",userEven);
-                startActivity(editIntent);
+                Intent noalertIntent = new Intent(getApplicationContext(), HomeActivity.class);
+                noalertIntent.putExtra("idUser",LoginActivity.loginID);
+                noalertIntent.putExtra("nameUser",LoginActivity.user);
+                noalertIntent.putExtra("passUser",LoginActivity.pass);
+                noalertIntent.putExtra("mornUser",userMorning);
+                noalertIntent.putExtra("afterUser",userAfter);
+                noalertIntent.putExtra("evenUser",userEven);
+                startActivity(noalertIntent);
             }
         });
         mBuilder.setView(mView);

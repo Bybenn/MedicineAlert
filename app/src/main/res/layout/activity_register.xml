@@ -46,6 +46,8 @@
         android:background="#ffffff"
         android:drawableLeft="@mipmap/password"
         android:hint="  ยืนยันรหัสผ่าน"
+        android:selectAllOnFocus="true"
+        android:singleLine="true"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edittext_password" />
 
@@ -68,6 +70,8 @@
         android:background="#ffffff"
         android:drawableLeft="@mipmap/password"
         android:hint="  รหัสผ่าน"
+        android:selectAllOnFocus="true"
+        android:singleLine="true"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edittext_username" />
 
@@ -94,6 +98,8 @@
         android:drawableLeft="@mipmap/username"
         android:hint="  ชื่อผู้ใช้"
         android:paddingLeft="2dp"
+        android:selectAllOnFocus="true"
+        android:singleLine="true"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView14" />
 

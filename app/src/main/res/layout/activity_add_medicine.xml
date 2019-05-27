@@ -10,19 +10,20 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp">
 
         <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical" >
+            android:orientation="vertical">
 
             <EditText
                 android:id="@+id/addnew_editText"
-                android:layout_width="180dp"
-                android:layout_height="38dp"
+                android:layout_width="168dp"
+                android:layout_height="41dp"
                 android:layout_marginStart="12dp"
-
                 android:background="#51FFFFFF"
                 android:ems="10"
                 android:hint="ชื่อยา"
@@ -30,7 +31,7 @@
                 android:selectAllOnFocus="true"
                 android:singleLine="true"
                 android:textAlignment="center"
-                android:textSize="18sp"
+                android:textSize="16sp"
                 app:layout_constraintStart_toEndOf="@+id/imageUpMed"
                 app:layout_constraintTop_toBottomOf="@+id/nameMed" />
 
@@ -50,9 +51,9 @@
 
             <EditText
                 android:id="@+id/noteText"
-                android:layout_width="280dp"
-                android:layout_height="113dp"
-                android:layout_marginStart="24dp"
+                android:layout_width="286dp"
+                android:layout_height="108dp"
+                android:layout_marginStart="16dp"
                 android:background="#51FFFFFF"
                 android:ems="10"
                 android:hint="ใส่ข้อมูลยาของคุณตรงนี้"
@@ -66,8 +67,8 @@
 
             <TextView
                 android:id="@+id/nameMed"
-                android:layout_width="181dp"
-                android:layout_height="41dp"
+                android:layout_width="168dp"
+                android:layout_height="37dp"
 
                 android:layout_marginStart="12dp"
                 android:layout_marginTop="52dp"
@@ -84,18 +85,18 @@
                 android:layout_width="288dp"
                 android:layout_height="39dp"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="28dp"
+                android:layout_marginTop="21dp"
                 android:background="@color/colorPrimary"
                 android:text="ตกลง"
                 android:textColor="#FFFFFF"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/noteText" />
+                app:layout_constraintTop_toBottomOf="@+id/textView16" />
 
             <ImageView
                 android:id="@+id/imageUpMed"
                 android:layout_width="120dp"
                 android:layout_height="165dp"
-                android:layout_marginStart="16dp"
+                android:layout_marginStart="5dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView"
                 app:srcCompat="@mipmap/healthcare" />
@@ -113,6 +114,39 @@
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textView16"
+                android:layout_width="98dp"
+                android:layout_height="35dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="21dp"
+                android:text="ประเภทยา"
+                android:textColor="@color/design_default_color_primary_dark"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/noteText" />
+
+            <EditText
+                android:id="@+id/addType"
+                android:layout_width="186dp"
+
+                android:layout_height="35dp"
+                android:layout_marginStart="2dp"
+                android:layout_marginTop="21dp"
+                android:background="#51FFFFFF"
+                android:ems="10"
+                android:hint="คลิก"
+                android:inputType="textPersonName"
+                android:selectAllOnFocus="true"
+                android:singleLine="true"
+                android:textAlignment="center"
+                android:textSize="18sp"
+                android:visibility="visible"
+                app:layout_constraintStart_toEndOf="@+id/textView16"
+                app:layout_constraintTop_toBottomOf="@+id/noteText" />
+
 
         </android.support.constraint.ConstraintLayout>
     </ScrollView>

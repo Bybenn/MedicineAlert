@@ -18,7 +18,7 @@ public class MedListDAO {
 
     /*
     ถ้าต้องการเรียกใช้ ID user ที่ล็อคอินอยู่ให้ เรียกดังนี้ LoginACitivity.loginID; จะได้ค่า ID ที่ต้องการออกมา
-    และให้ทำการแก้ Edit Del methid ไม่ให้สามารถลบยาของคนอื่นออกไปได้
+    และให้ทำการแก้ Edit Del method ไม่ให้สามารถลบยาของคนอื่นออกไปได้
     */
 
 
@@ -38,21 +38,17 @@ public class MedListDAO {
 
     public ArrayList<MedList> getAllMedList() {
         ArrayList<MedList> medList = new ArrayList<MedList>();
-        //Cursor cursor = database.rawQuery("SELECT * FROM you_med ",null);
         Cursor cursor = database.rawQuery("SELECT * FROM you_med where userIDMed = ?"
                 ,new String[] {LoginActivity.loginID});
-//        Log.i("kong",cursor.getCount()+"");
         cursor.moveToFirst();
         MedList medList1;
-//        Log.d("ii", "ID"+medList2.getIdUser());
-
         while (!cursor.isAfterLast()) {
-//            ให้ข้อมูล เซ็ทอัพเดทเป็นปัจจุบัน
             medList1 = new MedList();
             medList1.setIdMed(cursor.getInt(0));
             medList1.setMedNameText(cursor.getString(1));
             medList1.setMedInfoText(cursor.getString(2));
-            medList1.setIdUser(cursor.getInt(3));
+            medList1.setTimeMed(cursor.getString(3));
+            medList1.setIdUser(cursor.getInt(4));
 
             medList.add(medList1);
             cursor.moveToNext();
@@ -62,7 +58,6 @@ public class MedListDAO {
         return medList;
 
     }
-    //  อันนี้ไม่แก้
     public void add(MedList medList) {
         MedList newMedList = new MedList();
         newMedList = medList;
@@ -70,6 +65,7 @@ public class MedListDAO {
         ContentValues values = new ContentValues();
         values.put("med_name", newMedList.getMedNameText());
         values.put("med_info",newMedList.getMedInfoText());
+        values.put("med_time",newMedList.getTimeMed());
         values.put("userIDMed",newMedList.getIdUser());
 
         //values.put("userID",newMedList.getUser());
@@ -84,6 +80,7 @@ public class MedListDAO {
         ContentValues values = new ContentValues();
         values.put("med_name", updateMedList.getMedNameText());
         values.put("med_info",updateMedList.getMedInfoText());
+        values.put("med_time",updateMedList.getTimeMed());
         values.put("userIDMed",updateMedList.getIdUser());
         values.put("idYOUMED", updateMedList.getIdMed());
         String where = "idYOUMED=" + updateMedList.getIdMed();

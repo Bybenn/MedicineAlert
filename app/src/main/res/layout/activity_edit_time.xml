@@ -7,141 +7,183 @@
     android:background="@mipmap/blurr"
     tools:context=".Alarm.EditTimeActivity">
 
-    <Button
-        android:id="@+id/delete_btn"
-        android:layout_width="292dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:background="@color/colorPrimary"
-        android:text="ลบเวลาการทานยานี้"
-        android:textColor="#FFFFFF"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTime" />
+    <ScrollView
+        android:id="@+id/scrollView3"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <!--app:srcCompat="@mipmap/doc" -->
+        <FrameLayout
+            android:id="@+id/frameLayout4"
+            android:layout_width="318dp"
+            android:layout_height="678dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:background="#F8FFFFFF"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-    <Button
-        android:id="@+id/editTime"
-        android:layout_width="292dp"
-        android:layout_height="44dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="12dp"
-        android:background="@color/colorPrimary"
-        android:text="แก้ไขเวลาการทานยา"
-        android:textColor="#FFFFFF"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/frameLayout4" />
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="540dp">
 
-    <FrameLayout
-        android:id="@+id/frameLayout4"
-        android:layout_width="298dp"
-        android:layout_height="415dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:background="#F8FFFFFF"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+                <TextView
+                    android:id="@+id/timeInfoMed"
+                    android:layout_width="301dp"
+                    android:layout_height="201dp"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="6dp"
+                    android:background="#FFFFFF"
+                    android:text="infoooo"
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/design_default_color_primary"
+                    android:textSize="15sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView25" />
 
-        <android.support.constraint.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+                <TextView
+                    android:id="@+id/textView8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginTop="24dp"
+                    android:text="ชื่อยาของคุณ"
+                    android:textColor="@color/design_default_color_primary"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toEndOf="@+id/imageView14"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
-                android:id="@+id/textView8"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="160dp"
-                android:layout_marginTop="48dp"
-                android:text="ชื่อยาของคุณ"
-                android:textColor="@color/design_default_color_primary"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView3" />
+                <TextView
+                    android:id="@+id/nameMed"
+                    android:layout_width="177dp"
+                    android:layout_height="25dp"
+                    android:layout_marginStart="1dp"
+                    android:layout_marginTop="24dp"
+                    android:background="#51FFFFFF"
+                    android:text="med"
+                    android:textAlignment="center"
+                    android:textColor="@color/design_default_color_primary"
+                    android:textSize="18sp"
+                    app:layout_constraintStart_toEndOf="@+id/textView8"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
-                android:id="@+id/textView3"
-                android:layout_width="301dp"
-                android:layout_height="42dp"
-                android:layout_marginTop="16dp"
-                android:text="แก้ไขเวลาทานยาของคุณ"
-                android:textAlignment="center"
-                android:textColor="@color/colorPrimaryDark"
-                android:textSize="24sp"
-                android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                <TextView
+                    android:id="@+id/noteText"
+                    android:layout_width="289dp"
+                    android:layout_height="32dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="1dp"
+                    android:background="#51FFFFFF"
+                    android:text="note"
+                    android:textAlignment="center"
+                    android:textSize="16sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
-            <TextView
-                android:id="@+id/nameMed"
-                android:layout_width="142dp"
-                android:layout_height="35dp"
-                android:background="#51FFFFFF"
-                android:textAlignment="center"
-                android:textColor="@color/design_default_color_primary"
-                android:textSize="18sp"
-                app:layout_constraintStart_toEndOf="@+id/timeImage"
-                app:layout_constraintTop_toBottomOf="@+id/textView8" />
+                <TextView
+                    android:id="@+id/textView6"
+                    android:layout_width="139dp"
+                    android:layout_height="33dp"
+                    android:layout_marginStart="76dp"
 
-            <TextView
-                android:id="@+id/noteText"
-                android:layout_width="286dp"
-                android:layout_height="38dp"
-                android:layout_marginTop="8dp"
-                android:background="#51FFFFFF"
-                android:textAlignment="center"
-                android:textSize="18sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView6" />
+                    android:layout_marginTop="12dp"
+                    android:text="บันทึกช่วยจำ "
+                    android:textAlignment="center"
+                    android:textColor="@color/design_default_color_primary"
+                    android:textSize="17sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/timeEat" />
 
-            <TextView
-                android:id="@+id/textView6"
-                android:layout_width="139dp"
-                android:layout_height="33dp"
-                android:layout_marginStart="68dp"
-                android:layout_marginTop="172dp"
-                android:text="บันทึกช่วยจำ "
+                <TextView
+                    android:id="@+id/timeEat"
+                    android:layout_width="195dp"
+                    android:layout_height="34dp"
+                    android:layout_marginTop="3dp"
+                    android:background="#51FFFFFF"
+                    android:text="T^timeEat"
+                    android:textAlignment="center"
+                    android:textColor="@color/design_default_color_primary"
+                    android:textSize="15sp"
+                    app:layout_constraintStart_toEndOf="@+id/textView24"
+                    app:layout_constraintTop_toBottomOf="@+id/timeInfoMed" />
 
-                android:textAlignment="center"
-                android:textColor="@color/design_default_color_primary"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView8" />
+                <TextView
+                    android:id="@+id/selectAlarm1"
+                    android:layout_width="142dp"
+                    android:layout_height="29dp"
+                    android:layout_marginStart="7dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_weight="3"
+                    android:text="เวลาที่แจ้งเตือน"
+                    android:textAlignment="textStart"
+                    android:textColor="@color/design_default_color_primary_dark"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/noteText" />
 
-            <ImageView
-                android:id="@+id/timeImage"
-                android:layout_width="136dp"
-                android:layout_height="169dp"
-                android:layout_marginStart="4dp"
-                android:layout_marginTop="16dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView3"
-                app:srcCompat="@mipmap/clock" />
+                <TextView
+                    android:id="@+id/timeText"
+                    android:layout_width="143dp"
+                    android:layout_height="31dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_weight="1"
+                    android:textSize="16sp"
+                    app:layout_constraintStart_toEndOf="@+id/selectAlarm1"
+                    app:layout_constraintTop_toBottomOf="@+id/noteText" />
 
-            <TextView
-                android:id="@+id/textView20"
-                android:layout_width="214dp"
-                android:layout_height="29dp"
-                android:layout_marginStart="2dp"
-                android:layout_marginTop="12dp"
-                android:text="เวลาในการทานยาของคุณ : "
-                android:textSize="18sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/timeImage" />
+                <ImageView
+                    android:id="@+id/imageView14"
+                    android:layout_width="32dp"
+                    android:layout_height="27dp"
+                    android:layout_marginStart="2dp"
+                    android:layout_marginTop="22dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@mipmap/med1" />
 
-            <TextView
-                android:id="@+id/timeText"
-                android:layout_width="76dp"
-                android:layout_height="32dp"
-                android:layout_marginTop="90dp"
-                android:background="#51FFFFFF"
-                android:textAlignment="center"
-                android:textSize="18sp"
-                app:layout_constraintStart_toEndOf="@+id/textView20"
-                app:layout_constraintTop_toBottomOf="@+id/nameMed" />
-        </android.support.constraint.ConstraintLayout>
-    </FrameLayout>
+                <TextView
+                    android:id="@+id/textView24"
+                    android:layout_width="111dp"
+                    android:layout_height="33dp"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="3dp"
+                    android:text="ประเภทของยา"
+                    android:textAlignment="center"
+                    android:textColor="@color/design_default_color_primary_dark"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/timeInfoMed" />
+
+                <TextView
+                    android:id="@+id/textView25"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="9dp"
+                    android:layout_marginTop="7dp"
+                    android:text="ข้อมูลของยา"
+                    android:textColor="@color/design_default_color_primary_dark"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/imageView14" />
+
+                <Button
+                    android:id="@+id/delete_btn"
+                    android:layout_width="292dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginTop="36dp"
+                    android:background="@color/colorPrimary"
+                    android:text="ลบเวลาการทานยานี้"
+                    android:textColor="#FFFFFF"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/selectAlarm1" />
+            </android.support.constraint.ConstraintLayout>
+        </FrameLayout>
+    </ScrollView>
+
 
 </android.support.constraint.ConstraintLayout>

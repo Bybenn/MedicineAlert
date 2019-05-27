@@ -53,7 +53,6 @@ public class RegisterActivity extends AppCompatActivity {
                 String pwd = mTextPassword.getText().toString().trim();
                 String cnf_pwd = mTextCnfPassword.getText().toString().trim();
 
-
                 if (user.equals("") || pwd.equals("") || cnf_pwd.equals("")) {
                     Toast.makeText(RegisterActivity.this, "กรุณาใส่ในครบทุกช่อง",
                             Toast.LENGTH_SHORT).show();

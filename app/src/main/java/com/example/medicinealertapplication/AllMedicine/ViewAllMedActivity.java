@@ -38,17 +38,12 @@ public class ViewAllMedActivity extends AppCompatActivity {
     String timeMed;
     String positionIma;
     ArrayList<String> allMed ;
-    private SQLiteDatabase database;
-    int count = 0;
-
-
 
     Button getAlertButton;
     Button noAlertButton;
     TextView nameMedi;
     TextView infoMedi;
     TextView useMedi;
-    TextView suggestTime;
     Integer[] imgid= {R.mipmap.picture1,R.mipmap.picture2,R.mipmap.picture3,R.mipmap.picture4,
             R.mipmap.picture5,R.mipmap.picture6,R.mipmap.picture7,R.mipmap.picture8,R.mipmap.picture9,
             R.mipmap.picture10,R.mipmap.picture11,R.mipmap.picture12,R.mipmap.picture13,R.mipmap.picture14,
@@ -74,7 +69,6 @@ public class ViewAllMedActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getAlertButton = (Button)findViewById(R.id.getAlertButton);
         noAlertButton = (Button)findViewById(R.id.noAlertButton);
-        suggestTime = (TextView)findViewById(R.id.suggestTime);
 
         Intent intent = getIntent();
         userID = intent.getStringExtra("idUser");
@@ -94,7 +88,6 @@ public class ViewAllMedActivity extends AppCompatActivity {
         infoMedi.setText(infoMed);
         useMedi.setText(howtoMed);
         imageMed.setImageResource(imgid[Integer.parseInt(positionIma)]);
-        getTime();
         allMed = new ArrayList<>();
         allMed.add("1");
 
@@ -103,30 +96,26 @@ public class ViewAllMedActivity extends AppCompatActivity {
         getAlertButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), YourMedicineActivity.class);
+                MedList medList = new MedList();
+                medList.setMedNameText(String.valueOf(nameMedi.getText()));
+                medList.setMedInfoText(String.valueOf(infoMedi.getText()));
+                medList.setTimeMed(timeMed);
+                medList.setIdUser(Integer.parseInt(userID));
 
-//                if (YourMedicineActivity.myList.contains(nameMedi.getText())){
-//                    Toast.makeText(ViewAllMedActivity.this,"เพิ่มไม่ได้",Toast.LENGTH_SHORT).show();
-//
-//                }else{
-                    Intent intent = new Intent(getApplicationContext(), YourMedicineActivity.class);
-                    MedList medList = new MedList();
-                    medList.setMedNameText(String.valueOf(nameMedi.getText()));
-                    medList.setMedInfoText(String.valueOf(infoMedi.getText()));
-                    medList.setIdUser(Integer.parseInt(userID));
+                intent.putExtra("idUser",userID);
+                intent.putExtra("nameUser",userName);
+                intent.putExtra("passUser",userPass);
+                intent.putExtra("mornUser",userMorning);
+                intent.putExtra("afterUser",userAfter);
+                intent.putExtra("evenUser",userEven);
 
-                    intent.putExtra("idUser",userID);
-                    intent.putExtra("nameUser",userName);
-                    intent.putExtra("passUser",userPass);
-                    intent.putExtra("mornUser",userMorning);
-                    intent.putExtra("afterUser",userAfter);
-                    intent.putExtra("evenUser",userEven);
-
-                    MedListDAO medListDAO = new MedListDAO(getApplicationContext());
-                    medListDAO.open();
-                    medListDAO.add(medList);
-                    medListDAO.close();
-                    finish();
-                    startActivity(intent);
+                MedListDAO medListDAO = new MedListDAO(getApplicationContext());
+                medListDAO.open();
+                medListDAO.add(medList);
+                medListDAO.close();
+                finish();
+                startActivity(intent);
                 }
 
 
@@ -146,172 +135,6 @@ public class ViewAllMedActivity extends AppCompatActivity {
             }
         });
 
-
     }
-
-    @RequiresApi(api = Build.VERSION_CODES.O)
-    public void getTime(){
-        if (timeMed.equals("01")){
-            int bmor = Integer.parseInt(userMorning.substring(0,2));
-            int cmor = Integer.parseInt(userMorning.substring(3));
-            int dmor = bmor*60*60;
-            int emor = cmor*60;
-            int fmor = dmor+emor;
-            int gmor = 30*60;
-            int hmor = fmor-gmor;
-            int hrmor =hmor/3600;
-            int minutemor =(hmor%3600)/60;
-
-
-            int bafter = Integer.parseInt(userAfter.substring(0,2));
-            int cafter = Integer.parseInt(userAfter.substring(3));
-            int dafter = bafter*60*60;
-            int eafter = cafter*60;
-            int fafter = dafter+eafter;
-            int gafter = 30*60;
-            int hafter = fafter-gafter;
-            int hrafter =hafter/3600;
-            int minuteafter =(hafter%3600)/60;
-
-
-            int beve = Integer.parseInt(userEven.substring(0,2));
-            int ceve = Integer.parseInt(userEven.substring(3));
-            int deve = beve*60*60;
-            int eeve = ceve*60;
-            int feve = deve+eeve;
-            int geve = 30*60;
-            int heve = feve-geve;
-            int hreve =heve/3600;
-            int minuteeve =(heve%3600)/60;
-
-
-
-
-            suggestTime.setText("มื่อเช้าที่ควรทาน "+hrmor+" นาฬิกา "+minutemor+" นาที\n"+
-                    "มื้อกลางวันที่ควรทาน "+hrafter+" นาฬิกา "+minuteafter+" นาที\n"+
-                    "มื้อเย็นที่ควรทาน "+hreve+" นาฬิกา "+minuteeve+" นาที");
-        }else if (timeMed.equals("02")){
-            int bmor = Integer.parseInt(userMorning.substring(0,2));
-            int cmor = Integer.parseInt(userMorning.substring(3));
-            int dmor = bmor*60*60;
-            int emor = cmor*60;
-            int fmor = dmor+emor;
-            int gmor = 30*60;
-            int hmor = fmor+gmor;
-            int hrmor =(hmor/3600)%24;
-            int minutemor =(hmor%3600)/60;
-
-
-            int bafter = Integer.parseInt(userAfter.substring(0,2));
-            int cafter = Integer.parseInt(userAfter.substring(3));
-            int dafter = bafter*60*60;
-            int eafter = cafter*60;
-            int fafter = dafter+eafter;
-            int gafter = 30*60;
-            int hafter = fafter+gafter;
-            int hrafter =(hafter/3600)%24;
-            int minuteafter =(hafter%3600)/60;
-
-
-            int beve = Integer.parseInt(userEven.substring(0,2));
-            int ceve = Integer.parseInt(userEven.substring(3));
-            int deve = beve*60*60;
-            int eeve = ceve*60;
-            int feve = deve+eeve;
-            int geve = 30*60;
-            int heve = feve+geve;
-            int hreve =(heve/3600)%24;
-            int minuteeve =(heve%3600)/60;
-
-
-            suggestTime.setText("มื้อเช้าที่ควรทาน "+hrmor+" นาฬิกา "+minutemor+" นาที\n"+
-                    "มื้อกลางวันที่ควรทาน "+hrafter+" นาฬิกา "+minuteafter+" นาที\n"+
-                    "มื้อเย็นที่ควรทาน "+hreve+" นาฬิกา "+minuteeve+" นาที");
-        }else if (timeMed.equals("03")){
-            int b = Integer.parseInt(userEven.substring(0,2));
-            int c = Integer.parseInt(userEven.substring(3));
-            int d = b*60*60;
-            int e = c*60;
-            int f = d+e;
-            int g = 120*60;
-            int h = f+g;
-            int hr =h/3600;
-            int minute =(h%3600)/60;
-            suggestTime.setText("ควรทานก่อนนอนเวลา "+hr+" นาฬิกา "+minute+" นาที");
-        }else if (timeMed.equals("04")){
-//          4hr
-            Date date = new Date();
-            String time = date.toString();
-
-            int b = Integer.parseInt(time.substring(11,13));
-            int c = Integer.parseInt(time.substring(14,16));
-            int d = b*60*60;
-            int e = c*60;
-            int f = d+e;
-            int g = 4*60*60;
-            int h = f+g;
-            int i = f+(g*2);
-            int hr2 =(h/3600)%24;
-            int minute2 =(h%3600)/60;
-            int hr3 =(i/3600)%24;
-            int minute3 =(h%3600)/60;
-            suggestTime.setText("ครั้งแรกที่ควรทาน "+b+" นาฬิกา"+c+" นาที\n"+
-                    "ครั้งถัดไป "+hr2+" นาฬิกา "+minute2+" นาที\n"+
-                    "และครั้งถัดไป "+hr3+" นาฬิกา "+minute3+" นาที");
-        }else if (timeMed.equals("05")){
-//            6hr
-            Date date = new Date();
-            String time = date.toString();
-
-            int b = Integer.parseInt(time.substring(11,13));
-            int c = Integer.parseInt(time.substring(14,16));
-            int d = b*60*60;
-            int e = c*60;
-            int f = d+e;
-            int g = 6*60*60;
-            int h = f+g;
-            int i = f+(g*2);
-            int hr2 =(h/3600)%24;
-            int minute2 =(h%3600)/60;
-            int hr3 =(i/3600)%24;
-            int minute3 =(h%3600)/60;
-            suggestTime.setText("ครั้งแรกที่ควรทาน "+b+" นาฬิกา"+c+" นาที\n"+
-                    "ครั้งถัดไป "+hr2+" นาฬิกา "+minute2+" นาที\n"+
-                    "และครั้งถัดไป "+hr3+" นาฬิกา "+minute3+" นาที");
-        }else if (timeMed.equals("06")){
-//            12hr
-            Date date = new Date();
-            String time = date.toString();
-
-            int b = Integer.parseInt(time.substring(11,13));
-            int c = Integer.parseInt(time.substring(14,16));
-            int d = b*60*60;
-            int e = c*60;
-            int f = d+e;
-            int g = 12*60*60;
-            int h = f+g;
-            int i = f+(g*2);
-            int hr2 =(h/3600)%24;
-            int minute2 =(h%3600)/60;
-            int hr3 =(i/3600)%24;
-            int minute3 =(h%3600)/60;
-            suggestTime.setText("ครั้งแรกที่ควรทาน "+b+" นาฬิกา"+c+" นาที\n"+
-                    "ครั้งถัดไป "+hr2+" นาฬิกา "+minute2+" นาที\n"+
-                    "และครั้งถัดไป "+hr3+" นาฬิกา "+minute3+" นาที");
-        }
-    }
-
-//    public void check(){
-//        Cursor cursor = database.rawQuery("SELECT * FROM you_med where userIDMed =? "
-//                ,new String[] {LoginActivity.loginID});
-//        cursor.moveToFirst();
-//        while (!cursor.isAfterLast()) {
-//            if (cursor.)
-//            count +=1;
-//            cursor.moveToNext();
-//        }
-//        cursor.close();
-//    }
-
 
 }

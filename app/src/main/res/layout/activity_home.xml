@@ -7,21 +7,6 @@
     android:background="@mipmap/blurr"
     tools:context=".HomeActivity">
 
-
-    <android.support.design.widget.BottomNavigationView
-        android:id="@+id/bottom_nav"
-        android:layout_width="322dp"
-        android:layout_height="55dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginTop="464dp"
-        app:itemBackground="@color/colorPrimaryDark"
-        app:itemIconTint="#ACB3B9"
-        app:itemTextColor="#C4EEE58F"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:menu="@menu/bottom_nav_menu" />
-
     <FrameLayout
         android:layout_width="302dp"
         android:layout_height="425dp"
@@ -39,41 +24,44 @@
                 android:id="@+id/timeAllMed"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="40dp"
-                android:text="เวลาในการทานยา"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="17dp"
+                android:text="เวลาการทานยา"
+                android:textAlignment="center"
                 android:textColor="#F44336"
-                android:textSize="24sp"
+                android:textSize="20sp"
                 android:textStyle="bold"
-                app:layout_constraintStart_toEndOf="@+id/viewTimeMed"
-                app:layout_constraintTop_toBottomOf="@+id/viewYourMed" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/viewTimeMed" />
 
             <TextView
                 android:id="@+id/textView9"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="126dp"
+                android:layout_height="31dp"
                 android:layout_marginStart="8dp"
-                android:layout_marginTop="100dp"
+                android:layout_marginTop="17dp"
                 android:text="คลังยาทั้งหมด"
                 android:textColor="#F44336"
-                android:textSize="24sp"
+                android:textSize="20sp"
                 android:textStyle="bold"
-                app:layout_constraintStart_toEndOf="@+id/viewAllMed"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/viewAllMed" />
 
             <ImageView
                 android:id="@+id/viewYourMed"
-                android:layout_width="104dp"
-                android:layout_height="103dp"
-                android:layout_marginTop="28dp"
-                app:layout_constraintStart_toEndOf="@+id/Textview"
-                app:layout_constraintTop_toBottomOf="@+id/textView9"
+                android:layout_width="120dp"
+                android:layout_height="100dp"
+                android:layout_marginTop="23dp"
+                android:layout_marginEnd="20dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView19"
                 app:srcCompat="@mipmap/med3" />
 
             <ImageView
                 android:id="@+id/viewAllMed"
-                android:layout_width="110dp"
-                android:layout_height="109dp"
-                android:layout_marginStart="16dp"
+                android:layout_width="120dp"
+                android:layout_height="100dp"
+                android:layout_marginStart="12dp"
                 android:layout_marginTop="64dp"
 
                 app:layout_constraintStart_toStartOf="parent"
@@ -82,25 +70,25 @@
 
             <TextView
                 android:id="@+id/Textview"
-                android:layout_width="166dp"
+                android:layout_width="140dp"
                 android:layout_height="29dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="28dp"
+                android:layout_marginTop="17dp"
+                android:layout_marginEnd="8dp"
                 android:text="คลังยาของคุณ"
                 android:textColor="#F44336"
-                android:textSize="24sp"
+                android:textSize="20sp"
                 android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/viewAllMed" />
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/viewYourMed" />
 
             <ImageView
                 android:id="@+id/viewTimeMed"
-                android:layout_width="104dp"
-                android:layout_height="97dp"
-                android:layout_marginStart="2dp"
-                android:layout_marginTop="36dp"
+                android:layout_width="120dp"
+                android:layout_height="100dp"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="35dp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/Textview"
+                app:layout_constraintTop_toBottomOf="@+id/textView9"
                 app:srcCompat="@mipmap/clock" />
 
             <TextView
@@ -114,9 +102,48 @@
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/viewKnow"
+                android:layout_width="120dp"
+                android:layout_height="100dp"
+                android:layout_marginTop="35dp"
+                android:layout_marginEnd="20dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/Textview"
+                app:srcCompat="@mipmap/book" />
+
+            <TextView
+                android:id="@+id/textView21"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="18dp"
+                android:layout_marginEnd="25dp"
+                android:text="เกร็ดความรู้"
+                android:textColor="#F44336"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/viewKnow" />
+
         </android.support.constraint.ConstraintLayout>
 
     </FrameLayout>
+
+    <android.support.design.widget.BottomNavigationView
+        android:id="@+id/bottom_nav"
+        android:layout_width="322dp"
+        android:layout_height="55dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="460dp"
+        app:itemBackground="@color/colorPrimaryDark"
+        app:itemIconTint="#ACB3B9"
+        app:itemTextColor="#C4EEE58F"
+        app:labelVisibilityMode="labeled"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:menu="@menu/bottom_nav_menu" />
 
 
 </android.support.constraint.ConstraintLayout>

@@ -20,19 +20,14 @@ public class TimeListDAO {
     }
 
     public void open() {
-//       เปิดเพื่อแก้ไข
         database = dbHelper.getWritableDatabase();
     }
 
     public void close() {
         dbHelper.close();
     }
-
-    /*    ตรงนี้อยากแก้ไขเป็นอ่านค่าเฉพาะของ user ที่ login เข้ามา แต่ลอง user.getUserID(); แล้วไม่มีค่าอะไรออกมาแต่ในหน้า
-    แอคทิวิตี้อื่นๆเรียกใช้แล้วค่าขึ้นตามปกติ */
     public ArrayList<TimeList> getAllList() {
         ArrayList<TimeList> timeList = new ArrayList<TimeList>();
-        // เหมือนยา ต้องมี where user_id ด้วย
         Cursor cursor = database.rawQuery("SELECT * FROM timer_med where userIDTime = ?"
                 ,new String[] {LoginActivity.loginID});
         cursor.moveToFirst();
@@ -42,8 +37,11 @@ public class TimeListDAO {
             timeList1.setId(cursor.getInt(0));
             timeList1.setNameMed(cursor.getString(1));
             timeList1.setNote(cursor.getString(2));
-            timeList1.setTime(cursor.getString(3));
-            timeList1.setUserID(cursor.getInt(4));
+            timeList1.setInfo(cursor.getString(3));
+            timeList1.setTimeeat(cursor.getString(4));
+            timeList1.setTime(cursor.getString(5));
+            timeList1.setUserID(cursor.getInt(6));
+
 
             timeList.add(timeList1);
             cursor.moveToNext();
@@ -59,6 +57,8 @@ public class TimeListDAO {
         ContentValues values = new ContentValues();
         values.put("timemed_name", newTimeList.getNameMed());
         values.put("timenote_med",newTimeList.getNote());
+        values.put("timeinfo_med",newTimeList.getInfo());
+        values.put("timeeat_med",newTimeList.getTimeeat());
         values.put("time",newTimeList.getTime());
         values.put("userIDTime",newTimeList.getUserID());
 
@@ -75,6 +75,8 @@ public class TimeListDAO {
         ContentValues values = new ContentValues();
         values.put("timemed_name", updateTimeList.getNameMed());
         values.put("timenote_med",updateTimeList.getNote());
+        values.put("timeinfo_med",updateTimeList.getInfo());
+        values.put("timeeat_med",updateTimeList.getTimeeat());
         values.put("time",updateTimeList.getTime());
         values.put("userIDTime",updateTimeList.getUserID());
         values.put("idTIMERMED", updateTimeList.getId());

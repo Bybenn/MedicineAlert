@@ -58,7 +58,6 @@ public class SetTimeToEatActivity extends AppCompatActivity implements TimePicke
         textViewMorn = (TextView)findViewById(R.id.textViewMorn);
         textViewAfter = (TextView)findViewById(R.id.textViewAfter);
         textViewEven = (TextView)findViewById(R.id.textViewEven);
-//        next = (TextView)findViewById(R.id.next);
         button_setEatTime = (Button) findViewById(R.id.button_setEatTime);
 
         Intent intent = getIntent();
@@ -134,10 +133,7 @@ public class SetTimeToEatActivity extends AppCompatActivity implements TimePicke
                     userDAO.open();
                     userDAO.update(eUser);
                     userDAO.close();
-                    finish();
-
-
-                    Toast.makeText(SetTimeToEatActivity.this, "ตั้งค่าเวลาเรียบร้อยแล้ว", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(SetTimeToEatActivity.this, "ตั้งเวลาเรียบร้อยแล้ว", Toast.LENGTH_SHORT).show();
                     Intent mainIntent = new Intent(SetTimeToEatActivity.this, HomeActivity.class);
                     mainIntent.putExtra("idUser",userID);
                     mainIntent.putExtra("nameUser",userName);
@@ -151,6 +147,7 @@ public class SetTimeToEatActivity extends AppCompatActivity implements TimePicke
                     even = userEven;
 
                     startActivity(mainIntent);
+                    finish();
 
                 }
             }

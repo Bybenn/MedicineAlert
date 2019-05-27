@@ -48,10 +48,6 @@ public class MyMedicine extends BaseAdapter {
         MedList nameMedList = myMedList.get(position);
         nameMedinList.setText("   "+nameMedList.getMedNameText());
 
-//        TextView infoMedInList = (TextView)v.findViewById(R.id.infoMed_text);
-//        MedList infoMedList = myMedList.get(position);
-//        infoMedInList.setText(infoMedList.getMedInfoText());
-
         return v;
     }
 }
