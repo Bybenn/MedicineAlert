@@ -34,7 +34,6 @@ public class UserDAO {
         User user;
 
         while (!cursor.isAfterLast()) {
-//            ให้ข้อมูล เซ็ทอัพเดทเป็นปัจจุบัน
             user = new User();
             user.setUserID(cursor.getInt(0));
             user.setUserName(cursor.getString(1));
@@ -62,11 +61,9 @@ public class UserDAO {
         values.put("morning", newUser.getUserMorning());
         values.put("afternoon", newUser.getUserAfter());
         values.put("evening", newUser.getUserEven());
-
-        //values.put("userID",newMedList.getUser());
         this.database.insert("users", null, values);
 
-        Log.d("Todo List Demo :::", "Add OK!!!");
+//        Log.d("Todo List Demo :::", "Add OK!!!");
 
     }
 
@@ -82,7 +79,7 @@ public class UserDAO {
         String where = "idUSER=" + updateUser.getUserID();
 
         this.database.update("users", values, where, null);
-        Log.d("Todo List :::", "Update OK!!!");
+//        Log.d("Todo List :::", "Update OK!!!");
     }
 
 

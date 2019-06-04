@@ -1,11 +1,20 @@
 package com.example.medicinealertapplication.Alarm;
 
+import android.annotation.TargetApi;
 import android.app.AlarmManager;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.app.TimePickerDialog;
+import android.content.BroadcastReceiver;
 import android.content.Context;
+import android.content.ContextWrapper;
 import android.content.Intent;
+import android.media.RingtoneManager;
+import android.net.Uri;
+import android.os.Build;
 import android.support.v4.app.DialogFragment;
+import android.support.v4.app.NotificationCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -17,18 +26,27 @@ import android.widget.Toast;
 
 import com.example.medicinealertapplication.R;
 import com.example.medicinealertapplication.TimePickerFragment;
+import com.example.medicinealertapplication.User.LoginActivity;
+import com.example.medicinealertapplication.User.SetTimeToEatActivity;
+import com.example.medicinealertapplication.User.User;
 
 import java.text.DateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+
+import static com.example.medicinealertapplication.Alarm.AlertReceiver.pendingIntent;
+import static com.example.medicinealertapplication.Alarm.NotificationHelper.channelID;
+import static com.example.medicinealertapplication.Alarm.SetAlarmActivity.medName;
+
+//import static com.example.medicinealertapplication.Alarm.NotificationHelper.channelID;
 
 public class SetAlarmActivity extends AppCompatActivity implements TimePickerDialog.OnTimeSetListener {
     TextView nameMed;
     TextView noteText;
-//    TextView timeInfoMed;
+    //    TextView timeInfoMed;
 //    TextView timeToEat;
     TextView suggestTimer;
-
 
     String userID;
     String userName;
@@ -37,15 +55,16 @@ public class SetAlarmActivity extends AppCompatActivity implements TimePickerDia
     String userAfter;
     String userEven;
     Button addSetTimeButton;
-    public static String medName;
+    protected static String medName;
     String infoMed;
     String timeEat;
 
+    public static String[] name;
     public static long requestId = -1;
     final int selectedTimeLimit = 5;
     int currentSelectedTime = 0;
     Calendar[] selectedTime = new Calendar[selectedTimeLimit];
-    TextView[] selectAlarm;
+    Button[] selectAlarm;
     TextView[] showAlarm;
 
 
@@ -54,13 +73,19 @@ public class SetAlarmActivity extends AppCompatActivity implements TimePickerDia
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_set_alarm);
 
-        selectAlarm = new TextView[]{
+        selectAlarm = new Button[]{
                 findViewById(R.id.selectAlarm1),
-                findViewById(R.id.selectAlarm2)
+                findViewById(R.id.selectAlarm2),
+                findViewById(R.id.selectAlarm3),
+                findViewById(R.id.selectAlarm4),
+                findViewById(R.id.selectAlarm5)
         };
         showAlarm = new TextView[]{
                 findViewById(R.id.showAlarm1),
-                findViewById(R.id.showAlarm2)
+                findViewById(R.id.showAlarm2),
+                findViewById(R.id.showAlarm3),
+                findViewById(R.id.showAlarm4),
+                findViewById(R.id.showAlarm5)
         };
 
         nameMed = (TextView) findViewById(R.id.nameMed);
@@ -68,8 +93,7 @@ public class SetAlarmActivity extends AppCompatActivity implements TimePickerDia
 //        timeInfoMed = (TextView) findViewById(R.id.timeInfoMed);
 //        timeToEat = (TextView) findViewById(R.id.timeEat);
         addSetTimeButton = (Button) findViewById(R.id.addnew_button);
-        suggestTimer = (TextView)findViewById(R.id.suggestTimer);
-
+        suggestTimer = (TextView) findViewById(R.id.suggestTimer);
 
 
         Intent intent = getIntent();
@@ -121,7 +145,7 @@ public class SetAlarmActivity extends AppCompatActivity implements TimePickerDia
         }
 
         if (!hasAlarmSet) {
-            Toast.makeText(SetAlarmActivity.this, "กรุณาตั้งค่าเวลาในการแจ้งเตือน", Toast.LENGTH_SHORT).show();
+            Toast.makeText(SetAlarmActivity.this, "กรุณาตั้งเวลาในการแจ้งเตือน", Toast.LENGTH_SHORT).show();
 
         } else {
 
@@ -141,9 +165,10 @@ public class SetAlarmActivity extends AppCompatActivity implements TimePickerDia
                 TimeListDAO timeListDAO = new TimeListDAO(getApplicationContext());
                 timeListDAO.open();
                 requestId = timeListDAO.add(timeList);
+
                 timeListDAO.close();
 
-                startAlarm(selectedTime[i], (int) requestId);
+                startAlarm(selectedTime[i], (int) requestId, medName);
             }
 
             Intent timeMedPage = new Intent(SetAlarmActivity.this, TimeMedActivity.class);
@@ -176,7 +201,7 @@ public class SetAlarmActivity extends AppCompatActivity implements TimePickerDia
     }
 
 
-    private void startAlarm(Calendar c, int requestId) {
+    private void startAlarm(Calendar c, int requestId, String medName) {
 
         AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
         Intent notificationIntent = new Intent(this, AlertReceiver.class);
@@ -187,154 +212,154 @@ public class SetAlarmActivity extends AppCompatActivity implements TimePickerDia
         c.add(Calendar.SECOND, 1);
 
         alarmManager.setExact(AlarmManager.RTC_WAKEUP, c.getTimeInMillis(), broadcast);
+//        alarmManager.setInexactRepeating(AlarmManager.RTC_WAKEUP, c.getTimeInMillis(), AlarmManager.INTERVAL_DAY/*alarmManager.*/, broadcast);
+
 
     }
 
-    public void getTime(){
-        if (timeEat.equals("01")){
-            int bmor = Integer.parseInt(userMorning.substring(0,2));
+    public void getTime() {
+        if (timeEat.equals("01")) {
+            int bmor = Integer.parseInt(userMorning.substring(0, 2));
             int cmor = Integer.parseInt(userMorning.substring(3));
-            int dmor = bmor*60*60;
-            int emor = cmor*60;
-            int fmor = dmor+emor;
-            int gmor = 30*60;
-            int hmor = fmor-gmor;
-            int hrmor =hmor/3600;
-            int minutemor =(hmor%3600)/60;
+            int dmor = bmor * 60 * 60;
+            int emor = cmor * 60;
+            int fmor = dmor + emor;
+            int gmor = 30 * 60;
+            int hmor = fmor - gmor;
+            int hrmor = hmor / 3600;
+            int minutemor = (hmor % 3600) / 60;
 
-            int bafter = Integer.parseInt(userAfter.substring(0,2));
+            int bafter = Integer.parseInt(userAfter.substring(0, 2));
             int cafter = Integer.parseInt(userAfter.substring(3));
-            int dafter = bafter*60*60;
-            int eafter = cafter*60;
-            int fafter = dafter+eafter;
-            int gafter = 30*60;
-            int hafter = fafter-gafter;
-            int hrafter =hafter/3600;
-            int minuteafter =(hafter%3600)/60;
+            int dafter = bafter * 60 * 60;
+            int eafter = cafter * 60;
+            int fafter = dafter + eafter;
+            int gafter = 30 * 60;
+            int hafter = fafter - gafter;
+            int hrafter = hafter / 3600;
+            int minuteafter = (hafter % 3600) / 60;
 
-            int beve = Integer.parseInt(userEven.substring(0,2));
+            int beve = Integer.parseInt(userEven.substring(0, 2));
             int ceve = Integer.parseInt(userEven.substring(3));
-            int deve = beve*60*60;
-            int eeve = ceve*60;
-            int feve = deve+eeve;
-            int geve = 30*60;
-            int heve = feve-geve;
-            int hreve =heve/3600;
-            int minuteeve =(heve%3600)/60;
+            int deve = beve * 60 * 60;
+            int eeve = ceve * 60;
+            int feve = deve + eeve;
+            int geve = 30 * 60;
+            int heve = feve - geve;
+            int hreve = heve / 3600;
+            int minuteeve = (heve % 3600) / 60;
 
-            suggestTimer.setText("มื้อเช้าที่ควรทาน "+hrmor+" นาฬิกา "+minutemor+" นาที\n"+
-                    "มื้อกลางวันที่ควรทาน "+hrafter+" นาฬิกา "+minuteafter+" นาที\n"+
-                    "มื้อเย็นที่ควรทาน "+hreve+" นาฬิกา "+minuteeve+" นาที");
-        }else if (timeEat.equals("02")){
-            int bmor = Integer.parseInt(userMorning.substring(0,2));
+            suggestTimer.setText("มื้อเช้าที่ควรทาน " + hrmor + " นาฬิกา " + minutemor + " นาที\n" +
+                    "มื้อกลางวันที่ควรทาน " + hrafter + " นาฬิกา " + minuteafter + " นาที\n" +
+                    "มื้อเย็นที่ควรทาน " + hreve + " นาฬิกา " + minuteeve + " นาที");
+        } else if (timeEat.equals("02")) {
+            int bmor = Integer.parseInt(userMorning.substring(0, 2));
             int cmor = Integer.parseInt(userMorning.substring(3));
-            int dmor = bmor*60*60;
-            int emor = cmor*60;
-            int fmor = dmor+emor;
-            int gmor = 30*60;
-            int hmor = fmor+gmor;
-            int hrmor =(hmor/3600)%24;
-            int minutemor =(hmor%3600)/60;
+            int dmor = bmor * 60 * 60;
+            int emor = cmor * 60;
+            int fmor = dmor + emor;
+            int gmor = 30 * 60;
+            int hmor = fmor + gmor;
+            int hrmor = (hmor / 3600) % 24;
+            int minutemor = (hmor % 3600) / 60;
 
 
-            int bafter = Integer.parseInt(userAfter.substring(0,2));
+            int bafter = Integer.parseInt(userAfter.substring(0, 2));
             int cafter = Integer.parseInt(userAfter.substring(3));
-            int dafter = bafter*60*60;
-            int eafter = cafter*60;
-            int fafter = dafter+eafter;
-            int gafter = 30*60;
-            int hafter = fafter+gafter;
-            int hrafter =(hafter/3600)%24;
-            int minuteafter =(hafter%3600)/60;
+            int dafter = bafter * 60 * 60;
+            int eafter = cafter * 60;
+            int fafter = dafter + eafter;
+            int gafter = 30 * 60;
+            int hafter = fafter + gafter;
+            int hrafter = (hafter / 3600) % 24;
+            int minuteafter = (hafter % 3600) / 60;
 
 
-            int beve = Integer.parseInt(userEven.substring(0,2));
+            int beve = Integer.parseInt(userEven.substring(0, 2));
             int ceve = Integer.parseInt(userEven.substring(3));
-            int deve = beve*60*60;
-            int eeve = ceve*60;
-            int feve = deve+eeve;
-            int geve = 30*60;
-            int heve = feve+geve;
-            int hreve =(heve/3600)%24;
-            int minuteeve =(heve%3600)/60;
+            int deve = beve * 60 * 60;
+            int eeve = ceve * 60;
+            int feve = deve + eeve;
+            int geve = 30 * 60;
+            int heve = feve + geve;
+            int hreve = (heve / 3600) % 24;
+            int minuteeve = (heve % 3600) / 60;
 
 
-            suggestTimer.setText("มื้อเช้าที่ควรทาน "+hrmor+" นาฬิกา "+minutemor+" นาที\n"+
-                    "มื้อกลางวันที่ควรทาน "+hrafter+" นาฬิกา "+minuteafter+" นาที\n"+
-                    "มื้อเย็นที่ควรทาน "+hreve+" นาฬิกา "+minuteeve+" นาที");
-        }else if (timeEat.equals("03")){
-            int b = Integer.parseInt(userEven.substring(0,2));
+            suggestTimer.setText("มื้อเช้าที่ควรทาน " + hrmor + " นาฬิกา " + minutemor + " นาที\n" +
+                    "มื้อกลางวันที่ควรทาน " + hrafter + " นาฬิกา " + minuteafter + " นาที\n" +
+                    "มื้อเย็นที่ควรทาน " + hreve + " นาฬิกา " + minuteeve + " นาที");
+        } else if (timeEat.equals("03")) {
+            int b = Integer.parseInt(userEven.substring(0, 2));
             int c = Integer.parseInt(userEven.substring(3));
-            int d = b*60*60;
-            int e = c*60;
-            int f = d+e;
-            int g = 120*60;
-            int h = f+g;
-            int hr =h/3600;
-            int minute =(h%3600)/60;
-            suggestTimer.setText("ควรทานก่อนนอนเวลา "+hr+" นาฬิกา "+minute+" นาที");
-        }else if (timeEat.equals("04")){
+            int d = b * 60 * 60;
+            int e = c * 60;
+            int f = d + e;
+            int g = 120 * 60;
+            int h = f + g;
+            int hr = h / 3600;
+            int minute = (h % 3600) / 60;
+            suggestTimer.setText("ควรทานก่อนนอนเวลา " + hr + " นาฬิกา " + minute + " นาที");
+        } else if (timeEat.equals("04")) {
 //          4hr
             Date date = new Date();
             String time = date.toString();
 
-            int b = Integer.parseInt(time.substring(11,13));
-            int c = Integer.parseInt(time.substring(14,16));
-            int d = b*60*60;
-            int e = c*60;
-            int f = d+e;
-            int g = 4*60*60;
-            int h = f+g;
-            int i = f+(g*2);
-            int hr2 =(h/3600)%24;
-            int minute2 =(h%3600)/60;
-            int hr3 =(i/3600)%24;
-            int minute3 =(h%3600)/60;
-            suggestTimer.setText("ครั้งแรกที่ควรทาน "+b+" นาฬิกา"+c+" นาที\n"+
-                    "ครั้งถัดไป "+hr2+" นาฬิกา "+minute2+" นาที\n"+
-                    "และครั้งถัดไป "+hr3+" นาฬิกา "+minute3+" นาที");
-        }else if (timeEat.equals("05")){
+            int b = Integer.parseInt(time.substring(11, 13));
+            int c = Integer.parseInt(time.substring(14, 16));
+            int d = b * 60 * 60;
+            int e = c * 60;
+            int f = d + e;
+            int g = 4 * 60 * 60;
+            int h = f + g;
+            int i = f + (g * 2);
+            int hr2 = (h / 3600) % 24;
+            int minute2 = (h % 3600) / 60;
+            int hr3 = (i / 3600) % 24;
+            int minute3 = (h % 3600) / 60;
+            suggestTimer.setText("ครั้งแรกที่ควรทาน " + b + " นาฬิกา" + c + " นาที\n" +
+                    "ครั้งถัดไป " + hr2 + " นาฬิกา " + minute2 + " นาที\n" +
+                    "และครั้งถัดไป " + hr3 + " นาฬิกา " + minute3 + " นาที");
+        } else if (timeEat.equals("05")) {
 //            6hr
             Date date = new Date();
             String time = date.toString();
 
-            int b = Integer.parseInt(time.substring(11,13));
-            int c = Integer.parseInt(time.substring(14,16));
-            int d = b*60*60;
-            int e = c*60;
-            int f = d+e;
-            int g = 6*60*60;
-            int h = f+g;
-            int i = f+(g*2);
-            int hr2 =(h/3600)%24;
-            int minute2 =(h%3600)/60;
-            int hr3 =(i/3600)%24;
-            int minute3 =(h%3600)/60;
-            suggestTimer.setText("ครั้งแรกที่ควรทาน "+b+" นาฬิกา"+c+" นาที\n"+
-                    "ครั้งถัดไป "+hr2+" นาฬิกา "+minute2+" นาที\n"+
-                    "และครั้งถัดไป "+hr3+" นาฬิกา "+minute3+" นาที");
-        }else if (timeEat.equals("06")){
+            int b = Integer.parseInt(time.substring(11, 13));
+            int c = Integer.parseInt(time.substring(14, 16));
+            int d = b * 60 * 60;
+            int e = c * 60;
+            int f = d + e;
+            int g = 6 * 60 * 60;
+            int h = f + g;
+            int i = f + (g * 2);
+            int hr2 = (h / 3600) % 24;
+            int minute2 = (h % 3600) / 60;
+            int hr3 = (i / 3600) % 24;
+            int minute3 = (h % 3600) / 60;
+            suggestTimer.setText("ครั้งแรกที่ควรทาน " + b + " นาฬิกา" + c + " นาที\n" +
+                    "ครั้งถัดไป " + hr2 + " นาฬิกา " + minute2 + " นาที\n" +
+                    "และครั้งถัดไป " + hr3 + " นาฬิกา " + minute3 + " นาที");
+        } else if (timeEat.equals("06")) {
 //            12hr
             Date date = new Date();
             String time = date.toString();
 
-            int b = Integer.parseInt(time.substring(11,13));
-            int c = Integer.parseInt(time.substring(14,16));
-            int d = b*60*60;
-            int e = c*60;
-            int f = d+e;
-            int g = 12*60*60;
-            int h = f+g;
-            int i = f+(g*2);
-            int hr2 =(h/3600)%24;
-            int minute2 =(h%3600)/60;
-            int hr3 =(i/3600)%24;
-            int minute3 =(h%3600)/60;
-            suggestTimer.setText("ครั้งแรกที่ควรทาน "+b+" นาฬิกา"+c+" นาที\n"+
-                    "ครั้งถัดไป "+hr2+" นาฬิกา "+minute2+" นาที\n"+
-                    "และครั้งถัดไป "+hr3+" นาฬิกา "+minute3+" นาที");
+            int b = Integer.parseInt(time.substring(11, 13));
+            int c = Integer.parseInt(time.substring(14, 16));
+            int d = b * 60 * 60;
+            int e = c * 60;
+            int f = d + e;
+            int g = 12 * 60 * 60;
+            int h = f + g;
+            int i = f + (g * 2);
+            int hr2 = (h / 3600) % 24;
+            int minute2 = (h % 3600) / 60;
+            int hr3 = (i / 3600) % 24;
+            int minute3 = (h % 3600) / 60;
+            suggestTimer.setText("ครั้งแรกที่ควรทาน " + b + " นาฬิกา" + c + " นาที\n" +
+                    "ครั้งถัดไป " + hr2 + " นาฬิกา " + minute2 + " นาที\n" +
+                    "และครั้งถัดไป " + hr3 + " นาฬิกา " + minute3 + " นาที");
         }
     }
-
-
 }

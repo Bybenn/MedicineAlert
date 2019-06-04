@@ -126,7 +126,7 @@
         android:layout_height="55dp"
         android:layout_alignParentTop="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginTop="464dp"
+        android:layout_marginTop="460dp"
         app:itemBackground="@color/colorPrimaryDark"
         app:itemIconTint="#ACB3B9"
         app:itemTextColor="#C4EEE58F"

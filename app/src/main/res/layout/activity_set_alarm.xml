@@ -73,7 +73,7 @@
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="8dp"
                 android:background="#51FFFFFF"
-                android:textAlignment="center"
+                android:textAlignment="viewStart"
                 android:textColor="@color/design_default_color_primary"
                 android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -92,22 +92,21 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
-                    <TextView
+                    <Button
                         android:id="@+id/selectAlarm1"
-                        android:layout_width="0dp"
-                        android:layout_height="35dp"
-                        android:layout_weight="3"
-                        android:text="เลือกเวลาตั้งเวลา"
-                        android:textAlignment="center"
-                        android:textColor="#F44336"
-                        android:textSize="16sp" />
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:layout_weight="1"
+                        android:background="@color/colorPrimary"
+                        android:text="เลือกเวลา"
+                        android:textColor="#FFFFFF" />
 
                     <TextView
                         android:id="@+id/showAlarm1"
                         android:layout_width="100dp"
                         android:layout_height="35dp"
                         android:layout_weight="1"
-                        android:text="not selected"
+                        android:text="ยังไม่กำหนด"
                         android:textAlignment="center"
                         android:textSize="16sp" />
                 </LinearLayout>
@@ -116,22 +115,21 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
-                    <TextView
+                    <Button
                         android:id="@+id/selectAlarm2"
-                        android:layout_width="0dp"
-                        android:layout_height="35dp"
-                        android:layout_weight="3"
-                        android:text="เลือกเวลาตั้งเวลา"
-                        android:textAlignment="center"
-                        android:textColor="#F44336"
-                        android:textSize="16sp" />
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:layout_weight="1"
+                        android:background="@color/colorPrimary"
+                        android:text="เลือกเวลา"
+                        android:textColor="#FFFFFF" />
 
                     <TextView
                         android:id="@+id/showAlarm2"
                         android:layout_width="100dp"
                         android:layout_height="35dp"
                         android:layout_weight="1"
-                        android:text="not selected"
+                        android:text="ยังไม่กำหนด"
                         android:textAlignment="center"
                         android:textSize="16sp" />
                 </LinearLayout>
@@ -140,22 +138,21 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
-                    <TextView
+                    <Button
                         android:id="@+id/selectAlarm3"
-                        android:layout_width="0dp"
-                        android:layout_height="35dp"
-                        android:layout_weight="3"
-                        android:text="เลือกเวลาตั้งเวลา"
-                        android:textAlignment="center"
-                        android:textColor="#F44336"
-                        android:textSize="16sp" />
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:layout_weight="1"
+                        android:background="@color/colorPrimary"
+                        android:text="เลือกเวลา"
+                        android:textColor="#FFFFFF" />
 
                     <TextView
                         android:id="@+id/showAlarm3"
                         android:layout_width="100dp"
                         android:layout_height="35dp"
                         android:layout_weight="1"
-                        android:text="not selected"
+                        android:text="ยังไม่กำหนด"
                         android:textAlignment="center"
                         android:textSize="16sp" />
                 </LinearLayout>
@@ -164,22 +161,21 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
-                    <TextView
+                    <Button
                         android:id="@+id/selectAlarm4"
-                        android:layout_width="0dp"
-                        android:layout_height="35dp"
-                        android:layout_weight="3"
-                        android:text="เลือกเวลาตั้งเวลา"
-                        android:textAlignment="center"
-                        android:textColor="#F44336"
-                        android:textSize="16sp" />
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:layout_weight="1"
+                        android:background="@color/colorPrimary"
+                        android:text="เลือกเวลา"
+                        android:textColor="#FFFFFF" />
 
                     <TextView
                         android:id="@+id/showAlarm4"
                         android:layout_width="100dp"
                         android:layout_height="35dp"
                         android:layout_weight="1"
-                        android:text="not selected"
+                        android:text="ยังไม่กำหนด"
                         android:textAlignment="center"
                         android:textSize="16sp" />
                 </LinearLayout>
@@ -188,22 +184,21 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
-                    <TextView
+                    <Button
                         android:id="@+id/selectAlarm5"
-                        android:layout_width="0dp"
-                        android:layout_height="35dp"
-                        android:layout_weight="3"
-                        android:text="เลือกเวลาตั้งเวลา"
-                        android:textAlignment="center"
-                        android:textColor="#F44336"
-                        android:textSize="16sp" />
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:layout_weight="1"
+                        android:background="@color/colorPrimary"
+                        android:text="เลือกเวลา"
+                        android:textColor="#FFFFFF" />
 
                     <TextView
                         android:id="@+id/showAlarm5"
                         android:layout_width="100dp"
                         android:layout_height="35dp"
                         android:layout_weight="1"
-                        android:text="not selected"
+                        android:text="ยังไม่กำหนด"
                         android:textAlignment="center"
                         android:textSize="16sp" />
                 </LinearLayout>

@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.TimePicker;
@@ -43,6 +44,11 @@ public class SetTimeToEatActivity extends AppCompatActivity implements TimePicke
     String userAfter;
     String userEven;
     Button button_setEatTime;
+
+    FrameLayout frameLayout1;
+    FrameLayout frameLayout2;
+    FrameLayout frameLayout3;
+
     public static String morning = null;
     public static String after = null;
     public static String even = null;
@@ -59,6 +65,10 @@ public class SetTimeToEatActivity extends AppCompatActivity implements TimePicke
         textViewAfter = (TextView)findViewById(R.id.textViewAfter);
         textViewEven = (TextView)findViewById(R.id.textViewEven);
         button_setEatTime = (Button) findViewById(R.id.button_setEatTime);
+        frameLayout1 = (FrameLayout)findViewById(R.id.FrameLayout1) ;
+        frameLayout2 = (FrameLayout)findViewById(R.id.FrameLayout2) ;
+        frameLayout3 = (FrameLayout)findViewById(R.id.FrameLayout3) ;
+
 
         Intent intent = getIntent();
         userID = intent.getStringExtra("idUser");
@@ -77,7 +87,7 @@ public class SetTimeToEatActivity extends AppCompatActivity implements TimePicke
         textViewAfter.setText(userAfter);
         textViewEven.setText(userEven);
 
-        mTextMorning.setOnClickListener(new View.OnClickListener() {
+        frameLayout1.setOnClickListener(new View.OnClickListener() {
             //            Calendar calendar = Calendar.getInstance();
 //            int hour = calendar.get(Calendar.HOUR);
 //            int minute = calendar.get(Calendar.MINUTE);
@@ -89,7 +99,7 @@ public class SetTimeToEatActivity extends AppCompatActivity implements TimePicke
 
             }
         });
-        mTextAfternoon.setOnClickListener(new View.OnClickListener() {
+        frameLayout2.setOnClickListener(new View.OnClickListener() {
             //            Calendar calendar = Calendar.getInstance();
 //            int hour = calendar.get(Calendar.HOUR);
 //            int minute = calendar.get(Calendar.MINUTE);
@@ -101,7 +111,7 @@ public class SetTimeToEatActivity extends AppCompatActivity implements TimePicke
 
             }
         });
-        mTextEvening.setOnClickListener(new View.OnClickListener() {
+        frameLayout3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 DialogFragment timePicker = new TimePickerFragment();

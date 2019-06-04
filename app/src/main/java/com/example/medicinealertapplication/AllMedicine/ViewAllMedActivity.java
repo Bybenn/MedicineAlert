@@ -19,6 +19,7 @@ import com.example.medicinealertapplication.R;
 import com.example.medicinealertapplication.User.LoginActivity;
 import com.example.medicinealertapplication.YourMedicine.MedList;
 import com.example.medicinealertapplication.YourMedicine.MedListDAO;
+import com.example.medicinealertapplication.YourMedicine.MyMedicine;
 import com.example.medicinealertapplication.YourMedicine.YourMedicineActivity;
 
 import java.time.LocalTime;
@@ -37,7 +38,7 @@ public class ViewAllMedActivity extends AppCompatActivity {
     String howtoMed;
     String timeMed;
     String positionIma;
-    ArrayList<String> allMed ;
+    ArrayList<String> allMed = new ArrayList<>();
 
     Button getAlertButton;
     Button noAlertButton;
@@ -88,14 +89,16 @@ public class ViewAllMedActivity extends AppCompatActivity {
         infoMedi.setText(infoMed);
         useMedi.setText(howtoMed);
         imageMed.setImageResource(imgid[Integer.parseInt(positionIma)]);
-        allMed = new ArrayList<>();
-        allMed.add("1");
 
 
 
         getAlertButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+//                for (String s : allMed){
+//                    Log.d("ii", s);
+//
+//                }
                 Intent intent = new Intent(getApplicationContext(), YourMedicineActivity.class);
                 MedList medList = new MedList();
                 medList.setMedNameText(String.valueOf(nameMedi.getText()));
@@ -114,6 +117,7 @@ public class ViewAllMedActivity extends AppCompatActivity {
                 medListDAO.open();
                 medListDAO.add(medList);
                 medListDAO.close();
+//                allMed.add(String.valueOf(nameMedi.getText()));
                 finish();
                 startActivity(intent);
                 }
@@ -136,5 +140,4 @@ public class ViewAllMedActivity extends AppCompatActivity {
         });
 
     }
-
 }

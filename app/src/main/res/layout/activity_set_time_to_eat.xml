@@ -87,7 +87,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <FrameLayout
-                android:id="@+id/FrameLayout"
+                android:id="@+id/FrameLayout3"
                 android:layout_width="213dp"
                 android:layout_height="98dp"
                 android:layout_marginStart="50dp"
@@ -96,7 +96,7 @@
                 android:background="#6FFFFFFF"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/edittext_evening"
-                app:layout_constraintTop_toBottomOf="@+id/frameLayout2">
+                app:layout_constraintTop_toBottomOf="@+id/FrameLayout2">
 
                 <android.support.constraint.ConstraintLayout
                     android:layout_width="match_parent"
@@ -130,6 +130,7 @@
             </FrameLayout>
 
             <FrameLayout
+                android:id="@+id/FrameLayout1"
                 android:layout_width="208dp"
                 android:layout_height="86dp"
                 android:layout_marginStart="1dp"
@@ -167,7 +168,7 @@
             </FrameLayout>
 
             <FrameLayout
-                android:id="@+id/frameLayout2"
+                android:id="@+id/FrameLayout2"
                 android:layout_width="207dp"
                 android:layout_height="96dp"
                 android:layout_marginStart="45dp"
@@ -178,7 +179,8 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/edittext_afternoon"
-                app:layout_constraintTop_toBottomOf="@+id/textView12">
+                app:layout_constraintTop_toBottomOf="@+id/textView12"
+                tools:ignore="NotSibling">
 
                 <android.support.constraint.ConstraintLayout
                     android:layout_width="match_parent"
